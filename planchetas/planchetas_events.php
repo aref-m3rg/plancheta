@@ -157,8 +157,8 @@ function parcelas_BeforeShowRow(& $sender)
 			'plano_id' => $db->f('plano_id'),
 			'parcela_id' => false,
 			'parcela_prov_id' => false,
-			'files_path' => WWW_ROOT . PLANOS_PATH,
-			'return_mode' => 'files',
+			'files_path' => PLANOS_NUEVOS_FILESYSTEM_ROOT,
+			'return_mode' => 'relative',
 			'debug' => false
 		);
 		$retorno = obtenerPlanoImg($options,$db);
@@ -167,12 +167,13 @@ function parcelas_BeforeShowRow(& $sender)
 	$nro_plano = obtenerPlano('',$parcela_id,'',$db);
 	if($retorno && $carpetaDepto !== ''){//si hay archivo en registro cargo imagen
 		for($i=0;$i<count($retorno);$i++){
-			$absPdf = rtrim(BASE_URL, '/') . str_replace('\\', '/', PLANOS_PATH) . '/' . $carpetaDepto . '/' . $retorno[$i];
-			$thumbSrc = rtrim(BASE_URL, '/') . '/phpThumb/phpThumb.php?src=' . rawurlencode($absPdf) . '&w=60';
+			$pdfPath = $retorno[$i];
+			$planoFile = basename($pdfPath);
+			$thumbSrc = rtrim(BASE_URL, '/') . '/phpThumb/phpThumb.php?src=' . rawurlencode(str_replace('\\', '/', $pdfPath)) . '&w=60';
 			// Formulario POST: al abrir el PDF la barra de direcciones no muestra depto/plano (van en el cuerpo, no en la query).
 			$html=$html .= '<form method="post" action="../obtener_plano.php" target="_blank" style="display:inline;margin:0;padding:0;border:0;">';
 			$html=$html .= '<input type="hidden" name="depto" value="' . htmlspecialchars($carpetaDepto, ENT_QUOTES, 'UTF-8') . '" />';
-			$html=$html .= '<input type="hidden" name="plano" value="' . htmlspecialchars($retorno[$i], ENT_QUOTES, 'UTF-8') . '" />';
+			$html=$html .= '<input type="hidden" name="plano" value="' . htmlspecialchars($planoFile, ENT_QUOTES, 'UTF-8') . '" />';
 			$html=$html .= '<button type="submit" title="' . htmlspecialchars($nro_plano, ENT_QUOTES, 'UTF-8') . ' - Pag:' . ($i + 1) . '" style="background:transparent;border:none;padding:0;margin:0;cursor:pointer;">';
 			$html=$html .= '<img border="1" style="width:30px;height:20px;" src="' . htmlspecialchars($thumbSrc, ENT_QUOTES, 'UTF-8') . '" alt="" />';
 			$html=$html .= '</button></form>';

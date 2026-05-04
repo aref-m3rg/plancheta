@@ -1023,17 +1023,26 @@ function generarPlanoSlides( $plano_id, $options, $db ) {
 	if ( !empty( $plano_id ) ) {
 		// trae la imagen atachada al plano
 		$image = CCDLookUp( 'plano_archivo', 'planos', 'plano_id = ' . mysql_real_escape_string($plano_id), $db);
+		$attachedAbsPath = false;
+		$attachedArchivo = '';
 		if ( !empty( $image ) ) {
-			$filePath = WWW_ROOT . PLANOS_ATTACHED_PATH . DS . $image;
-			if ( file_exists( $filePath ) ) {
-				$attachedImage = PLANOS_ATTACHED_PATH . DS . $image;
+			if (!defined('PLANOS_ATTACHED_FILESYSTEM_ROOT')) {
+				require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'configuracion_general.php';
+			}
+			require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'plano_adjunto_archivo_local.php';
+			$attachedArchivo = basename($image);
+			if ($attachedArchivo !== '' && preg_match('/^[A-Za-z0-9._-]+\.(jpe?g|png|gif|pdf)$/i', $attachedArchivo)) {
+				$resolvedAdj = plano_adjunto_archivo_local_path_validated($attachedArchivo);
+				if ($resolvedAdj !== false) {
+					$attachedAbsPath = $resolvedAdj;
+				}
 			}
 		}
 		// trae los archivos de planos
 		$planosImg = obtenerPlanoImg( array('plano_id' => $plano_id, 'debug' => false), $db );
 
 		// si hay datos genera el slide
-		if ( !empty( $attachedImage ) || !empty( $planosImg ) ) {
+		if ( !empty( $attachedAbsPath ) || !empty( $planosImg ) ) {
 			// si debe crearse el wrapper
 			$htm .= ( !empty( $options['wrapper'] ) ) ? '<div id="' . $options['wrapper'] . '" title="' . $options['wrapper_title'] . '">' : '';
 			// si es múltiple
@@ -1044,9 +1053,14 @@ function generarPlanoSlides( $plano_id, $options, $db ) {
 			}
 			$htm .= '  <div class="slides_container ' . $options['additional_classes']  . '">';
 			// incluye slide de imagen atachada
-			if ( !empty($attachedImage) ) {
+			if ( !empty($attachedAbsPath) ) {
+				$thumbAdjSrc = RelativePath . '/phpThumb/phpThumb.php?src=' . rawurlencode(str_replace('\\', '/', $attachedAbsPath)) . '&w=' . (int) $options['width'] . '&h=' . (int) $options['height'];
 				$htm .= '    <div>';
-				$htm .= '      <a target="_blank" href="' . RelativePath . $attachedImage . '"><img border="0" src="' . RelativePath . '/phpThumb/phpThumb.php?src=' . RelativePath . $attachedImage  . '&w=' . $options['width'] .'&h=' . $options['height'] . '" title="Imagen adjunta al plano ' . $counter . '" /></a>';
+				$htm .= '      <form method="post" action="' . htmlspecialchars(RelativePath . '/obtener_plano_adjunto.php', ENT_QUOTES, 'UTF-8') . '" target="_blank" style="display:inline;margin:0;padding:0;border:0;">';
+				$htm .= '      <input type="hidden" name="archivo" value="' . htmlspecialchars($attachedArchivo, ENT_QUOTES, 'UTF-8') . '" />';
+				$htm .= '      <button type="submit" title="Imagen adjunta al plano" style="background:transparent;border:none;padding:0;cursor:pointer;">';
+				$htm .= '      <img border="0" src="' . htmlspecialchars($thumbAdjSrc, ENT_QUOTES, 'UTF-8') . '" alt="" />';
+				$htm .= '      </button></form>';
 				$htm .= '    </div>';
 			}
 			// incluye slide de planos escaneados
