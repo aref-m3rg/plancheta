@@ -622,8 +622,9 @@ function obtenerPlancheta( $id = false, $connection = false, $path = PLANCHETAS_
 		// si hay plancheta generamos el html de salida
 		if ( !empty( $planchetaImg ) ) {
 			$title = ( !empty($planchetaOldFile) ) ? 'Archivo original: ' . $planchetaOldFile : '';
+			$planchetaThumbSrc = RelativePath . '/obtener_plancheta_archivo.php?archivo=' . rawurlencode($planchetaImg);
 			$output  = '<a target="plancheta" href="' . RelativePath . '/reportes/rpt_plancheta.php?plancheta_id=' . $planchetaId . '" title="' . $title . '">';
-			$output .= '<img border="0" src="' . RelativePath . '/phpThumb/phpThumb.php?src=' . PLANCHETAS_PATH_URL . '/' . $planchetaImg . '&h=' . $height . '">';
+			$output .= '<img border="0" alt="" style="max-height:' . (int) $height . 'px;height:auto;width:auto;" src="' . htmlspecialchars($planchetaThumbSrc, ENT_QUOTES, 'UTF-8') . '">';
 			$output .= '</a>';
 		} else {
 			$output = '(no disponible)';
@@ -909,9 +910,14 @@ function generarPlanchetasSlides( $parcela_id, $options, $db ) {
 
 					foreach( $planchetas as $plancheta ) {
 						$counter++;
-						$fileName = PLANCHETAS_PATH_URL . '/' . $plancheta['plancheta_file'];
+						$fn = isset($plancheta['plancheta_file']) ? $plancheta['plancheta_file'] : '';
+						$proxyGet = RelativePath . '/obtener_plancheta_archivo.php?archivo=' . rawurlencode($fn);
 						$htm .= '    <div>';
-						$htm .= '      <a target="_blank" href="' . $fileName . '"><img border="0" src="' . RelativePath . '/phpThumb/phpThumb.php?src=' . $fileName  . '&w=' . $options['width'] .'&h=' . $options['height'] . '" title="Plancheta #' . $counter . '" /></a>';
+						$htm .= '      <form method="post" action="' . htmlspecialchars(RelativePath . '/obtener_plancheta_archivo.php', ENT_QUOTES, 'UTF-8') . '" target="_blank" style="display:inline;margin:0;padding:0;border:0;">';
+						$htm .= '      <input type="hidden" name="archivo" value="' . htmlspecialchars($fn, ENT_QUOTES, 'UTF-8') . '" />';
+						$htm .= '      <button type="submit" title="Plancheta #' . $counter . '" style="background:transparent;border:none;padding:0;cursor:pointer;">';
+						$htm .= '      <img border="0" style="max-width:' . (int) $options['width'] . 'px;max-height:' . (int) $options['height'] . 'px;" src="' . htmlspecialchars($proxyGet, ENT_QUOTES, 'UTF-8') . '" alt="" />';
+						$htm .= '      </button></form>';
 						$htm .= '    </div>';
 					}
 					$htm .= '  </div>';
@@ -1322,8 +1328,13 @@ function generarPlanchetasSlidesSimple( $parcela_id, $db ) {
 				if ( !empty( $planchetas ) ) {
 					foreach( $planchetas as $plancheta ) {
 						$counter++;
-						$fileName = 'http://catastro.aref.gob.ar/catastro_tdf/planchetas/archivos/' . $plancheta['plancheta_file'];
-						$htm .= '<a target="_blank" href="' . $fileName . '"><img border="1" style ="width:30px; height:20px;" src="http://catastro.aref.gob.ar/catastro_tdf/phpThumb/phpThumb.php?src='.$fileName.'&w=60" title="Plancheta #' . $counter . '" /></a>';
+						$fn = isset($plancheta['plancheta_file']) ? $plancheta['plancheta_file'] : '';
+						$proxyGet = '../obtener_plancheta_archivo.php?archivo=' . rawurlencode($fn);
+						$htm .= '<form method="post" action="../obtener_plancheta_archivo.php" target="_blank" style="display:inline;margin:0;padding:0;border:0;">';
+						$htm .= '<input type="hidden" name="archivo" value="' . htmlspecialchars($fn, ENT_QUOTES, 'UTF-8') . '" />';
+						$htm .= '<button type="submit" title="Plancheta #' . $counter . '" style="background:transparent;border:none;padding:0;cursor:pointer;">';
+						$htm .= '<img border="1" style="width:30px;height:20px;" src="' . htmlspecialchars($proxyGet, ENT_QUOTES, 'UTF-8') . '" alt="" />';
+						$htm .= '</button></form>';
 					}
 					return $htm;
 				} else {
