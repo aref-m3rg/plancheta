@@ -43,7 +43,7 @@ define('PLANOS_ATTACHED_PATH', '/tecnica/planos');
 define('PLANOS_SNAPSHOTS_PATH', '/tecnica/planos_snapshots');
 
 // Nombres de las carpetas que contienen los planos por departamento
-$GLOBALS['planosFolders'] = array( 1 => 'ushuaia', 2 => 'rio_grande' );
+$GLOBALS['planosFolders'] = array( 1 => 'ushuaia', 2 => 'rio_grande', 3 => 'tolhuin' );
 
 
 /* ArcGIS

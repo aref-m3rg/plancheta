@@ -39,7 +39,7 @@ if (isset($GLOBALS['planosFolders']) && is_array($GLOBALS['planosFolders'])) {
 	$allowedDeptos = array_values($GLOBALS['planosFolders']);
 }
 if (empty($allowedDeptos)) {
-	$allowedDeptos = array('ushuaia', 'rio_grande');
+	$allowedDeptos = array('ushuaia', 'rio_grande', 'tolhuin');
 }
 if (!in_array($depto, $allowedDeptos, true)) {
 	header('HTTP/1.1 403 Forbidden');
