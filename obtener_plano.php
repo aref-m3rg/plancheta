@@ -22,8 +22,16 @@ if (!$authed) {
 	exit;
 }
 
-$deptoRaw = isset($_GET['depto']) ? $_GET['depto'] : '';
-$planoRaw = isset($_GET['plano']) ? $_GET['plano'] : '';
+// POST evita que depto/plano aparezcan en la barra de direcciones al abrir en nueva pestaña; GET se mantiene por compatibilidad.
+$deptoRaw = '';
+$planoRaw = '';
+if (isset($_POST['depto']) || isset($_POST['plano'])) {
+	$deptoRaw = isset($_POST['depto']) ? $_POST['depto'] : '';
+	$planoRaw = isset($_POST['plano']) ? $_POST['plano'] : '';
+} else {
+	$deptoRaw = isset($_GET['depto']) ? $_GET['depto'] : '';
+	$planoRaw = isset($_GET['plano']) ? $_GET['plano'] : '';
+}
 $depto = basename($deptoRaw);
 $planoParam = basename($planoRaw);
 
