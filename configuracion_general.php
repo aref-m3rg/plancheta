@@ -29,7 +29,9 @@ define( 'DS', DIRECTORY_SEPARATOR );
 
 /* Planchetas
 ----------------------------------------------------------------------------- */
-// Guarda el host donde se almacenan las planchetas
+// Archivos de imagen en disco (idealmente fuera del document root; lectura vía obtener_plancheta_archivo.php)
+define( 'PLANCHETAS_FILESYSTEM_ROOT', 'C:\inetpub\catastro_tdf\planchetas\archivos' );
+// Ruta bajo el sitio (referencia histórica / enlaces legacy)
 define( 'PLANCHETAS_PATH', '/planchetas/archivos' );
 define( 'PLANCHETAS_PATH_URL', 'https://catastro.aref.gob.ar/catastro_tdf/planchetas/archivos' );
 

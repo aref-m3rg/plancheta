@@ -1,12 +1,13 @@
 <?php
 /**
- * Proxy autenticado para servir imágenes de planchetas (JPG/PNG/GIF) sin exponer URL estática a /planchetas/archivos/.
+ * Proxy autenticado para servir imágenes de planchetas (JPG/PNG/GIF) desde PLANCHETAS_FILESYSTEM_ROOT.
  * Compatible con PHP 5.6 / 7.x.
  */
 
 session_start();
 
 require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'configuracion_general.php';
+require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . 'scripts' . DIRECTORY_SEPARATOR . 'plancheta_archivo_local.php';
 
 $authed = false;
 if (!empty($_SESSION['user_id'])) {
@@ -45,38 +46,11 @@ if (!preg_match('/^[A-Za-z0-9._-]+\.(jpe?g|png|gif)$/i', $archivoParam)) {
 	exit;
 }
 
-$baseDir = rtrim(WWW_ROOT, "/\\") . str_replace('/', DIRECTORY_SEPARATOR, PLANCHETAS_PATH);
-$baseReal = @realpath($baseDir);
-if ($baseReal === false || !is_dir($baseReal)) {
-	header('HTTP/1.1 404 Not Found');
-	header('Content-Type: text/html; charset=utf-8');
-	echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>No encontrado</title></head><body><p>El recurso solicitado no est&aacute; disponible.</p></body></html>';
-	exit;
-}
-
-$candidate = $baseReal . DIRECTORY_SEPARATOR . $archivoParam;
-$fileReal = @realpath($candidate);
-
-if ($fileReal === false || !is_file($fileReal)) {
+$fileReal = plancheta_archivo_local_path_validated($archivoParam);
+if ($fileReal === false) {
 	header('HTTP/1.1 404 Not Found');
 	header('Content-Type: text/html; charset=utf-8');
 	echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>No encontrado</title></head><body><p>El archivo solicitado no existe o ya no est&aacute; disponible.</p></body></html>';
-	exit;
-}
-
-$baseNorm = strtolower(str_replace('/', DIRECTORY_SEPARATOR, rtrim($baseReal, '/\\')) . DIRECTORY_SEPARATOR);
-$fileNorm = strtolower(str_replace('/', DIRECTORY_SEPARATOR, $fileReal));
-if (strpos($fileNorm, $baseNorm) !== 0) {
-	header('HTTP/1.1 404 Not Found');
-	header('Content-Type: text/html; charset=utf-8');
-	echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>No encontrado</title></head><body><p>El recurso solicitado no est&aacute; disponible.</p></body></html>';
-	exit;
-}
-
-if (!is_readable($fileReal)) {
-	header('HTTP/1.1 403 Forbidden');
-	header('Content-Type: text/html; charset=utf-8');
-	echo '<!DOCTYPE html><html><head><meta charset="utf-8"><title>Acceso denegado</title></head><body><p>No se puede leer el archivo.</p></body></html>';
 	exit;
 }
 

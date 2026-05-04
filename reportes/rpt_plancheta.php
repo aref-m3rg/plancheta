@@ -1,6 +1,8 @@
 <?php
 define("RelativePath", "..");
 include(RelativePath . "/Common.php");
+require_once RelativePath . "/configuracion_general.php";
+require_once RelativePath . "/scripts/plancheta_archivo_local.php";
 define('FPDF_FONTPATH',RelativePath . '/fpdf/font/');
 include(RelativePath . "/fpdf/fpdf.php");
 
@@ -42,12 +44,21 @@ $SQL="SELECT * FROM planchetas WHERE tipo_depto_parc_id = '".$dpto_id."' AND tip
 }
 $db->query($SQL);
 while($db->next_record()){
+	$archivoParam = basename($db->f("plancheta_file"));
+	if ($archivoParam === '' || !preg_match('/^[A-Za-z0-9._-]+\.(jpe?g|png|gif)$/i', $archivoParam)) {
+		continue;
+	}
+	$fileReal = plancheta_archivo_local_path_validated($archivoParam);
+	if ($fileReal === false) {
+		continue;
+	}
 	$pdf->AddPage();
-	$imagen = RelativePath . "/planchetas/archivos/" . $db->f("plancheta_file");
-	$pdf->Image($imagen,5,5,300);
+	$pdf->Image($fileReal,5,5,300);
 }
 if($dpto_id != ''){
 	$pdf->Output();
+	$db->close();
+	exit;
 }
 $db->close();
 echo "No hay imagen de plancheta a mostar";
