@@ -431,19 +431,61 @@ function obtenerPlano( $plano_id = false, $parcela_id = false, $parcela_prov_id 
 
 
 /**
+ * Si la ruta está bajo PLANOS_NUEVOS_FILESYSTEM_ROOT, devuelve depto y nombre de archivo para obtener_plano.php
+ *
+ * @param string $fileReal ruta absoluta a un PDF bajo planos_nuevos/{depto}/
+ * @return array|false array('depto' => string, 'plano' => string)
+ */
+function plano_nuevo_path_to_obtener_params($fileReal) {
+	if (!defined('PLANOS_NUEVOS_FILESYSTEM_ROOT')) {
+		require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'configuracion_general.php';
+	}
+	if (!defined('PLANOS_NUEVOS_FILESYSTEM_ROOT')) {
+		return false;
+	}
+	$baseReal = @realpath(rtrim(PLANOS_NUEVOS_FILESYSTEM_ROOT, "/\\"));
+	if ($baseReal === false || !is_dir($baseReal)) {
+		return false;
+	}
+	$fr = @realpath($fileReal);
+	if ($fr === false || !is_file($fr)) {
+		return false;
+	}
+	$baseNorm = strtolower(rtrim(str_replace('/', DIRECTORY_SEPARATOR, $baseReal), '/\\') . DIRECTORY_SEPARATOR);
+	$fileNorm = strtolower(str_replace('/', DIRECTORY_SEPARATOR, $fr));
+	if (strpos($fileNorm, $baseNorm) !== 0) {
+		return false;
+	}
+	$rel = substr($fr, strlen($baseReal));
+	$rel = ltrim(str_replace('\\', '/', $rel), '/');
+	if ($rel === '') {
+		return false;
+	}
+	$parts = explode('/', $rel, 2);
+	if (count($parts) < 2 || $parts[0] === '' || $parts[1] === '') {
+		return false;
+	}
+	return array('depto' => $parts[0], 'plano' => basename($parts[1]));
+}
+
+
+/**
  * Devuelve el nombre del archivo del plano en base al ID, o el ID de la parcela
  * @param  array  $options        Opciones y parámetros para traer el plano
  * @param  object $connection     Objeto de la conexión de CCS
  * @return mixed                  Array con los datos del archivo del plano, false si no se encuentra
  */
 function obtenerPlanoImg($options, $connection) {
+	if (!defined('PLANOS_NUEVOS_FILESYSTEM_ROOT')) {
+		require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'configuracion_general.php';
+	}
 	/**
 	 * opciones por defecto:
 	 *      plano_id:            ID del plano del cual se quiere traer la imagen
 	 *      parcela_id:          ID de la parcela de la cual ser quiere traer la imagen del plano relacionado
 	 *      parcela_prov_id:     ID de la parcela de la cual ser quiere traer la imagen del plano relacionado
-	 *      files_path:          Path en el que se va a buscar el archivo, si no utiliza PLANOS_PATH (configuracion)
-	 *      return_mode:         'full' for full path, 'relative' (default) for relative paths, or 'files' for only filenames
+	 *      files_path:          Path base en disco (sin depto); por defecto PLANOS_NUEVOS_FILESYSTEM_ROOT
+	 *      return_mode:         'full' for full path, 'relative' (default) rutas absolutas bajo planos_nuevos (phpThumb/obtener_plano), or 'files' for only filenames
 	 *      debug:               Habilita el modo debug
 	 *
 	 */
@@ -451,7 +493,7 @@ function obtenerPlanoImg($options, $connection) {
 		'plano_id' => false,
 		'parcela_id' => false,
 		'parcela_prov_id' => false,
-		'files_path' => WWW_ROOT . PLANOS_PATH,
+		'files_path' => PLANOS_NUEVOS_FILESYSTEM_ROOT,
 		'return_mode' => 'relative',
 		'debug' => false
 	);
@@ -489,8 +531,6 @@ function obtenerPlanoImg($options, $connection) {
 		$pattern = getPlanoFilename($data);
 		if ( !empty( $pattern ) ) {
 			// busca los archivos
-			include("../configuracion_general.php");
-			
 			$folder = $GLOBALS['planosFolders'][(int) $data['tipo_depto_parc_id']];
 			$search = $options['files_path'] . '/' . $folder . '/' . $pattern . '*.*';
 			$files = glob($search);
@@ -513,10 +553,22 @@ function obtenerPlanoImg($options, $connection) {
 						break;
 					case 'relative':
 					default:
-						// elimina del path de los archivos el webroot para traerlos relativos, cambia \ por /
+						// Rutas absolutas bajo PLANOS_NUEVOS_FILESYSTEM_ROOT (phpThumb acepta disco; enlaces vía obtener_plano.php)
 						$newFiles = array();
-						foreach ($files as $key => $value) {
-							$newFiles[] = str_replace(WWW_ROOT, '', $value);
+						$baseReal = @realpath(rtrim(PLANOS_NUEVOS_FILESYSTEM_ROOT, "/\\"));
+						if ($baseReal !== false && is_dir($baseReal)) {
+							$baseNorm = strtolower(rtrim(str_replace('/', DIRECTORY_SEPARATOR, $baseReal), '/\\') . DIRECTORY_SEPARATOR);
+							foreach ($files as $key => $value) {
+								$fr = @realpath($value);
+								if ($fr === false) {
+									continue;
+								}
+								$fileNorm = strtolower(str_replace('/', DIRECTORY_SEPARATOR, $fr));
+								if (strpos($fileNorm, $baseNorm) !== 0) {
+									continue;
+								}
+								$newFiles[] = $fr;
+							}
 						}
 				endswitch;
 
@@ -1001,8 +1053,18 @@ function generarPlanoSlides( $plano_id, $options, $db ) {
 			if ( !empty($planosImg) ) {
 				foreach( $planosImg as $img ) {
 					$counter++;
+					$proxyParams = plano_nuevo_path_to_obtener_params($img);
+					if ($proxyParams === false) {
+						continue;
+					}
+					$thumbSrc = RelativePath . '/phpThumb/phpThumb.php?src=' . rawurlencode(str_replace('\\', '/', $img)) . '&w=' . (int) $options['width'] . '&h=' . (int) $options['height'];
 					$htm .= '    <div>';
-					$htm .= '      <a target="_blank" href="' . RelativePath . $img . '"><img border="0" src="' . RelativePath . '/phpThumb/phpThumb.php?src=' . RelativePath . $img  . '&w=' . $options['width'] .'&h=' . $options['height'] . '" title="Plano escaneado #' . $counter . '" /></a>';
+					$htm .= '      <form method="post" action="' . htmlspecialchars(RelativePath . '/obtener_plano.php', ENT_QUOTES, 'UTF-8') . '" target="_blank" style="display:inline;margin:0;padding:0;border:0;">';
+					$htm .= '      <input type="hidden" name="depto" value="' . htmlspecialchars($proxyParams['depto'], ENT_QUOTES, 'UTF-8') . '" />';
+					$htm .= '      <input type="hidden" name="plano" value="' . htmlspecialchars($proxyParams['plano'], ENT_QUOTES, 'UTF-8') . '" />';
+					$htm .= '      <button type="submit" title="Plano escaneado #' . $counter . '" style="background:transparent;border:none;padding:0;cursor:pointer;">';
+					$htm .= '      <img border="0" src="' . htmlspecialchars($thumbSrc, ENT_QUOTES, 'UTF-8') . '" alt="" />';
+					$htm .= '      </button></form>';
 					$htm .= '    </div>';
 				}
 			}

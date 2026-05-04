@@ -63,7 +63,7 @@ if (!preg_match('/^[A-Za-z0-9._-]+$/', $planoParam)) {
 	exit;
 }
 
-$baseDir = WWW_ROOT . PLANOS_PATH . DS . $depto;
+$baseDir = rtrim(PLANOS_NUEVOS_FILESYSTEM_ROOT, "/\\") . DS . $depto;
 $baseReal = @realpath($baseDir);
 if ($baseReal === false || !is_dir($baseReal)) {
 	header('HTTP/1.1 404 Not Found');

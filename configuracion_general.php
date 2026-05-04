@@ -38,7 +38,9 @@ define( 'PLANCHETAS_PATH_URL', 'https://catastro.aref.gob.ar/catastro_tdf/planch
 
 /* Planos
 ----------------------------------------------------------------------------- */
-// Path a la carpeta de archivos de planos escaneados (con respecto a WWW_ROOT)
+// Planos escaneados en disco (fuera del document root; lectura vía obtener_plano.php)
+define('PLANOS_NUEVOS_FILESYSTEM_ROOT', 'C:\inetpub\catastro_tdf\tecnica\planos_nuevos');
+// Ruta bajo el sitio (referencia histórica / URLs relativas al dominio)
 define('PLANOS_PATH', '/tecnica/planos_nuevos');
 define('PLANOS_ATTACHED_PATH', '/tecnica/planos');
 // Path a la carpeta de snapshots de planos
