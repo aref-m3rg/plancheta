@@ -45,7 +45,8 @@ define('PLANOS_PATH', '/tecnica/planos_nuevos');
 // Adjuntos de plano en disco (fuera del document root; lectura vía obtener_plano_adjunto.php)
 define('PLANOS_ATTACHED_FILESYSTEM_ROOT', 'C:\inetpub\catastro_tdf\tecnica\planos');
 define('PLANOS_ATTACHED_PATH', '/tecnica/planos');
-// Path a la carpeta de snapshots de planos
+// Snapshots de planos en disco (fuera del document root; lectura vía obtener_plano_snapshot.php)
+define('PLANOS_SNAPSHOTS_FILESYSTEM_ROOT', 'C:\inetpub\catastro_tdf\tecnica\planos_snapshots');
 define('PLANOS_SNAPSHOTS_PATH', '/tecnica/planos_snapshots');
 
 // Nombres de las carpetas que contienen los planos por departamento
