@@ -27,6 +27,14 @@ Los nombres con prefijos como **`PTAutocomplete`**, **`PTDependentListBox`**, **
 - **`index.php`**: entrada que redirige a `login.php`.
 - **`login.php`** + **`login.css`**: inicio de sesión.
 - **`configuracion_general.php`**: constantes de negocio y despliegue (correo, rutas, URLs de planchetas/planos, ArcGIS, etc.). Tratar como información sensible en entornos reales.
+- **`obtener_plano.php`**: proxy autenticado para servir PDFs de planos escaneados (`PLANOS_PATH` / carpetas por departamento) sin exponer la ruta real en el navegador. Exige sesión o cookie `registrado`; valida departamento y nombre de archivo antes de leer del disco.
+
+### Descarga de planos y mitigación IDOR
+
+El listado de parcelas en planchetas enlaza al PDF vía `obtener_plano.php?depto=…&plano=…` en lugar de una URL directa bajo `/tecnica/planos_nuevos/`.
+
+**Operaciones / infraestructura:** mientras el servidor web siga sirviendo la carpeta `planos_nuevos` como archivos estáticos, un usuario podría seguir accediendo por URL directa si conoce o adivina la ruta. Para cerrar el IDOR por completo, conviene **denegar el acceso HTTP directo** a esa ruta (por ejemplo reglas en IIS, `.htaccess`, o mover los PDF fuera del document root y leerlos solo desde PHP).
+
 - **`clean_test.php`**: página de prueba o limpieza.
 - **`.htaccess`**: reglas Apache (si aplica).
 

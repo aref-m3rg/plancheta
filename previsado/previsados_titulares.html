@@ -1,0 +1,152 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Titulares</title>
+<link rel="stylesheet" type="text/css" href="../Styles/common.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//previsados_titulares1Button_Delete_OnClick @17-782CC739
+function previsados_titulares1Button_Delete_OnClick()
+{
+    var result = true;
+//End previsados_titulares1Button_Delete_OnClick
+
+//Confirmation Message @18-BED55CD3
+    return confirm('Borrar registro?');
+//End Confirmation Message
+
+//Close previsados_titulares1Button_Delete_OnClick @17-BC33A33A
+    return result;
+}
+//End Close previsados_titulares1Button_Delete_OnClick
+
+//previsados_titulares1Button_Cancel_OnClick @19-E58559AC
+function previsados_titulares1Button_Cancel_OnClick()
+{
+    disableValidation = true;
+}
+//End previsados_titulares1Button_Cancel_OnClick
+
+//bind_events @1-12B590B7
+function bind_events() {
+    if (functionExists("tdf_header_bind_events")) tdf_header_bind_events();
+    if (functionExists("tdf_footer_bind_events")) tdf_footer_bind_events();
+    addEventHandler("previsados_titulares1Button_Delete", "click", previsados_titulares1Button_Delete_OnClick);
+    addEventHandler("previsados_titulares1Button_Cancel", "click", previsados_titulares1Button_Cancel_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link rel="stylesheet" type="text/css" href="../Styles/Simple_tdf/Style.css">
+</head>
+<body>
+{tdf_header} 
+<div>
+  <!-- BEGIN Record previsados_titulares1 -->
+  <form id="previsados_titulares1" method="post" name="{HTMLFormName}" action="{Action}">
+    <table cellspacing="0" cellpadding="0" border="0">
+      <tr>
+        <td valign="top">
+          <table class="Header" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+              <td class="HeaderLeft"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td> 
+              <th>Agregar/Editar Previsados Titulares</th>
+ 
+              <td class="HeaderRight"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td>
+            </tr>
+          </table>
+ 
+          <table class="Record" cellspacing="0" cellpadding="0">
+            <!-- BEGIN Error -->
+            <tr class="Error">
+              <td colspan="2">{Error}</td>
+            </tr>
+            <!-- END Error -->
+            <tr class="Controls">
+              <th>Titular Nombre</th>
+ 
+              <td><input id="previsados_titulares1previsado_titular_nombre" maxlength="128" size="50" value="{previsado_titular_nombre}" name="{previsado_titular_nombre_Name}" autocomplete="off"><input id="previsados_titulares1persona_id" type="hidden" value="{persona_id}" name="{persona_id_Name}"><input id="previsados_titulares1previsado_carga_id" type="hidden" value="{previsado_carga_id}" name="{previsado_carga_id_Name}"></td>
+            </tr>
+ 
+            <tr class="Bottom">
+              <td colspan="2" align="right"><a href="{previsados_titulares_Insert_Src}" id="previsados_titulares1previsados_titulares_Insert"><font color="#000080">Limpiar</font></a> 
+                <!-- BEGIN Button Button_Insert --><input id="previsados_titulares1Button_Insert" class="Button" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+                <!-- BEGIN Button Button_Update --><input id="previsados_titulares1Button_Update" class="Button" type="submit" value="Actualizar" name="{Button_Name}"><!-- END Button Button_Update -->
+                <!-- BEGIN Button Button_Delete --><input id="previsados_titulares1Button_Delete" class="Button" type="submit" value="Eliminar" name="{Button_Name}"><!-- END Button Button_Delete -->
+                <!-- BEGIN Button Button_Cancel --><input id="previsados_titulares1Button_Cancel" class="Button" type="submit" value="Volver" name="{Button_Name}"><!-- END Button Button_Cancel --></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </form>
+  &nbsp;<!-- END Record previsados_titulares1 -->
+</div>
+<div>
+  <!-- BEGIN Grid previsados_titulares -->
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td> 
+            <th>Lista de Titulares</th>
+ 
+            <td class="HeaderRight"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td>
+          </tr>
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <tr class="Caption">
+            <th>
+            <!-- BEGIN Sorter Sorter_previsado_titular_nombre --><a href="{Sort_URL}" id="previsados_titularesSorter_previsado_titular_nombre"><font color="#000080">Nombre del Titular</font></a> 
+            <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_previsado_titular_nombre --></th>
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <tr class="Row">
+            <td><a href="{previsado_titular_nombre_Src}" id="previsados_titularesprevisado_titular_nombre_{previsados_titulares:rowNumber}"><font color="#000080">{previsado_titular_nombre}</font></a></td>
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td><font color="#ff0000" size="2"><strong>No hay Titulares</strong></font></td>
+          </tr>
+          <!-- END NoRecords -->
+          <tr class="Footer">
+            <td>&nbsp; 
+              <!-- BEGIN Navigator Navigator -->
+              <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+              <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+                <option selected value="">-</option>
+ {PageSize_Options}
+              </select>
+ 
+              <!-- BEGIN First_On --><a href="{First_URL}"><img border="0" src="../Styles/Simple_tdf/Images/First.gif"></a> <!-- END First_On -->
+              <!-- BEGIN First_Off --><img border="0" src="../Styles/Simple_tdf/Images/FirstOff.gif"><!-- END First_Off -->
+              <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Prev.gif"></a> <!-- END Prev_On -->
+              <!-- BEGIN Prev_Off --><img border="0" src="../Styles/Simple_tdf/Images/PrevOff.gif"><!-- END Prev_Off -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+              <!-- BEGIN Next_On --><a href="{Next_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Next.gif"></a> <!-- END Next_On -->
+              <!-- BEGIN Next_Off --><img border="0" src="../Styles/Simple_tdf/Images/NextOff.gif"><!-- END Next_Off -->
+              <!-- BEGIN Last_On --><a href="{Last_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Last.gif"></a> <!-- END Last_On -->
+              <!-- BEGIN Last_Off --><img border="0" src="../Styles/Simple_tdf/Images/LastOff.gif"><!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <!-- END Grid previsados_titulares --><br>
+</div>
+{tdf_footer} 
+</body>
+</html>

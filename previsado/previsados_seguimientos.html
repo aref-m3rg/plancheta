@@ -1,0 +1,163 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Seguimientos</title>
+<link rel="stylesheet" type="text/css" href="../Styles/common.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//previsados_contestaciones1Button_Cancel_OnClick @15-535CB3F4
+function previsados_contestaciones1Button_Cancel_OnClick()
+{
+    disableValidation = true;
+}
+//End previsados_contestaciones1Button_Cancel_OnClick
+
+//bind_events @1-2302BBF3
+function bind_events() {
+    if (functionExists("tdf_header_bind_events")) tdf_header_bind_events();
+    if (functionExists("tdf_footer_bind_events")) tdf_footer_bind_events();
+    addEventHandler("previsados_contestaciones1Button_Cancel", "click", previsados_contestaciones1Button_Cancel_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link rel="stylesheet" type="text/css" href="../Styles/Simple_tdf/Style.css">
+</head>
+<body>
+{tdf_header} 
+<div>
+  <!-- BEGIN Record previsados_contestaciones1 -->
+  <form id="previsados_contestaciones1" method="post" name="{HTMLFormName}" action="{Action}">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+      <tr>
+        <td valign="top">
+          <table class="Header" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+              <td class="HeaderLeft"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td> 
+              <th>Agregar Comentario</th>
+ 
+              <td class="HeaderRight"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td>
+            </tr>
+          </table>
+ 
+          <table class="Record" cellspacing="0" cellpadding="0">
+            <!-- BEGIN Error -->
+            <tr class="Error">
+              <td colspan="2"><strong><font size="2">{Error}</font></strong></td>
+            </tr>
+            <!-- END Error -->
+            <tr class="Controls">
+              <th width="90">Comentario:</th>
+ 
+              <td><textarea id="previsados_contestaciones1previsado_contestacion_texto" style="WIDTH: 100%" cols="50" name="{previsado_contestacion_texto_Name}">{previsado_contestacion_texto}</textarea></td>
+            </tr>
+ 
+            <tr class="Bottom">
+              <td colspan="2" align="right"><input id="previsados_contestaciones1previsado_respuesta_id" type="hidden" value="{previsado_respuesta_id}" name="{previsado_respuesta_id_Name}"><input id="previsados_contestaciones1user_id" type="hidden" value="{user_id}" name="{user_id_Name}">
+                <!-- BEGIN Button Button_Insert --><input id="previsados_contestaciones1Button_Insert" class="Button" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+                <!-- BEGIN Button Button_Cancel --><input id="previsados_contestaciones1Button_Cancel" class="Button" type="submit" value="Salir" name="{Button_Name}"><!-- END Button Button_Cancel --></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <!-- END Record previsados_contestaciones1 -->
+</div>
+<div>
+  <!-- BEGIN Grid previsados_contestaciones -->
+  <table cellspacing="0" cellpadding="0" width="100%" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td> 
+            <th>Comentario/Contestaciones/Observaciones</th>
+ 
+            <td class="HeaderRight"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td>
+          </tr>
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <tr class="Caption">
+            <th>
+            <div align="center">
+              <!-- BEGIN Sorter Sorter_previsado_contestacion_f --><a href="{Sort_URL}" id="previsados_contestacionesSorter_previsado_contestacion_f"><font color="#000080">Fecha y Hora</font></a> 
+              <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+              <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_previsado_contestacion_f -->
+            </div>
+            </th>
+ 
+            <th>
+            <div align="center">
+              <!-- BEGIN Sorter Sorter_usuario_id --><a href="{Sort_URL}" id="previsados_contestacionesSorter_usuario_id"><font color="#000080">Usuario</font></a> 
+              <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+              <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_usuario_id -->
+            </div>
+            </th>
+ 
+            <th>
+            <div align="center">
+              Contenido 
+            </div>
+            </th>
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <tr class="Row">
+            <td width="120">{previsado_contestacion_f}</td> 
+            <td width="120">
+              <div align="right">
+                {usuario_nombre}: 
+              </div>
+            </td> 
+            <td style="BACKGROUND: #fff; COLOR: #000">{previsado_contestacion_texto}</td>
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="3">
+              <div align="center">
+                <font color="#008000" size="2"><strong>No hay Comentarios</strong></font> 
+              </div>
+            </td>
+          </tr>
+          <!-- END NoRecords -->
+          <tr class="Footer">
+            <td colspan="3">
+              <!-- BEGIN Navigator Navigator -->
+              <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+              <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+                <option selected value="">-</option>
+ {PageSize_Options}
+              </select>
+ 
+              <!-- BEGIN First_On --><a href="{First_URL}"><img border="0" src="../Styles/Simple_tdf/Images/First.gif"></a> <!-- END First_On -->
+              <!-- BEGIN First_Off --><img border="0" src="../Styles/Simple_tdf/Images/FirstOff.gif"><!-- END First_Off -->
+              <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Prev.gif"></a> <!-- END Prev_On -->
+              <!-- BEGIN Prev_Off --><img border="0" src="../Styles/Simple_tdf/Images/PrevOff.gif"><!-- END Prev_Off -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+              <!-- BEGIN Next_On --><a href="{Next_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Next.gif"></a> <!-- END Next_On -->
+              <!-- BEGIN Next_Off --><img border="0" src="../Styles/Simple_tdf/Images/NextOff.gif"><!-- END Next_Off -->
+              <!-- BEGIN Last_On --><a href="{Last_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Last.gif"></a> <!-- END Last_On -->
+              <!-- BEGIN Last_Off --><img border="0" src="../Styles/Simple_tdf/Images/LastOff.gif"><!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <!-- END Grid previsados_contestaciones --><br>
+</div>
+<div>
+  {tdf_footer} 
+</div>
+</body>
+</html>

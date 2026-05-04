@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>tdf_restricted</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.1.00.027">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//bind_events @1-E634CA02
+function bind_events() {
+    if (functionExists("tdf_header_bind_events")) tdf_header_bind_events();
+    if (functionExists("tdf_footer_bind_events")) tdf_footer_bind_events();
+    if (functionExists("tdf_menu_bind_events")) tdf_menu_bind_events();
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+
+</script>
+</head>
+<body>
+
+<div>
+	{tdf_header}{tdf_menu}
+</div>
+
+<p>&nbsp;</p>
+<p>&nbsp; 
+<table style="WIDTH: 100%" border="0">
+  <tr>
+    <td>
+      <p align="center"><img id="Image1" alt=" " src="iconos/22x22/process-stop.gif"></p>
+    </td> 
+    <td>
+      <h1>Insuficientes permisos para acceder a esta aplicacion!</h1>
+    </td> 
+    <td>&nbsp;</td>
+  </tr>
+ 
+  <tr>
+    <td>&nbsp;</td> 
+    <td><strong>Login:</strong>&nbsp;{login}&nbsp;<strong>&nbsp;Usuario:</strong>&nbsp;{usr}&nbsp;<strong>&nbsp;Perfil:</strong>&nbsp;{grp}</td> 
+    <td>&nbsp;</td>
+  </tr>
+ 
+  <tr>
+    <td>&nbsp;</td> 
+    <td>&nbsp;</td> 
+    <td>&nbsp;</td>
+  </tr>
+ 
+  <tr>
+    <td>&nbsp;</td> 
+    <td><a href="{Link1_Src}" id="Link1">¿Iniciar sesión como un usuario diferente?</a></td> 
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</p>
+<p>&nbsp;</p>
+
+<div>
+	{tdf_footer}
+</div>
+
+</body>
+</html>

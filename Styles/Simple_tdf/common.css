@@ -1,0 +1,4 @@
+/* Hide CCS legend */
+center > font > small {
+	display: none !important;
+}

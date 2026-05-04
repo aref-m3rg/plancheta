@@ -1,0 +1,21 @@
+/*Page Style @1-024D4E0B*/
+#parcelas_parcelas_tipos_pDetailobs_choices {
+    position: absolute;
+}
+#parcelas_parcelas_tipos_pDetailobs_choices ul {
+    background-color: white;
+    border: 1px solid black;
+    border-top: none;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin: 0px;
+}
+#parcelas_parcelas_tipos_pDetailobs_choices ul li.selected { background-color: #aaa;}
+#parcelas_parcelas_tipos_pDetailobs_choices li {
+    list-style-type: none;
+    padding-left: 8px;
+    padding-right: 8px;
+    margin: 0;
+}
+/*End Page Style*/
+

@@ -1,0 +1,524 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>previsados_consola</title>
+<meta http-equiv="refresh" content="300">
+<link rel="stylesheet" type="text/css" href="../Styles/common.css">
+<link rel="stylesheet" type="text/css" href="../Styles/Simple_tdf/Style.css">
+<script language="JavaScript" type="text/javascript">
+function confirmar(valor){
+    if(confirm('Confirma la eliminacion de la carga de los datos y los archivos de este registro?')){
+        window.location.href = "cancelar_carga.php?previsado_carga_id="+valor;
+    }
+    return false;
+}
+</script>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-86BEACD2
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="../ClientI18N.php?file=DatePicker.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Date Picker Object Definitions @1-8E4E2EE1
+
+var previsados_cargasSearch_DatePicker_s_previsado_carga_proc = new Object(); 
+previsados_cargasSearch_DatePicker_s_previsado_carga_proc.format           = "dd/mm/yyyy";
+previsados_cargasSearch_DatePicker_s_previsado_carga_proc.style            = "Styles/Simple_tdf/Style.css";
+previsados_cargasSearch_DatePicker_s_previsado_carga_proc.relativePathPart = "../";
+previsados_cargasSearch_DatePicker_s_previsado_carga_proc.themeVersion = "3.0";
+
+//End Date Picker Object Definitions
+
+//presentacionButton1_OnClick @45-B4B94A44
+function presentacionButton1_OnClick()
+{
+    var result = true;
+//End presentacionButton1_OnClick
+
+//Confirmation Message @46-280B601A
+    return confirm('Desea salir de la Aplicacion y volver al menu de inicio?');
+//End Confirmation Message
+
+//Close presentacionButton1_OnClick @45-BC33A33A
+    return result;
+}
+//End Close presentacionButton1_OnClick
+
+//previsados_cargasSearchButton1_OnClick @26-1CC40374
+function previsados_cargasSearchButton1_OnClick()
+{
+    disableValidation = true;
+}
+//End previsados_cargasSearchButton1_OnClick
+
+//bind_events @1-C07050CC
+function bind_events() {
+    if (functionExists("tdf_header_bind_events")) tdf_header_bind_events();
+    if (functionExists("tdf_footer_bind_events")) tdf_footer_bind_events();
+    addEventHandler("presentacionButton1", "click", presentacionButton1_OnClick);
+    addEventHandler("previsados_cargasSearchButton1", "click", previsados_cargasSearchButton1_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<div>
+  {tdf_header} 
+</div>
+<div>
+  <!-- BEGIN Record presentacion -->
+  <form id="presentacion" method="post" name="{HTMLFormName}" action="{Action}">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+      <tr>
+        <td valign="top">
+          <table class="Header" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+              <td class="HeaderLeft"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td> 
+              <th>Bienvenido {profesional}</th>
+ 
+              <td class="HeaderRight"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td>
+            </tr>
+          </table>
+ 
+          <table class="Record" cellspacing="0" cellpadding="0">
+            <!-- BEGIN Error -->
+            <tr class="Error">
+              <td>{Error}</td>
+            </tr>
+            <!-- END Error -->
+            <tr class="Controls">
+              <th>
+              <div>
+                <font size="2"><strong>Importante:</strong></font> 
+              </div>
+ 
+              <ul>
+                <li><font size="2"><strong>PDF de recomendaciones: Archivo&nbsp;{archivo}&nbsp;- Plano {plano}</strong></font> 
+                <li><font size="2"><strong>Archivo CAD: plantilla&nbsp;{plantilla} - Puntos {puntos}</strong></font> </li>
+              </ul>
+              </th>
+            </tr>
+ 
+            <tr class="Bottom">
+              <td align="right">
+                <div align="center">
+                  <!-- BEGIN Button Button1 --><input id="presentacionButton1" class="Button" type="submit" value="Salir de la Aplicacion" name="{Button_Name}"><!-- END Button Button1 -->
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <!-- END Record presentacion -->
+</div>
+<div>
+  <!-- BEGIN Record previsados_cargasSearch -->
+  <form id="previsados_cargasSearch" method="post" name="{HTMLFormName}" action="{Action}">
+    <table title="" cellspacing="0" cellpadding="0" width="100%" border="0">
+      <tr>
+        <td valign="top">
+          <table class="Header" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+              <td class="HeaderLeft"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td> 
+              <th></th>
+ 
+              <td class="HeaderRight"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td>
+            </tr>
+          </table>
+ 
+          <table class="Record" cellspacing="0" cellpadding="0">
+            <!-- BEGIN Error -->
+            <tr class="Error">
+              <td colspan="9">{Error}</td>
+            </tr>
+            <!-- END Error -->
+            <tr class="Controls">
+              <th colspan="9">
+              <div align="center">
+<a href="{Link1}" title="Nueva Carga"><img style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px" src="../iconos/33x33/add_file_50.png">Nueva Carga</a> 
+              </div>
+              </th>
+            </tr>
+ 
+            <tr class="Header">
+              <th colspan="9">Buscar</th>
+            </tr>
+ 
+            <tr class="Controls">
+              <th>&nbsp;</th>
+ 
+              <td>
+                <div align="center">
+                  <font size="1">&nbsp;<strong>Depto.</strong> </font>
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <font size="1"><strong>Seccion&nbsp;</strong> </font>
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <font size="1"><strong>Chacra&nbsp;</strong> </font>
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <font size="1"><strong>Quinta&nbsp;</strong> </font>
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <font size="1"><strong>Macizo&nbsp;</strong> </font>
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <font size="1"><strong>Fraccion&nbsp;</strong> </font>
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <font size="1"><strong>Parcela&nbsp;</strong> </font>
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <font size="1"><strong>Uf|Uc</strong>&nbsp; </font>
+                </div>
+              </td>
+            </tr>
+ 
+            <tr class="Controls">
+              <th>
+              <div align="right">
+                <strong><font size="1">Nomenclatura Origen:</font></strong> 
+              </div>
+              </th>
+ 
+              <td>
+                <div align="center">
+                  <select id="previsados_cargasSearchs_tipo_depto_parc_id_o" name="{s_tipo_depto_parc_id_o_Name}">
+                    <option selected value="">...</option>
+                    {s_tipo_depto_parc_id_o_Options}
+                  </select>
+ 
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_cargasSearchs_parcela_seccion_o" maxlength="5" size="5" value="{s_parcela_seccion_o}" name="{s_parcela_seccion_o_Name}">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_cargasSearchs_parcela_chacra_o" maxlength="10" size="10" value="{s_parcela_chacra_o}" name="{s_parcela_chacra_o_Name}">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_cargasSearchs_parcela_quinta_o" maxlength="10" size="10" value="{s_parcela_quinta_o}" name="{s_parcela_quinta_o_Name}">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_cargasSearchs_parcela_macizo_o" maxlength="10" size="10" value="{s_parcela_macizo_o}" name="{s_parcela_macizo_o_Name}">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_cargasSearchs_parcela_fraccion_o" maxlength="10" size="10" value="{s_parcela_fraccion_o}" name="{s_parcela_fraccion_o_Name}">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_cargasSearchs_parcela_parcela_o" maxlength="10" size="10" value="{s_parcela_parcela_o}" name="{s_parcela_parcela_o_Name}">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_cargasSearchs_parcela_uf_o" maxlength="10" size="10" value="{s_parcela_uf_o}" name="{s_parcela_uf_o_Name}">
+                </div>
+              </td>
+            </tr>
+ 
+            <tr class="Controls">
+              <th>
+              <div align="right">
+                <strong><font size="2">&nbsp;</font><font size="1">Nomenclatura Destino:</font></strong> 
+              </div>
+              </th>
+ 
+              <td>
+                <div align="center">
+                  <select id="previsados_cargasSearchs_tipo_depto_parc_id_d" name="{s_tipo_depto_parc_id_d_Name}">
+                    <option selected value="">...</option>
+                    {s_tipo_depto_parc_id_d_Options}
+                  </select>
+ 
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_cargasSearchs_parcela_seccion_d" maxlength="5" size="5" value="{s_parcela_seccion_d}" name="{s_parcela_seccion_d_Name}">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_cargasSearchs_parcela_chacra_d" maxlength="10" size="10" value="{s_parcela_chacra_d}" name="{s_parcela_chacra_d_Name}">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_cargasSearchs_parcela_quinta_d" maxlength="10" size="10" value="{s_parcela_quinta_d}" name="{s_parcela_quinta_d_Name}">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_cargasSearchs_parcela_macizo_d" maxlength="10" size="10" value="{s_parcela_macizo_d}" name="{s_parcela_macizo_d_Name}">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_cargasSearchs_parcela_fraccion_d" maxlength="10" size="10" value="{s_parcela_fraccion_d}" name="{s_parcela_fraccion_d_Name}">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_cargasSearchs_parcela_parcela_d" maxlength="10" size="10" value="{s_parcela_parcela_d}" name="{s_parcela_parcela_d_Name}">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_cargasSearchs_parcela_uf_d" maxlength="10" size="10" value="{s_parcela_uf_d}" name="{s_parcela_uf_d_Name}">
+                </div>
+              </td>
+            </tr>
+ 
+            <tr class="Controls">
+              <th>
+              <div align="right">
+                <font size="1"><strong>Titular</strong>:</font> 
+              </div>
+              </th>
+ 
+              <td colspan="4"><input id="previsados_cargasSearchs_previsado_titular" maxlength="50" size="50" value="{s_previsado_titular}" name="{s_previsado_titular_Name}"></td> 
+              <td>
+                <div align="right">
+                  <font size="1">&nbsp;<strong>Fecha Carga:</strong></font> 
+                </div>
+              </td> 
+              <td colspan="3"><input id="previsados_cargasSearchs_previsado_carga_proc" maxlength="10" size="8" value="{s_previsado_carga_proc}" name="{s_previsado_carga_proc_Name}">
+                <!-- BEGIN DatePicker DatePicker_s_previsado_carga_proc --><a href="javascript:showDatePicker('{Name}','{FormName}','{DateControl}');" id="previsados_cargasSearchDatePicker_s_previsado_carga_proc"><img id="previsados_cargasSearchDatePicker_s_previsado_carga_proc_Image" border="0" alt="Show Date Picker" src="../Styles/Simple_tdf/Images/DatePicker.gif"></a><!-- END DatePicker DatePicker_s_previsado_carga_proc -->&nbsp;</td>
+            </tr>
+ 
+            <tr class="Controls">
+              <th>
+              <div align="right">
+                <font size="1"><strong>Tipo de&nbsp;Plano</strong>:</font> 
+              </div>
+              </th>
+ 
+              <td colspan="8">
+                <select id="previsados_cargasSearchs_previsado_tipo_plano_id" name="{s_previsado_tipo_plano_id_Name}">
+                  <option selected value="">...</option>
+                  {s_previsado_tipo_plano_id_Options}
+                </select>
+ </td>
+            </tr>
+ 
+            <tr class="Bottom">
+              <td colspan="9" align="right">
+                <!-- BEGIN Button Button1 --><input id="previsados_cargasSearchButton1" class="Button" type="submit" value="Limpiar" name="{Button_Name}"><!-- END Button Button1 -->&nbsp; 
+                <!-- BEGIN Button Button_DoSearch --><input id="previsados_cargasSearchButton_DoSearch" class="Button" type="submit" value="Buscar" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <!-- END Record previsados_cargasSearch -->
+  <!-- BEGIN Grid previsados_cargas -->
+  <table cellspacing="0" cellpadding="0" width="100%" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td> 
+            <th>Mis Cargas</th>
+ 
+            <td class="HeaderRight"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td>
+          </tr>
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <tr class="Caption">
+            <th>
+            <div align="center">
+              <!-- BEGIN Sorter Sorter_previsado_carga_proc --><a href="{Sort_URL}" id="previsados_cargasSorter_previsado_carga_proc">Fecha Carga</a> 
+              <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+              <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_previsado_carga_proc -->
+            </div>
+            </th>
+ 
+            <th>
+            <div align="center">
+              Titular 
+            </div>
+            </th>
+ 
+            <th>
+            <div align="center">
+              Parcela Origen 
+            </div>
+            </th>
+ 
+            <th>
+            <div align="center">
+              Parcela Destino 
+            </div>
+            </th>
+ 
+            <th>
+            <div align="center">
+              <!-- BEGIN Sorter Sorter_previsado_tipo_plano_id --><a href="{Sort_URL}" id="previsados_cargasSorter_previsado_tipo_plano_id">Tipo Plano</a> 
+              <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+              <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_previsado_tipo_plano_id -->
+            </div>
+            </th>
+ 
+            <th>
+            <div align="center">
+              <!-- BEGIN Sorter Sorter_previsado_carga_ubica_cat --><a href="{Sort_URL}" id="previsados_cargasSorter_previsado_carga_ubica_cat">CAD</a> 
+              <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+              <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_previsado_carga_ubica_cat -->
+            </div>
+            </th>
+ 
+            <th>
+            <div align="center">
+              <!-- BEGIN Sorter Sorter_previsado_tipo_estado_carga_id --><a href="{Sort_URL}" id="previsados_cargasSorter_previsado_tipo_estado_carga_id">Estado</a> 
+              <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+              <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_previsado_tipo_estado_carga_id -->
+            </div>
+            </th>
+ 
+            <th>
+            <div align="center">
+              Resultado&nbsp; 
+            </div>
+            </th>
+ 
+            <th>Respuestas&nbsp;</th>
+ 
+            <th>
+            <div align="center">
+              Editar&nbsp; 
+            </div>
+            </th>
+ 
+            <th>
+            <div align="center">
+              Eliminar&nbsp; 
+            </div>
+            </th>
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <tr class="Row">
+            <td>
+              <div align="center">
+                {previsado_carga_proc} 
+              </div>
+            </td> 
+            <td>
+              <div align="left">
+                {previsado_titular} 
+              </div>
+            </td> 
+            <td>
+              <div align="center">
+                {nomenclatura_origen} 
+              </div>
+            </td> 
+            <td style="TEXT-ALIGN: right">
+              <div align="center">
+                {nomenclatura_destino} 
+              </div>
+            </td> 
+            <td style="TEXT-ALIGN: right">
+              <div align="left">
+                {previsado_tipo_plano_descrip} 
+              </div>
+            </td> 
+            <td>{previsado_nombre_archivo_org}</td> 
+            <td style="TEXT-ALIGN: right">
+              <div align="left">
+                {previsado_tipo_estado_carga_id}&nbsp; 
+              </div>
+            </td> 
+            <td style="TEXT-ALIGN: right">
+              <div align="center">
+                {resultado}&nbsp;{pdf_respuesta} 
+              </div>
+            </td> 
+            <td style="TEXT-ALIGN: right">
+              <div align="center">
+                {icono}&nbsp;{cant} 
+              </div>
+            </td> 
+            <td style="TEXT-ALIGN: right">
+              <div align="center">
+                <!-- BEGIN ImageLink ImageLink1 --><a href="{ImageLink1}"><img style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px" src="../iconos/22x22/accessories-text-editor.gif"></a><!-- END ImageLink ImageLink1 -->&nbsp; 
+              </div>
+            </td> 
+            <td style="TEXT-ALIGN: right">
+              <div align="center">
+                {ImageLink2} 
+              </div>
+            </td>
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="11"><font color="#ff0000" size="2"><strong>No hay cargas</strong></font></td>
+          </tr>
+          <!-- END NoRecords -->
+          <tr class="Footer">
+            <td colspan="11">
+              <!-- BEGIN Navigator Navigator -->
+              <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+              <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+                <option selected value="">-</option>
+ {PageSize_Options}
+              </select>
+ 
+              <!-- BEGIN First_On --><a href="{First_URL}"><img border="0" src="../Styles/Simple_tdf/Images/First.gif"></a> <!-- END First_On -->
+              <!-- BEGIN First_Off --><img border="0" src="../Styles/Simple_tdf/Images/FirstOff.gif"><!-- END First_Off -->
+              <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Prev.gif"></a> <!-- END Prev_On -->
+              <!-- BEGIN Prev_Off --><img border="0" src="../Styles/Simple_tdf/Images/PrevOff.gif"><!-- END Prev_Off -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+              <!-- BEGIN Next_On --><a href="{Next_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Next.gif"></a> <!-- END Next_On -->
+              <!-- BEGIN Next_Off --><img border="0" src="../Styles/Simple_tdf/Images/NextOff.gif"><!-- END Next_Off -->
+              <!-- BEGIN Last_On --><a href="{Last_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Last.gif"></a> <!-- END Last_On -->
+              <!-- BEGIN Last_Off --><img border="0" src="../Styles/Simple_tdf/Images/LastOff.gif"><!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <!-- END Grid previsados_cargas -->
+</div>
+<div>
+  {tdf_footer} 
+</div>
+</body>
+</html>

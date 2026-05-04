@@ -1,0 +1,137 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>planchetas_observaciones</title>
+<link rel="stylesheet" type="text/css" href="../Styles/Simple_tdf/Style.css">
+<link rel="stylesheet" type="text/css" href="../Styles/common.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//planchetas_observaciones1Button_Cancel_OnClick @15-B0C58A91
+function planchetas_observaciones1Button_Cancel_OnClick()
+{
+    disableValidation = true;
+}
+//End planchetas_observaciones1Button_Cancel_OnClick
+
+//bind_events @1-DCB93CC0
+function bind_events() {
+    if (functionExists("tdf_header_bind_events")) tdf_header_bind_events();
+    addEventHandler("planchetas_observaciones1Button_Cancel", "click", planchetas_observaciones1Button_Cancel_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body bottommargin="0" leftmargin="0" rightmargin="0" topmargin="0" marginwidth="0">
+{tdf_header} 
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+  <tr>
+    <td bgcolor="#3d84cc" width="245" align="left"><img alt="Catastro" src="../imagenes/header_1.gif"></td> 
+    <td bgcolor="#3d84cc" align="center"><img alt="Catastro" src="../imagenes/header_2.gif"></td> 
+    <td bgcolor="#3d84cc" width="245" align="right"><img alt="Catastro" src="../imagenes/header_3.gif"></td>
+  </tr>
+</table>
+<br>
+<!-- BEGIN Record planchetas_observaciones1 -->
+<form id="planchetas_observaciones1" method="post" name="{HTMLFormName}" action="{Action}">
+  <table cellspacing="0" cellpadding="0" width="100%" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td> 
+            <th>Agregar Observaciones {usuario}</th>
+ 
+            <td class="HeaderRight"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td><font size="3">{Error}</font></td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <td><textarea id="planchetas_observaciones1plancheta_obs_descrip" style="WIDTH: 99%" rows="3" cols="50" name="{plancheta_obs_descrip_Name}">{plancheta_obs_descrip}</textarea></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right">
+              <!-- BEGIN Button Button_Insert --><input id="planchetas_observaciones1Button_Insert" class="Button" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Cancel --><input id="planchetas_observaciones1Button_Cancel" class="Button" type="submit" value="Volver" name="{Button_Name}"><!-- END Button Button_Cancel --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record planchetas_observaciones1 -->
+<!-- BEGIN Grid planchetas_observaciones -->
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td> 
+          <th>Lista de Mis Observaciones </th>
+ 
+          <td class="HeaderRight"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>
+          <!-- BEGIN Sorter Sorter_plancheta_obs_f --><a href="{Sort_URL}" id="planchetas_observacionesSorter_plancheta_obs_f">Fecha y Hora</a> 
+          <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On -->&nbsp;<!-- END Sorter Sorter_plancheta_obs_f --></th>
+ 
+          <th>Observacion</th>
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td>{plancheta_obs_f}&nbsp;</td> 
+          <td>{plancheta_obs_descrip}&nbsp;</td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="2"><font color="#ff0000" size="2">No hay Observaciones</font></td>
+        </tr>
+        <!-- END NoRecords -->
+        <tr class="Footer">
+          <td colspan="2">&nbsp; 
+            <!-- BEGIN Navigator Navigator -->
+            <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+            <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+              <option selected value="">-</option>
+ {PageSize_Options}
+            </select>
+ 
+            <!-- BEGIN First_On --><a href="{First_URL}"><img border="0" src="../Styles/Simple_tdf/Images/First.gif"></a> <!-- END First_On -->
+            <!-- BEGIN First_Off --><img border="0" src="../Styles/Simple_tdf/Images/FirstOff.gif"><!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Prev.gif"></a> <!-- END Prev_On -->
+            <!-- BEGIN Prev_Off --><img border="0" src="../Styles/Simple_tdf/Images/PrevOff.gif"><!-- END Prev_Off -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Next.gif"></a> <!-- END Next_On -->
+            <!-- BEGIN Next_Off --><img border="0" src="../Styles/Simple_tdf/Images/NextOff.gif"><!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Last.gif"></a> <!-- END Last_On -->
+            <!-- BEGIN Last_Off --><img border="0" src="../Styles/Simple_tdf/Images/LastOff.gif"><!-- END Last_Off -->&nbsp;<!-- END Navigator Navigator -->&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+&nbsp;<!-- END Grid planchetas_observaciones --><br>
+</body>
+</html>

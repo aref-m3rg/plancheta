@@ -1,0 +1,148 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Detalle de la plancheta</title>
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/adx.css">
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/Simple_tdf/Menu.css">
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/common.css">
+<!-- jQuery & jQuery UI & jQuery plugins-->
+<script type="text/javascript" src="{page:pathToRoot}js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="{page:pathToRoot}js/jquery-ui-1.8.23.custom.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/jquery_ui/jquery-ui-1.8.23.custom.css">
+<script type="text/javascript" src="{page:pathToRoot}js/slides.min.jquery.js"></script>
+<!-- end: jQuery & jQuery UI -->
+<!-- Scripts generales (para toda la aplicación -->
+<script type="text/javascript">
+
+      // deshabilita $ como objeto de jQuery para evitar conflictos con Prototype */
+      $.noConflict();
+
+    </script>
+<!-- end: Scripts generales -->
+<script language="JavaScript" type="text/javascript">
+    //Begin CCS script
+    //Include Common JSFunctions @1-9722A627
+    </script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+    //End Include Common JSFunctions
+
+    //bind_events @1-E634CA02
+    function bind_events() {
+        if (functionExists("tdf_header_bind_events")) tdf_header_bind_events();
+        if (functionExists("tdf_footer_bind_events")) tdf_footer_bind_events();
+        if (functionExists("tdf_menu_bind_events")) tdf_menu_bind_events();
+    }
+    //End bind_events
+
+    window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+    //End CCS script
+    </script>
+<link rel="stylesheet" type="text/css" href="../Styles/Simple_tdf/Style.css">
+</head>
+<body>
+{tdf_header}{tdf_menu}<br>
+<p>
+<!-- BEGIN Grid planchetas -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img border="0" src="../Styles/Simple/Images/Spacer.gif"></td> 
+          <th>Detalle de la plancheta&nbsp;</th>
+ 
+          <td class="HeaderRight"><img border="0" src="../Styles/Simple/Images/Spacer.gif"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <th>Departamento</th>
+ 
+          <td>{tipo_depto_parc_desc}&nbsp;</td> 
+          <td rowspan="10" width="240">{html}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Padrón</th>
+ 
+          <td>{tipo_padron_parc_desc}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Sección</th>
+ 
+          <td>{plancheta_scc}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Quinta</th>
+ 
+          <td>{plancheta_qta}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Chacra</th>
+ 
+          <td>{plancheta_cha}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Macizo</th>
+ 
+          <td>{plancheta_mzo}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Parcela</th>
+ 
+          <td>{plancheta_par}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Hoja</th>
+ 
+          <td>{plancheta_hoja}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Ruta</th>
+ 
+          <td>{plancheta_ruta}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Fecha de actualización</th>
+ 
+          <td>{plancheta_f_act}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th>Observaciones</th>
+ 
+          <td colspan="2">{plancheta_obs}&nbsp;</td>
+        </tr>
+ 
+        <tr class="Row">
+          <th><a href="{link_volver}"><img style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: middle; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px" src="../iconos/22x22/go-previous.gif">Volver</a></th>
+           <td><a href="{link_edit}"><img style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; VERTICAL-ALIGN: middle; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px" src="../iconos/22x22/accessories-text-editor.gif">Editar</a></td> 
+          <td>&nbsp;</td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="3">No hay registros</td>
+        </tr>
+        <!-- END NoRecords -->
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Grid planchetas --><br>
+</p>
+<p>{tdf_footer}</p>
+</body>
+</html>

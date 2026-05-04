@@ -1,0 +1,121 @@
+
+/* Hide CCS legend */
+center > font > small {
+	display: none !important;
+}
+
+
+/* Estilos para el botón desplegable */
+
+.ui-button-set-container { position: relative; }
+.ui-button-menu {
+	background-color: #fff;
+	border:1px solid $ddd;
+	padding:8px 10px 6px 10px;
+	-webkit-box-shadow:  1px 1px 3px 0px rgba(0, 0, 0, 0.45);
+	box-shadow:  1px 1px 3px 0px rgba(0, 0, 0, 0.45);
+	position: absolute;
+	z-index: 9999;
+	top: 0;
+	width: 140px;
+}
+.ui-button-menu-slides {
+  margin: 0 0 15px 0;
+}
+.ui-button-menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.ui-button-menu li {
+  display: inline;
+}
+
+
+
+/* Estilos para los slideshows */
+
+.slides_container {
+	width:140px;
+	height:95px;
+}
+	.slides_container a:link,
+	.slides_container a:visited { border: none; }
+
+	.slides_container div {
+		width:140px;
+		height:95px;
+		display:block;
+	}
+	.slides_container div img { border: none; }
+
+	.slides_section .pagination {
+		list-type: none;
+		padding:0;
+		margin:0;
+	}
+
+	.slides_section .pagination li {
+		display: inline;
+	}
+
+	.slides_section .pagination a:link,
+	.slides_section .pagination a:visited {
+		display: inline-block;
+		padding: 1px 5px;
+		text-decoration: none;
+		font-size: 11px;
+		color: #777;
+		border: 1px solid #aaa;
+		margin: 0 3px 0 0;
+	}
+		.slides_section .pagination .current a:link,
+		.slides_section .pagination .current a:visited {
+		  color: #111;
+		  border: 1px solid #666;
+		}
+
+
+
+
+.slides_container.big {
+	width:680px;
+	height:480px;
+}
+
+	.slides_container.big a:link,
+	.slides_container.big a:visited { border: none; }
+
+	.slides_container.big div {
+		width:680px;
+		height:480px;
+		display:block;
+	}
+		.slides_container.big div img { border: none; }
+
+	.slides_container.big .pagination {
+		list-type: none;
+		height: 30px;
+		padding:0;
+		margin:0;
+	}
+		.slides_container.big .pagination li { display:inline; }
+
+
+/* Tablas */
+.clean-table {}
+
+	.clean-table th {
+		background-color: none;
+		border: none;
+		font-weight: bold;
+	}
+
+	.clean-table td {
+		white-space: nowrap;
+		font-weight: normal;
+		border: none;
+		border-bottom: 1px dotted #999;
+	}
+
+	.clean-table tr:last-child td { border-bottom: none; }

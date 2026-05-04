@@ -1,0 +1,189 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Agregar / Editar plancheta</title>
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/adx.css" />
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/Simple_tdf/Menu.css" />
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/common.css" />
+<!-- jQuery & jQuery UI & jQuery plugins-->
+<script src="{page:pathToRoot}js/jquery-1.7.min.js" type="text/javascript"></script>
+<script src="{page:pathToRoot}js/jquery-ui.custom.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/jquery_ui/jquery-ui.custom.min.css" />
+<script src="{page:pathToRoot}js/slides.min.jquery.js" type="text/javascript"></script>
+<!-- end: jQuery & jQuery UI -->
+<!-- Scripts generales (para toda la aplicación -->
+<script type="text/javascript">
+
+      // deshabilita $ como objeto de jQuery para evitar conflictos con Prototype */
+      $.noConflict();
+
+    </script>
+<!-- end: Scripts generales -->
+<script language="JavaScript" type="text/javascript">
+    //Begin CCS script
+    //Include Common JSFunctions @1-9722A627
+
+//planchetasButton_Delete_OnClick @9-CC76E6AD
+function planchetasButton_Delete_OnClick()
+{
+    var result = true;
+//End planchetasButton_Delete_OnClick
+
+//Confirmation Message @28-874DABE2
+    return confirm('¿Confirma borrar esta plancheta?');
+//End Confirmation Message
+
+//Close planchetasButton_Delete_OnClick @9-BC33A33A
+    return result;
+}
+//End Close planchetasButton_Delete_OnClick
+
+//planchetasButton_Cancel_OnClick @11-41DECFCC
+function planchetasButton_Cancel_OnClick()
+{
+    disableValidation = true;
+}
+//End planchetasButton_Cancel_OnClick
+    </script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+    //End Include Common JSFunctions
+
+    //bind_events @1-E634CA02
+    function bind_events() {
+        if (functionExists("tdf_header_bind_events")) tdf_header_bind_events();
+        if (functionExists("tdf_footer_bind_events")) tdf_footer_bind_events();
+        if (functionExists("tdf_menu_bind_events")) tdf_menu_bind_events();
+    }
+    //End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+    //End CCS script
+    </script>
+<link rel="stylesheet" type="text/css" href="../Styles/Simple_tdf/Style.css" />
+</head>
+<body>
+{tdf_header}{tdf_menu}<br>
+<p>
+<!-- BEGIN Record planchetas -->
+<form id="planchetas" name="{HTMLFormName}" action="{Action}" method="post" enctype="{HTMLFormEnctype}">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/Simple/Images/Spacer.gif" border="0"></td> 
+            <th>Agregar / editar plancheta</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/Simple/Images/Spacer.gif" border="0"></td> 
+          </tr>
+ 
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="3">{Error}</td> 
+          </tr>
+ <!-- END Error -->
+          <tr class="Controls">
+            <th>Departamento </th>
+ 
+            <td>
+              <select id="planchetastipo_depto_parc_id" name="{tipo_depto_parc_id_Name}">
+                <option value="" selected>Seleccionar...</option>
+ {tipo_depto_parc_id_Options} 
+              </select>
+ </td> 
+            <td rowspan="11">{html}&nbsp;</td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Padrón </th>
+ 
+            <td>
+              <select id="planchetastipo_padron_parc_id" name="{tipo_padron_parc_id_Name}">
+                <option value="" selected>Seleccionar...</option>
+ {tipo_padron_parc_id_Options} 
+              </select>
+ </td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Sección</th>
+ 
+            <td><input id="planchetasplancheta_scc" maxlength="3" size="5" value="{plancheta_scc}" name="{plancheta_scc_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Quinta</th>
+ 
+            <td><input id="planchetasplancheta_qta" maxlength="10" size="5" value="{plancheta_qta}" name="{plancheta_qta_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Chacra</th>
+ 
+            <td><input id="planchetasplancheta_cha" maxlength="6" size="5" value="{plancheta_cha}" name="{plancheta_cha_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Macizo</th>
+ 
+            <td><input id="planchetasplancheta_mzo" maxlength="6" size="5" value="{plancheta_mzo}" name="{plancheta_mzo_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Parcela</th>
+ 
+            <td><input id="planchetasplancheta_par" maxlength="6" size="5" value="{plancheta_par}" name="{plancheta_par_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Hoja</th>
+ 
+            <td><input id="planchetasplancheta_hoja" maxlength="4" size="5" value="{plancheta_hoja}" name="{plancheta_hoja_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Ruta</th>
+ 
+            <td><input id="planchetasplancheta_ruta" maxlength="15" size="15" value="{plancheta_ruta}" name="{plancheta_ruta_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Observaciones</th>
+ 
+            <td><input id="planchetasplancheta_obs" maxlength="255" size="50" value="{plancheta_obs}" name="{plancheta_obs_Name}"></td> 
+          </tr>
+ 
+          <tr class="Controls">
+            <th>Archivo</th>
+ 
+            <td>
+              <!-- BEGIN FileUpload FileUpload1 --><input id="planchetasFileUpload1ControlName" type="hidden" value="{State}" name="{ControlName}">
+              <!-- BEGIN Info -->&nbsp;{FileName}&nbsp;{FileSize}&nbsp;bytes.<!-- END Info -->
+              <!-- BEGIN Upload -->File upload<input id="planchetasFileUpload1FileControl" type="file" name="{FileControl}"><!-- END Upload -->
+              <!-- BEGIN DeleteControl -->Borrar<input id="planchetasFileUpload1DeleteControl" type="checkbox" name="{DeleteControl}" {DeleteChecked}><!-- END DeleteControl --><!-- END FileUpload FileUpload1 --></td> 
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="3">
+              <!-- BEGIN Button Button_Insert --><input class="Button" id="planchetasButton_Insert" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+              <!-- BEGIN Button Button_Update --><input class="Button" id="planchetasButton_Update" type="submit" value="Guardar" name="{Button_Name}"><!-- END Button Button_Update -->
+              <!-- BEGIN Button Button_Delete --><input class="Button" id="planchetasButton_Delete" type="submit" value="Borrar" name="{Button_Name}"><!-- END Button Button_Delete -->
+              <!-- BEGIN Button Button_Cancel --><input class="Button" id="planchetasButton_Cancel" type="submit" value="Cancelar" name="{Button_Name}"><!-- END Button Button_Cancel --><input id="planchetasplancheta_f_act" type="hidden" value="{plancheta_f_act}" name="{plancheta_f_act_Name}"></td> 
+          </tr>
+ 
+        </table>
+ </td> 
+    </tr>
+ 
+  </table>
+</form>
+<!-- END Record planchetas --><br>
+</p>
+<p>{tdf_footer}</p>
+</body>
+</html>

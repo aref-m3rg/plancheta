@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Preparar salida Excel</title>
+<meta name="GENERATOR" content="CodeCharge Studio 4.2.00.040">
+<link rel="stylesheet" type="text/css" href="Styles/Simple_tdf/Style_doctype.css">
+<link rel="stylesheet" type="text/css" href="Styles/common.css">
+<script language="JavaScript" type="text/javascript">
+function seleccionar(check){
+
+  lg=document.checkXls.elements.length;
+  
+  
+  for (k=1;k<lg;k++){
+        if (document.checkXls.elements[k].type=='checkbox'){ 
+                eval("document.checkXls.elements["+k+"].checked="+check);         
+        }
+  }
+}
+</script>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//checkXlsButton1_OnClick @11-D6AB5809
+function checkXlsButton1_OnClick()
+{
+    var result = true;
+//End checkXlsButton1_OnClick
+
+//Custom Code @12-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+        self.close();
+    // -------------------------
+//End Custom Code
+
+//Close checkXlsButton1_OnClick @11-BC33A33A
+    return result;
+}
+//End Close checkXlsButton1_OnClick
+
+//checkXlsButton2_OnClick @13-653F75CA
+function checkXlsButton2_OnClick()
+{
+    var result = true;
+//End checkXlsButton2_OnClick
+
+//Custom Code @15-2A29BDB7
+    // -------------------------
+    self.close();
+    // -------------------------
+//End Custom Code
+
+//Close checkXlsButton2_OnClick @13-BC33A33A
+    return result;
+}
+//End Close checkXlsButton2_OnClick
+
+//bind_events @1-E13FE1DB
+function bind_events() {
+    addEventHandler("checkXlsButton1", "click", checkXlsButton1_OnClick);
+    addEventHandler("checkXlsButton2", "click", checkXlsButton2_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link rel="stylesheet" type="text/css" href="Styles/Simple_tdf/Style.css">
+</head>
+<body bottommargin="0" leftmargin="0" rightmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<div>
+  <!-- BEGIN Record checkXls -->
+  <form id="checkXls" method="post" name="{HTMLFormName}" action="{Action}">
+    <table border="0" cellspacing="0" cellpadding="0" width="100%">
+      <tr>
+        <td valign="top">
+          <table class="Header" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td class="HeaderLeft"><img border="0" alt="" src="Styles/Simple_tdf/Images/Spacer.gif"></td> 
+              <td class="th"><strong>{Label1}</strong></td> 
+              <td class="HeaderRight"><img border="0" alt="" src="Styles/Simple_tdf/Images/Spacer.gif"></td>
+            </tr>
+          </table>
+ 
+          <table class="Record" cellspacing="0" cellpadding="0">
+            <!-- BEGIN Error -->
+            <tr class="Error">
+              <td colspan="2">{Error}</td>
+            </tr>
+            <!-- END Error -->
+            <tr class="Controls">
+              <td>Seleccione las columnas de la salida a Excel</td> 
+              <td><input id="checkXlsCheckBox1" onclick="javascript:seleccionar(this.checked)" value="1" type="checkbox" name="{CheckBox1_Name}" {CheckBox1}>&nbsp;&nbsp;(Todas)</td>
+            </tr>
+ 
+            <tr class="Controls">
+              <td colspan="2">
+                <div align="right">&nbsp;
+                <!-- BEGIN Button Button2 --><input id="checkXlsButton2" class="Button" value="Cerrar" type="button" name="{Button_Name}"><!-- END Button Button2 -->&nbsp;
+                <!-- BEGIN Button Button_DoSearch2 --><input id="checkXlsButton_DoSearch2" class="Button" value="Exportar" type="submit" name="{Button_Name}"><!-- END Button Button_DoSearch2 --></div>
+              </td>
+            </tr>
+ 
+            <tr class="Controls">
+              <td colspan="2">
+                <!-- BEGIN CheckBoxList columnas --><input id="checkXlscolumnas_{columnas:optionNumber}" value="{Value}" type="checkbox" name="{columnas_Name}" {Check}><label for="checkXlscolumnas_{columnas:optionNumber}">{Description}</label><br>
+                <!-- END CheckBoxList columnas --></td>
+            </tr>
+ 
+            <tr class="Bottom">
+              <td colspan="2" align="right">
+                <!-- BEGIN Button Button1 --><input id="checkXlsButton1" class="Button" value="Cerrar" alt="Button1" type="button" name="{Button_Name}"><!-- END Button Button1 -->
+                <!-- BEGIN Button Button_DoSearch --><input id="checkXlsButton_DoSearch" class="Button" value="Exportar" alt="Buscar" type="submit" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <!-- END Record checkXls -->
+</div>
+</body>
+</html>

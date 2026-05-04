@@ -1,0 +1,390 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Certificado de Nomenclatura</title>
+<meta content="CodeCharge Studio 4.1.00.027" name="GENERATOR">
+<link href="../Styles/Simple_tdf/Style.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" src="../myFunctions.js" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-9CB07FA7
+</script>
+<script language="JavaScript" src="../js/pt/prototype.js" type="text/javascript"></script>
+<script language="JavaScript" src="../js/pt/scriptaculous.js" type="text/javascript"></script>
+<script language="JavaScript" src="../js/pt/controls.js" type="text/javascript"></script>
+<link href="rpt_nomenclatura_phparcelas_parcelas_tipos_pDetailobs_style.css" type="text/css" rel="stylesheet">
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//_OnLoad @1-9C4F01C0
+function _OnLoad()
+{
+    var result = true;
+//End _OnLoad
+
+//Custom Code @85-2A29BDB7
+    // -------------------------
+    // Write your own code here.
+                if(gup('imprimir') == 1){
+                        self.print();
+                }
+    // -------------------------
+//End Custom Code
+
+//Close _OnLoad @1-BC33A33A
+    return result;
+}
+//End Close _OnLoad
+
+//Initialize parcelas_parcelas_tipos_pDetailobsPTAutocomplete2 @112-7E5E2F72
+function parcelas_parcelas_tipos_pDetailobsPTAutocomplete2_start() {
+    if ($("parcelas_parcelas_tipos_pDetailobs"))
+        new Ajax.Autocompleter("parcelas_parcelas_tipos_pDetailobs", "parcelas_parcelas_tipos_pDetailobs_choices", "../services/obs_cert.php", {});
+}
+//End Initialize parcelas_parcelas_tipos_pDetailobsPTAutocomplete2
+
+//bind_events @1-C590F745
+function bind_events() {
+    parcelas_parcelas_tipos_pDetailobsPTAutocomplete2_start();
+    addEventHandler("", "load", _OnLoad);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<!-- BEGIN Report parcelas_parcelas_tipos_p -->
+<table style="WIDTH: 755px" cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/Simple_tdf/Images/Spacer.gif" border="0"></td> 
+          <th>&nbsp;</th>
+ 
+          <td class="HeaderRight"><img src="../Styles/Simple_tdf/Images/Spacer.gif" border="0"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <!-- BEGIN Section Report_Header --><!-- END Section Report_Header -->
+        <!-- BEGIN Section Page_Header -->
+        <tr class="Row">
+          <td colspan="10"><img alt=" " src="../imagenes/header_rpt.jpg"></td>
+        </tr>
+ 
+        <tr class="Row">
+          <td colspan="10">
+            <div align="center">
+              <h1>CERTIFICADO DE LA DIRECCION GENERAL DE CATASTRO<br>
+              VALIDO POR 12 MESES</h1>
+            </div>
+          </td>
+        </tr>
+ 
+        <tr class="Caption">
+          <th colspan="10">
+          <div align="center">
+            DESIGNACION SEGÚN CATASTRO 
+          </div>
+          </th>
+        </tr>
+ 
+        <tr class="Caption">
+          <th>
+          <div align="center">
+            DEPARTAMENTO 
+          </div>
+          </th>
+ 
+          <th>
+          <div align="center">
+            SECCION 
+          </div>
+          </th>
+ 
+          <th>
+          <div align="center">
+            CHACRA 
+          </div>
+          </th>
+ 
+          <th>
+          <div align="center">
+            QUINTA 
+          </div>
+          </th>
+ 
+          <th>
+          <div align="center">
+            MACIZO 
+          </div>
+          </th>
+ 
+          <th>
+          <div align="center">
+            FRACCION 
+          </div>
+          </th>
+ 
+          <th>
+          <div align="center">
+            PARCELA 
+          </div>
+          </th>
+ 
+          <th>
+          <div align="center">
+            UF./UC. 
+          </div>
+          </th>
+ 
+          <th>
+          <p align="center">%FISCAL</p>
+          </th>
+ 
+          <th>
+          <div align="center">
+            PLANO 
+          </div>
+          </th>
+        </tr>
+ <!-- END Section Page_Header -->
+        <!-- BEGIN Section Page_Footer -->
+        <tr class="Footer">
+          <td valign="top" align="center" colspan="9">
+            <p align="left">USHUAIA<br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            </p>
+ 
+            <div align="center">
+              <!-- BEGIN Panel panel -->
+              <table style="WIDTH: 100%" border="0">
+                <tr>
+                  <td><a href="{ImageLink1}"><img style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px" src="../iconos/22x22/view-refresh.gif"></a>&nbsp;Actualizar</td> 
+                  <td>&nbsp;<a href="{observaciones}"><img style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px" src="../iconos/22x22/edit-find.gif"></a>&nbsp;Observaciones Generales</td> 
+                  <td><a href="{restricciones}"><img style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px" src="../iconos/22x22/edit-find.gif"></a>&nbsp;Notas en&nbsp;Restricciones </td> 
+                  <td><a href="{notas}"><img style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px" src="../iconos/22x22/edit-find.gif"></a>&nbsp;Notas en Solicitud de Nomenc.</td> 
+                  <td><a href="{ImageLink2}"><img style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px" src="../iconos/22x22/printer.gif"></a>&nbsp;Imprimr </td>
+                </tr>
+              </table>
+              <!-- END Panel panel -->
+            </div>
+          </td> 
+          <td><img id="Image1" onclick="self.print()" alt="" src="../iconos/22x22/printer.gif" name="Image1"></td>
+        </tr>
+ 
+        <tr class="Footer">
+          <td colspan="10">
+            <div align="center">
+              “Las Islas Malvinas, Georgias y Sándwich del sur, son y serán argentinas” 
+            </div>
+          </td>
+        </tr>
+ 
+        <!-- BEGIN Panel PageBreak -->
+      </table>
+    </td>
+  </tr>
+</table>
+<p style="PAGE-BREAK-AFTER: always">&nbsp;</p>
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <!-- END Panel PageBreak --><!-- END Section Page_Footer -->
+        <!-- BEGIN Section Detail -->
+        <tr class="Row">
+          <td>
+            <div align="center">
+              {dpto_desc} 
+            </div>
+          </td> 
+          <td>
+            <div align="center">
+              {parcela_seccion}&nbsp;&nbsp; 
+            </div>
+          </td> 
+          <td>
+            <div align="center">
+              {parcela_chacra}&nbsp;&nbsp; 
+            </div>
+          </td> 
+          <td>
+            <div align="center">
+              {parcela_quinta}&nbsp;&nbsp; 
+            </div>
+          </td> 
+          <td>
+            <div align="center">
+              {parcela_macizo} 
+            </div>
+          </td> 
+          <td>
+            <div align="center">
+              {parcela_fraccion}&nbsp;&nbsp; 
+            </div>
+          </td> 
+          <td>
+            <div align="center">
+              {parcela_parcela}&nbsp;&nbsp; 
+            </div>
+          </td> 
+          <td>
+            <div align="center">
+              {parcela_uf}&nbsp;&nbsp; 
+            </div>
+          </td> 
+          <td>
+            <div align="center">
+              {parcela_porc_uf} 
+            </div>
+          </td> 
+          <td>
+            <div align="center">
+              <input id="parcelas_parcelas_tipos_pDetailtmp_plano_{parcelas_parcelas_tipos_p:rowNumber}" style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px" maxlength="20" size="14" value="{tmp_plano}" name="{tmp_plano_Name}">&nbsp;&nbsp;&nbsp; 
+            </div>
+          </td>
+        </tr>
+ 
+        <tr class="Row">
+          <td colspan="10">&nbsp;</td>
+        </tr>
+ 
+        <tr class="Caption">
+          <th colspan="10">
+          <div align="center">
+            INFORME DEL PADRON INMOBILIARIO 
+          </div>
+          </th>
+        </tr>
+ 
+        <tr class="Caption">
+          <td colspan="3">
+            <p align="center">PADRON</p>
+          </td> 
+          <td colspan="7">
+            <p align="center">VALUACIÓN</p>
+          </td>
+        </tr>
+ 
+        <tr class="Caption">
+          <td>
+            <div align="center">
+              PARTIDA 
+            </div>
+          </td> 
+          <td>
+            <div align="center">
+              CARACTERISTICA 
+            </div>
+          </td> 
+          <td style="TEXT-ALIGN: right">
+            <div align="center">
+              SUPERFICIE <br>
+              PROPIA DE LA U.F. 
+            </div>
+          </td> 
+          <td colspan="2">
+            <div align="center">
+              VALUACION TIERRA <br>
+              DE LA PARCELA 
+            </div>
+          </td> 
+          <td colspan="2">
+            <div align="center">
+              VALUACION MEJORA <br>
+              DE LA PARCELA 
+            </div>
+          </td> 
+          <td colspan="3">
+            <div align="center">
+              VALUACION TOTAL DE LA <br>
+              UNIDAD FUNCIONAL (*) 
+            </div>
+          </td>
+        </tr>
+ 
+        <tr class="Row">
+          <td>
+            <div align="center">
+              {parcela_partida} 
+            </div>
+          </td> 
+          <td style="TEXT-ALIGN: right">
+            <div align="center">
+              {parc_uso_desc}&nbsp; 
+            </div>
+          </td> 
+          <td>
+            <div align="center">
+              {parcela_sup_uf}&nbsp;{uni_med_htm} 
+            </div>
+          </td> 
+          <td colspan="2">
+            <div align="center">
+              {parcela_val_tierra}&nbsp; 
+            </div>
+          </td> 
+          <td colspan="2">
+            <div align="center">
+              {parcela_val_mejora} 
+            </div>
+          </td> 
+          <td colspan="3">
+            <div align="center">
+              {parcela_val_total} 
+            </div>
+          </td>
+        </tr>
+ 
+        <tr class="Row">
+          <td colspan="10">(*) Importe que surge de aplicar el correspondiente porcentaje fiscal sobre la Valuación total de la tierra y las mejoras emplazadas en la parcela de referencia.</td>
+        </tr>
+ 
+        <tr class="Caption">
+          <th colspan="10">
+          <div align="center">
+            OBSERVACIONES 
+          </div>
+          </th>
+        </tr>
+ 
+        <tr class="Row">
+          <td colspan="10" height="153">{parcela_restr}<br>
+            {parcela_notas_nom}<br>
+            <!-- BEGIN TextArea obs --><textarea id="parcelas_parcelas_tipos_pDetailobs" style="width: 767px; height: 79px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; " name="{obs_Name}" rows="3" cols="10">{obs}</textarea>
+            <!-- BEGINF PTAutocomplete PTAutocomplete2 -->
+            <div id="parcelas_parcelas_tipos_pDetailobs_choices">
+            </div>
+            <!-- ENDF PTAutocomplete PTAutocomplete2 --><!-- END TextArea obs --></td>
+        </tr>
+ <!-- END Section Detail -->
+        <!-- BEGIN Section Report_Footer -->
+        <!-- BEGIN Panel NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="10">No hay registros</td>
+        </tr>
+ <!-- END Panel NoRecords --><!-- END Section Report_Footer -->
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Report parcelas_parcelas_tipos_p -->
+</body>
+</html>

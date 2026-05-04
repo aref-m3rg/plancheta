@@ -1,0 +1,68 @@
+
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title>Logout</title>
+
+
+<meta name="GENERATOR" content="CodeCharge Studio 4.00.00.02"><script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-D3B5F5BF
+</script>
+
+<script language="JavaScript" src="ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//_OnLoad @1-9C4F01C0
+function _OnLoad()
+{
+    var result = true;
+//End _OnLoad
+
+//Set Focus @7-D20FE9BF
+    if (document.forms["Login"] && document.forms["Login"].login) document.forms["Login"].login.focus();
+//End Set Focus
+
+//Close _OnLoad @1-BC33A33A
+    return result;
+}
+//End Close _OnLoad
+
+//bind_events @1-43A369D6
+function bind_events() {
+    if (functionExists("tdf_header_bind_events")) tdf_header_bind_events();
+    if (functionExists("tdf_footer_bind_events")) tdf_footer_bind_events();
+    addEventHandler("", "load", _OnLoad);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link rel="stylesheet" type="text/css" href="Styles/Simple_tdf/Style.css"></head>
+<body>{tdf_header}<br><br><br><br><br><br><br><br>
+<table style="WIDTH: 100%" border="0" cellspacing="0" cellpadding="0" align="center">
+    <tr>
+    <td align="center"><!-- BEGIN Record Login -->
+      <form method="post" name="{HTMLFormName}" action="{Action}">
+      <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+          <td valign="top">
+            <table class="Header" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                <td class="HeaderLeft"><img border="0" alt="" src="Styles/Simple_tdf/Images/Spacer.gif"></td>
+                <td class="th"><br>
+                  <div align="center"><strong>FIN DE SESIÓN</div></strong><br></td>
+                <td class="HeaderRight"><img border="0" alt="" src="Styles/Simple_tdf/Images/Spacer.gif"></td></tr></table>
+            <table class="Record" cellspacing="0" cellpadding="0"><!-- BEGIN Error -->
+                            <tr class="Error">
+                <td colspan="2">{Error}</td></tr><!-- END Error -->
+              <tr class="Controls">
+                <td class="th" colspan="2"><label for="Loginlogin"><font size="+0"><br>¿Esta seguro que desea cerrar su sesión 
+                  actual?<br><br></font></label></td></tr>
+              <tr class="Bottom">
+                <td style="TEXT-ALIGN: center" align="right"><!-- BEGIN Button Button1 --><input id="LoginButton1" class="Button" value="Si, cerrar" alt="Button1" type="submit" name="{Button_Name}"><!-- END Button Button1 --></td>
+                <td style="TEXT-ALIGN: center" align="right"><!-- BEGIN Button Button2 --><input id="LoginButton2" class="Button" value="No, continuar" alt="Button2" type="submit" name="{Button_Name}"><!-- END Button Button2 -->&nbsp;</td></tr></table></td></tr></table></form>&nbsp;<!-- END Record Login --></td></tr></table><br><br><br>&nbsp; 
+{tdf_footer} 
+</body></html>

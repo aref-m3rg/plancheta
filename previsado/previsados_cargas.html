@@ -1,0 +1,403 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>previsados_cargas</title>
+<link rel="stylesheet" type="text/css" href="../Styles/common.css">
+<script language="JavaScript" src="../Functions.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+function checkFileCAD(){
+    var fileElement = document.getElementById("fileToUploadCAD");
+    var fileExtension = "";
+    if (fileElement.value.lastIndexOf(".") > 0) {
+        fileExtension = fileElement.value.substring(fileElement.value.lastIndexOf(".") + 1, fileElement.value.length);
+    }
+    if (fileExtension.toLowerCase() == "dxf" || fileExtension.toLowerCase() == "dwg") {
+        return true;
+    }
+    else {
+        alert("Solo Puede cargar archivo con extension DXF o DWG");
+        return false;
+    }
+}
+function checkFileimage(obj) {
+    var fileElement = document.getElementById("fileToUploadImagen_"+obj);
+    var fileExtension = "";
+    if (fileElement.value.lastIndexOf(".") > 0) {
+        fileExtension = fileElement.value.substring(fileElement.value.lastIndexOf(".") + 1, fileElement.value.length);
+    }
+    if (fileExtension.toLowerCase() == "jpg" || fileExtension.toLowerCase() == "png" || fileExtension.toLowerCase() == "gif" || fileExtension.toLowerCase() == "xls" || fileExtension.toLowerCase() == "xlsx") {
+        return true;
+    }
+    else {
+        alert("Solo Puede cargar archivo con extension permitido para el previsado");
+        return false;
+    }
+}
+function confirmacion(){
+        if(confirm('Confirma el retiro del archivo?')){
+            return true;
+        }else{
+            return false;
+        }
+}
+function confirmar(){
+        if(confirm('Confirma la registracion de los archivos?')){
+            var cant_titulares = document.getElementById("previsados_detalles_carga1cant_titulares").value;
+            var cant_origenes = document.getElementById("previsados_detalles_carga1cant_origenes").value;
+            var cant_destinos = document.getElementById("previsados_detalles_carga1cant_destinos").value;
+	        if(document.getElementById("previsados_detalles_carga1CheckBox_tfsm").checked){
+	                cant_origenes = 1;
+	        }
+            if(cant_titulares >0 && cant_origenes > 0){
+                return true;
+            }else{
+                alert('Los datos de titular, origen y destino, deben estar completados');
+                return false;
+            }
+        }else{
+            return false;
+        }
+}
+function cancelar(){
+        if(confirm('Confirma la cancelacion de la carga? (elimina todo lo cargado)')){
+            return true;
+        }else{
+            return false;
+        }
+}
+function cambiar_tipo(){
+        if(confirm('Confirma cambiar el tipo de plano?')){
+            var previsado_carga_id = CCGetParam("previsado_carga_id");
+            var previsado_tipo_plano_id = document.getElementById("previsados_detalles_carga1previsado_tipo_plano_id").value;
+            var URL="cambiar_tipo.php?previsado_carga_id="+previsado_carga_id+"&previsado_tipo_plano_id="+previsado_tipo_plano_id;
+            window.location=URL;
+        }
+        return false;
+}
+function quitar_archivo(valor){
+    var paso = confirmacion();
+        if(paso){
+            var previsado_carga_id = CCGetParam("previsado_carga_id");
+            previsado_carga_id = previsado_carga_id.replace("#",""); 
+            var URL="downloadImage.php?cabecera_previsado_carga_id="+previsado_carga_id+"&previsado_archivo_detalle_id="+valor;
+            window.location=URL;
+        }
+}
+</script>
+<link rel="stylesheet" type="text/css" href="../Styles/Simple_tdf/Style.css">
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//previsados_detalles_carga1previsado_tipo_plano_id_OnChange @62-41F1B5F1
+function previsados_detalles_carga1previsado_tipo_plano_id_OnChange()
+{
+    var result = true;
+//End previsados_detalles_carga1previsado_tipo_plano_id_OnChange
+
+//Custom Code @72-2A29BDB7
+    // -------------------------
+    var actual=this.value;
+    var guardado = document.getElementById("previsados_detalles_carga1tipo_cargado").value;
+    if(actual != guardado){
+            document.getElementById("cambiar").innerHTML = "<input class='Button' type='button' value='Confirmar Cambiar Tipo de Plano' onclick='cambiar_tipo();'>";
+    }else{
+            document.getElementById("cambiar").innerHTML = "";
+    }
+    // -------------------------
+//End Custom Code
+
+//Close previsados_detalles_carga1previsado_tipo_plano_id_OnChange @62-BC33A33A
+    return result;
+}
+//End Close previsados_detalles_carga1previsado_tipo_plano_id_OnChange
+
+//previsados_detalles_carga1CheckBox_tfsm_OnClick @73-1BC91CA5
+function previsados_detalles_carga1CheckBox_tfsm_OnClick()
+{
+    var result = true;
+//End previsados_detalles_carga1CheckBox_tfsm_OnClick
+
+//Custom Code @75-2A29BDB7
+    // -------------------------
+    var valor = 0;
+    var previsado_carga_id = document.getElementById("previsados_detalles_carga1previsado_carga_id").value;
+        if(document.getElementById("previsados_detalles_carga1CheckBox_tfsm").checked){
+                valor = 1;
+        }
+    var URL="changetfsm.php?previsado_carga_id="+previsado_carga_id+"&CheckBox="+valor;
+    window.location=URL;
+    // -------------------------
+//End Custom Code
+
+//Close previsados_detalles_carga1CheckBox_tfsm_OnClick @73-BC33A33A
+    return result;
+}
+//End Close previsados_detalles_carga1CheckBox_tfsm_OnClick
+
+//previsados_cargasButton_cancel_OnClick @48-FFEFDE44
+function previsados_cargasButton_cancel_OnClick()
+{
+    disableValidation = true;
+}
+//End previsados_cargasButton_cancel_OnClick
+
+//bind_events @1-0FD9644C
+function bind_events() {
+    if (functionExists("tdf_header_bind_events")) tdf_header_bind_events();
+    if (functionExists("tdf_footer_bind_events")) tdf_footer_bind_events();
+    addEventHandler("previsados_detalles_carga1previsado_tipo_plano_id", "change", previsados_detalles_carga1previsado_tipo_plano_id_OnChange);
+    addEventHandler("previsados_detalles_carga1CheckBox_tfsm", "click", previsados_detalles_carga1CheckBox_tfsm_OnClick);
+    addEventHandler("previsados_cargasButton_cancel", "click", previsados_cargasButton_cancel_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+</head>
+<body>
+<div>
+  {tdf_header} 
+</div>
+<div>
+  <!-- BEGIN Record previsados_cargas -->
+  <form id="previsados_cargas" method="post" name="{HTMLFormName}" action="{Action}">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+      <tr>
+        <td valign="top">
+          <table class="Header" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+              <td class="HeaderLeft"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td> 
+              <th>Cargas (Previsado)</th>
+ 
+              <td class="HeaderRight"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td>
+            </tr>
+          </table>
+ 
+          <table class="Record" cellspacing="0" cellpadding="0">
+            <!-- BEGIN Error -->
+            <tr class="Error">
+              <td colspan="2">{Error}</td>
+            </tr>
+            <!-- END Error -->
+            <tr class="Controls">
+              <th colspan="2">
+              <div>
+                <span size="2"><strong>Carga de Plano:</strong></span> 
+              </div>
+ 
+              <ul>
+                <li><span size="2">Elegir tipo de plano a cargar.</span> </li>
+              </ul>
+ 
+              <div>
+                <span size="2">Una vez confirmado, se continua con el paso de carga de titulares, nomenclatura origen,<br>
+                archivo CAD del plano y archivos imagen o comprimido de la documentacion.</span> 
+              </div>
+              </th>
+            </tr>
+ 
+            <tr class="Controls">
+              <th>
+              <div align="right">
+                Tipo Plano: 
+              </div>
+              </th>
+ 
+              <td>
+                <!-- BEGIN ListBox previsado_tipo_plano_id -->
+                <select id="previsados_cargasprevisado_tipo_plano_id" name="{previsado_tipo_plano_id_Name}">
+                  {previsado_tipo_plano_id_Options}
+                </select>
+                <!-- END ListBox previsado_tipo_plano_id --><input id="previsados_cargasuser_id" type="hidden" value="{user_id}" name="{user_id_Name}"></td>
+            </tr>
+ 
+            <tr class="Bottom">
+              <td colspan="2" align="right">
+                <!-- BEGIN Button Button_cancel --><input id="previsados_cargasButton_cancel" class="Button" type="submit" value="Salir" name="{Button_Name}"><!-- END Button Button_cancel -->
+                <!-- BEGIN Button Button_Insert --><input id="previsados_cargasButton_Insert" class="Button" type="submit" value="Confirmar" name="{Button_Name}"><!-- END Button Button_Insert --></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <!-- END Record previsados_cargas -->
+</div>
+<div>
+  <table cellspacing="0" cellpadding="0" width="100%" border="0">
+    <tr valign="top">
+      <td>
+        <!-- BEGIN Grid previsados_detalles_carga1 -->
+        <table cellspacing="0" cellpadding="0" width="100%" border="0">
+          <tr>
+            <td valign="top">
+              <table class="Header" cellspacing="0" cellpadding="0" width="100%" border="0">
+                <tr>
+                  <td class="HeaderLeft"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td> 
+                  <th>Carga de Archivos - Usuario: {nombre}</th>
+ 
+                  <td class="HeaderRight"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td>
+                </tr>
+              </table>
+ 
+              <table class="Grid" cellspacing="0" cellpadding="0" width="100%" border="0">
+                <tr class="Controls">
+                  <th colspan="3"><span><strong>Archivo CAD</strong>: este debe tener extension DWG o DXF<br>
+                  <strong>Archivos Documentos</strong>:Escaneo de la documentacion, en archivo de imagen con extension jpg, png o gif<br>
+                  para la planilla de calculos esta debe tener extensionón xls o xlsx. O en su defecto un comprimido en zip de tener mas de 1 imagen.</span> </th>
+                </tr>
+ 
+                <tr class="Caption">
+                  <th>
+                  <div align="center">
+                    {boton} 
+                  </div>
+                  </th>
+ 
+                  <td colspan="2">
+                    <div align="center">
+                      {volver} 
+                    </div>
+                  </td>
+                </tr>
+ 
+                <tr class="Header">
+                  <th colspan="3"></th>
+                </tr>
+ 
+                <tr class="Caption">
+                  <th>
+                  <div align="right">
+                    &nbsp;Tipo Plano: 
+                  </div>
+                  </th>
+ 
+                  <td style="BACKGROUND: #fff; COLOR: #000" colspan="2">
+                    <!-- BEGIN ListBox previsado_tipo_plano_id -->
+                    <select id="previsados_detalles_carga1previsado_tipo_plano_id" name="{previsado_tipo_plano_id_Name}">
+                      {previsado_tipo_plano_id_Options}
+                    </select>
+ <!-- END ListBox previsado_tipo_plano_id -->&nbsp;<input id="previsados_detalles_carga1tipo_cargado" type="hidden" value="{tipo_cargado}" name="{tipo_cargado_Name}">&nbsp;<span id="cambiar">&nbsp;</span></td>
+                </tr>
+ 
+                <tr class="Caption">
+                  <th>
+                  <div align="right">
+<a href="{ImageLink1}" title="Agregar o Editar titulares"><img style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px" src="../iconos/16x16/mActionOpenTable.gif"><font color="#000080">Titulares:</font></a> 
+                  </div>
+                  </th>
+ 
+                  <td style="BACKGROUND: #fff; COLOR: #000" colspan="2">{titulares}&nbsp;<input id="previsados_detalles_carga1cant_titulares" type="hidden" value="{cant_titulares}" name="{cant_titulares_Name}"></td>
+                </tr>
+ 
+                <tr class="Caption">
+                  <th>
+                  <div align="right">
+                    <!-- BEGIN ImageLink ImageLink2 --><a href="{ImageLink2}"><img style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px" src="../iconos/16x16/mActionOpenTable.gif"><font color="#000080">Nomenclatura Origen:</font></a><!-- END ImageLink ImageLink2 -->
+                  </div>
+                  </th>
+ 
+                  <td style="BACKGROUND: #fff; COLOR: #000" colspan="2">{nomenclatura_origen}&nbsp;<input id="previsados_detalles_carga1cant_origenes" type="hidden" value="{cant_origenes}" name="{cant_origenes_Name}">
+                    <!-- BEGIN CheckBox CheckBox_tfsm --><input id="previsados_detalles_carga1CheckBox_tfsm" type="checkbox" value="1" name="{CheckBox_tfsm_Name}" {CheckBox_tfsm}><!-- END CheckBox CheckBox_tfsm -->{Label_tfsm}</td>
+                </tr>
+ 
+                <tr class="Caption">
+                  <th>
+                  <div align="right">
+<a href="{ImageLink3}"><img style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px" src="../iconos/16x16/mActionOpenTable.gif">Nomenclatura Destino(tentativa):</a> 
+                  </div>
+                  </th>
+ 
+                  <td style="BACKGROUND: #fff; COLOR: #000" colspan="2">{nomenclatura_destino}&nbsp;<input id="previsados_detalles_carga1cant_destinos" type="hidden" value="{cant_destinos}" name="{cant_destinos_Name}"></td>
+                </tr>
+ 
+                <tr class="Caption">
+                  <th>
+                  <div align="right">
+<a href="{ImageLink4}"><img style="BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; BORDER-LEFT: 0px" src="../iconos/16x16/mActionOpenTable.gif"><font color="#000080">Nomenclatura Afectaciones:</font></a> 
+                  </div>
+                  </th>
+ 
+                  <td style="BACKGROUND: #fff; COLOR: #000" colspan="2">{nomenclatura_afectacion}&nbsp;<input id="previsados_detalles_carga1previsado_carga_id" type="hidden" value="{previsado_carga_id}" name="{previsado_carga_id_Name}"></td>
+                </tr>
+ 
+                <tr class="Caption">
+                  <th colspan="3">{mensaje}</th>
+                </tr>
+ 
+                <tr class="Header">
+                  <th colspan="3"></th>
+                </tr>
+ 
+                <tr class="Caption">
+                  <th>
+                  <div align="right">
+                    Archivo CAD: 
+                  </div>
+                  </th>
+ 
+                  <td style="BACKGROUND: #fff; COLOR: #000" colspan="2">{cargacad}</td>
+                </tr>
+ 
+                <tr class="Caption">
+                  <th>
+                  <div align="center">
+                    Documentacion Requerida 
+                  </div>
+                  </th>
+ 
+                  <th>
+                  <div align="center">
+                    Carga 
+                  </div>
+                  </th>
+ 
+                  <th>
+                  <div align="center">
+                    Lista de Carga 
+                  </div>
+                  </th>
+                </tr>
+ 
+                <!-- BEGIN Row -->
+                <tr class="Row">
+                  <td style="TEXT-ALIGN: right">{previsado_requisito_id}</td> 
+                  <td style="BACKGROUND: #fff; COLOR: #000">{cargaimagen}</td> 
+                  <td style="BACKGROUND: #fff; COLOR: #000">{muestraimagen}</td>
+                </tr>
+ <!-- END Row -->
+                <!-- BEGIN NoRecords -->
+                <tr class="NoRecords">
+                  <td colspan="3">
+                    <div align="center">
+                      <font color="#008000" size="2"><strong>Sin Documentacion</strong></font> 
+                    </div>
+                  </td>
+                </tr>
+                <!-- END NoRecords -->
+                <tr class="Footer">
+                  <td colspan="3">
+                    <div align="right">
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+        <!-- END Grid previsados_detalles_carga1 --></td>
+    </tr>
+  </table>
+</div>
+<div>
+  {tdf_footer} 
+</div>
+</body>
+</html>

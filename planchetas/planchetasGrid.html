@@ -1,0 +1,256 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Planchetas</title>
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/adx.css">
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/Simple_tdf/Menu.css">
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/common.css">
+<!-- jQuery & jQuery UI & jQuery plugins-->
+<script src="{page:pathToRoot}js/jquery-1.7.min.js" type="text/javascript"></script>
+<script src="{page:pathToRoot}js/jquery-ui.custom.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/jquery_ui/jquery-ui.custom.min.css">
+<script src="{page:pathToRoot}js/slides.min.jquery.js" type="text/javascript"></script>
+<!-- end: jQuery & jQuery UI -->
+<!-- Scripts generales (para toda la aplicación -->
+<script type="text/javascript">
+
+      // deshabilita $ como objeto de jQuery para evitar conflictos con Prototype */
+      $.noConflict();
+
+    </script>
+<!-- end: Scripts generales -->
+<script language="JavaScript" type="text/javascript">
+    //Begin CCS script
+    //Include Common JSFunctions @1-9722A627
+
+    </script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+    //End Include Common JSFunctions
+
+    //bind_events @1-E634CA02
+    function bind_events() {
+        if (functionExists("tdf_header_bind_events")) tdf_header_bind_events();
+        if (functionExists("tdf_footer_bind_events")) tdf_footer_bind_events();
+        if (functionExists("tdf_menu_bind_events")) tdf_menu_bind_events();
+    }
+    //End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+    //End CCS script
+    </script>
+<link rel="stylesheet" type="text/css" href="../Styles/Simple_tdf/Style.css">
+</head>
+<body>
+{tdf_header}{tdf_menu}<br>
+<p>
+<!-- BEGIN Record planchetasSearch -->
+<form id="planchetasSearch" name="{HTMLFormName}" action="{Action}" method="post">
+  <table cellspacing="0" cellpadding="0" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img src="../Styles/Simple/Images/Spacer.gif" border="0"></td> 
+            <th>Buscador</th>
+ 
+            <td class="HeaderRight"><img src="../Styles/Simple/Images/Spacer.gif" border="0"></td>
+          </tr>
+        </table>
+ 
+        <table class="Record" cellspacing="0" cellpadding="0">
+          <!-- BEGIN Error -->
+          <tr class="Error">
+            <td colspan="8">{Error}</td>
+          </tr>
+          <!-- END Error -->
+          <tr class="Controls">
+            <td>Departamento&nbsp;</td> 
+            <td>Padrón&nbsp;</td> 
+            <td>Sección&nbsp;</td> 
+            <td>Quinta&nbsp;</td> 
+            <td>Chacra&nbsp;</td> 
+            <td>Macizo&nbsp;</td> 
+            <td>Parcela&nbsp;</td> 
+            <th>Ruta&nbsp;</th>
+          </tr>
+ 
+          <tr class="Controls">
+            <td>
+              <select id="planchetasSearchs_tipo_depto_parc_id" name="{s_tipo_depto_parc_id_Name}">
+                <option value="" selected>...</option>
+                {s_tipo_depto_parc_id_Options}
+              </select>
+ &nbsp; </td> 
+            <td>
+              <select id="planchetasSearchs_tipo_padron_parc_id" name="{s_tipo_padron_parc_id_Name}">
+                <option value="" selected>...</option>
+                {s_tipo_padron_parc_id_Options}
+              </select>
+ &nbsp; </td> 
+            <td><input id="planchetasSearchs_plancheta_scc" maxlength="3" size="3" value="{s_plancheta_scc}" name="{s_plancheta_scc_Name}">&nbsp;</td> 
+            <td><input id="planchetasSearchs_plancheta_qta" maxlength="10" size="10" value="{s_plancheta_qta}" name="{s_plancheta_qta_Name}">&nbsp;</td> 
+            <td><input id="planchetasSearchs_plancheta_cha" maxlength="6" size="6" value="{s_plancheta_cha}" name="{s_plancheta_cha_Name}">&nbsp;</td> 
+            <td><input id="planchetasSearchs_plancheta_mzo" maxlength="6" size="6" value="{s_plancheta_mzo}" name="{s_plancheta_mzo_Name}">&nbsp;</td> 
+            <td><input id="planchetasSearchs_plancheta_par" maxlength="6" size="6" value="{s_plancheta_par}" name="{s_plancheta_par_Name}">&nbsp;</td> 
+            <td><input id="planchetasSearchs_plancheta_ruta" maxlength="15" size="15" value="{s_plancheta_ruta}" name="{s_plancheta_ruta_Name}"></td>
+          </tr>
+ 
+          <tr class="Bottom">
+            <td align="right" colspan="8">
+              <!-- BEGIN Button Button_DoSearch --><input class="Button" id="planchetasSearchButton_DoSearch" type="submit" value="Buscar" name="{Button_Name}"><!-- END Button Button_DoSearch --></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</form>
+<!-- END Record planchetasSearch --><br>
+<!-- BEGIN Grid planchetas -->
+<table cellspacing="0" cellpadding="0" border="0">
+  <tr>
+    <td valign="top">
+      <table class="Header" cellspacing="0" cellpadding="0" border="0">
+        <tr>
+          <td class="HeaderLeft"><img src="../Styles/Simple/Images/Spacer.gif" border="0"></td> 
+          <th>Listado de planchetas </th>
+ 
+          <td class="HeaderRight"><img src="../Styles/Simple/Images/Spacer.gif" border="0"></td>
+        </tr>
+      </table>
+ 
+      <table class="Grid" cellspacing="0" cellpadding="0">
+        <tr class="Caption">
+          <th>&nbsp;</th>
+ 
+          <th>&nbsp;</th>
+ 
+          <th>&nbsp;</th>
+ 
+          <th>&nbsp;</th>
+ 
+          <th>&nbsp;</th>
+ 
+          <th>&nbsp;</th>
+ 
+          <th>&nbsp;</th>
+ 
+          <th>&nbsp;</th>
+ 
+          <th>&nbsp;</th>
+ 
+          <th>&nbsp;</th>
+ 
+          <th>&nbsp;</th>
+ 
+          <th><a href="{link_detalle1}" title="Ver detalle"><img style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; VERTICAL-ALIGN: middle; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px" alt=" " src="../iconos/16x16/document-new.gif"> Nueva</a>&nbsp;</th>
+        </tr>
+ 
+        <tr class="Caption">
+          <th>
+          <!-- BEGIN Sorter Sorter_tipo_depto_parc_id --><a href="{Sort_URL}" id="planchetasSorter_tipo_depto_parc_id">Departamento</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/Simple/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/Simple/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_tipo_depto_parc_id --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_tipo_padron_parc_id --><a href="{Sort_URL}" id="planchetasSorter_tipo_padron_parc_id">Padrón</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/Simple/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/Simple/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_tipo_padron_parc_id --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_plancheta_scc --><a href="{Sort_URL}" id="planchetasSorter_plancheta_scc">Sección</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/Simple/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/Simple/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_plancheta_scc --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_plancheta_qta --><a href="{Sort_URL}" id="planchetasSorter_plancheta_qta">Quinta</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/Simple/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/Simple/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_plancheta_qta --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_plancheta_cha --><a href="{Sort_URL}" id="planchetasSorter_plancheta_cha">Chacra</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/Simple/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/Simple/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_plancheta_cha --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_plancheta_mzo --><a href="{Sort_URL}" id="planchetasSorter_plancheta_mzo">Macizo</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/Simple/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/Simple/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_plancheta_mzo --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_plancheta_par --><a href="{Sort_URL}" id="planchetasSorter_plancheta_par">Parcela</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/Simple/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/Simple/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_plancheta_par --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_plancheta_hoja --><a href="{Sort_URL}" id="planchetasSorter_plancheta_hoja">Hoja</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/Simple/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/Simple/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_plancheta_hoja --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_plancheta_ruta --><a href="{Sort_URL}" id="planchetasSorter_plancheta_ruta">Ruta</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/Simple/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/Simple/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_plancheta_ruta --></th>
+ 
+          <th>
+          <!-- BEGIN Sorter Sorter_plancheta_f_act --><a href="{Sort_URL}" id="planchetasSorter_plancheta_f_act">Fecha actualiz.</a> 
+          <!-- BEGIN Asc_On --><img src="../Styles/Simple/Images/Asc.gif" border="0"><!-- END Asc_On -->
+          <!-- BEGIN Desc_On --><img src="../Styles/Simple/Images/Desc.gif" border="0"><!-- END Desc_On --><!-- END Sorter Sorter_plancheta_f_act --></th>
+ 
+          <th>Plancheta</th>
+ 
+          <th>Opciones &nbsp;</th>
+        </tr>
+ 
+        <!-- BEGIN Row -->
+        <tr class="Row">
+          <td>{tipo_depto_parc_desc}&nbsp;</td> 
+          <td>{tipo_padron_parc_desc}&nbsp;</td> 
+          <td>{plancheta_scc}&nbsp;</td> 
+          <td>{plancheta_qta}&nbsp;</td> 
+          <td>{plancheta_cha}&nbsp;</td> 
+          <td>{plancheta_mzo}&nbsp;</td> 
+          <td>{plancheta_par}&nbsp;</td> 
+          <td style="TEXT-ALIGN: right">{plancheta_hoja}&nbsp;</td> 
+          <td>{plancheta_ruta}&nbsp;</td> 
+          <td>{plancheta_f_act}&nbsp;</td> 
+          <td>{html}</td> 
+          <td><a href="{link_detalle}" title="Ver detalle"><img style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px" alt=" " src="../iconos/16x16/system-search.gif"></a>&nbsp;<a href="{link_editar}" id="planchetaslink_editar_{planos_listado:rowNumber}" title="Editar"><img style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px" alt="{link_editar}" src="../iconos/16x16/accessories-text-editor.gif"></a>&nbsp;<a href="{link_print}" title="Imprimir" target="_blank"><img style="BORDER-RIGHT: 0px; BORDER-TOP: 0px; BORDER-LEFT: 0px; BORDER-BOTTOM: 0px" src="../iconos/16x16/printer.gif"></a></td>
+        </tr>
+ <!-- END Row -->
+        <!-- BEGIN NoRecords -->
+        <tr class="NoRecords">
+          <td colspan="12">No hay registros</td>
+        </tr>
+        <!-- END NoRecords -->
+        <tr class="Footer">
+          <td colspan="12">
+            <!-- BEGIN Navigator Navigator -->
+            <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+            <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+              <option value="" selected>-</option>
+ {PageSize_Options}
+            </select>
+ 
+            <!-- BEGIN First_On --><a href="{First_URL}">Inicio</a> <!-- END First_On -->
+            <!-- BEGIN First_Off -->Inicio <!-- END First_Off -->
+            <!-- BEGIN Prev_On --><a href="{Prev_URL}">Anterior</a> <!-- END Prev_On -->
+            <!-- BEGIN Prev_Off -->Anterior <!-- END Prev_Off -->&nbsp; 
+            <!-- BEGIN Pages -->
+            <!-- BEGIN Page_On --><a href="{Page_URL}">{Page_Number}</a>&nbsp;<!-- END Page_On -->
+            <!-- BEGIN Page_Off -->{Page_Number}&nbsp;<!-- END Page_Off --><!-- END Pages -->de &nbsp;{Total_Pages}&nbsp; 
+            <!-- BEGIN Next_On --><a href="{Next_URL}">Siguiente</a> <!-- END Next_On -->
+            <!-- BEGIN Next_Off -->Siguiente <!-- END Next_Off -->
+            <!-- BEGIN Last_On --><a href="{Last_URL}">Final</a> <!-- END Last_On -->
+            <!-- BEGIN Last_Off -->Final <!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- END Grid planchetas --><br>
+</p>
+<p>{tdf_footer}</p>
+</body>
+</html>

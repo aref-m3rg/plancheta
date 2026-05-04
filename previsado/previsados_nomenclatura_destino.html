@@ -1,0 +1,433 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Nomenclatura Origen</title>
+<link rel="stylesheet" type="text/css" href="../Styles/common.css">
+<script language="JavaScript" src="../Functions.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+function eliminar_cargas(){
+    if(confirm('Confirma eliminar todos los destinos creados?')){
+        var previsado_carga_id = CCGetParam("previsado_carga_id");
+        var URL="eliminar_destinos.php?previsado_carga_id="+previsado_carga_id;
+        window.location=URL;
+    }
+    return false;
+}
+
+function carga_multiple(){
+    if(confirm('Confirma carga multiples segun las condiciones?')){
+        var rango_tipo = document.getElementById("previsados_parcelas_dest1rango_tipo").value;
+        var rango_ini = document.getElementById("previsados_parcelas_dest1ini").value;
+        var rango_fin = document.getElementById("previsados_parcelas_dest1fin").value;
+        var parcela_seccion = document.getElementById("previsados_parcelas_dest1parcela_seccion").value;
+        var parcela_macizo = document.getElementById("previsados_parcelas_dest1parcela_macizo").value;
+        var parcela_parcela = document.getElementById("previsados_parcelas_dest1parcela_parcela").value;
+        var parcela_uf = document.getElementById("previsados_parcelas_dest1parcela_uf").value;
+        if(!rango_ini || !rango_fin || rango_ini > rango_fin){
+                alert('Se debe indicar el valor de inicio, valor fin y el valor de inicio debe ser menor al del fin !');
+                return false;
+        }
+        if(rango_tipo == 2 && !parcela_parcela){
+                alert('Debe completar el dato de parcela para la creacion multiple de UF|UC!');
+                return false;
+        }
+        if(!parcela_seccion){
+                alert('Debe completar la seccion a que pertenece!');
+                return false;
+        }
+        var cant_destino = rango_fin-rango_ini;
+        var tipo_depto_parc_id = document.getElementById("previsados_parcelas_dest1tipo_depto_parc_id").value;
+        var parcela_chacra = document.getElementById("previsados_parcelas_dest1parcela_chacra").value;
+        var parcela_quinta = document.getElementById("previsados_parcelas_dest1parcela_quinta").value;
+        var parcela_fraccion = document.getElementById("previsados_parcelas_dest1parcela_fraccion").value;
+        var parcela_super_mensura = document.getElementById("previsados_parcelas_dest1parcela_super_mensura").value;
+        var unidades_medidas_id = document.getElementById("previsados_parcelas_dest1unidades_medidas_id").value;
+        var parcela_super_uf = document.getElementById("previsados_parcelas_dest1parcela_super_uf").value;
+        var unidades_medidas_uf_id = document.getElementById("previsados_parcelas_dest1unidades_medidas_uf_id").value;
+        var previsado_titular_fijo_id = document.getElementById("previsados_parcelas_dest1previsado_titular_fijo_id").value;
+
+        var previsado_carga_id = CCGetParam("previsado_carga_id");
+        var URL="crear_destinos.php?previsado_carga_id="+previsado_carga_id+"&cant_destino="+cant_destino+"&rango_tipo="+rango_tipo+"&rango_ini="+rango_ini+"&rango_fin="+rango_fin+"&parcela_seccion="+parcela_seccion+"&parcela_macizo="+parcela_macizo+"&parcela_parcela="+parcela_parcela+"&parcela_uf="+parcela_uf+"&tipo_depto_parc_id="+tipo_depto_parc_id+"&parcela_chacra="+parcela_chacra+"&parcela_quinta="+parcela_quinta+"&parcela_fraccion="+parcela_fraccion+"&parcela_super_mensura="+parcela_super_mensura+"&unidades_medidas_id="+unidades_medidas_id+"&parcela_super_uf="+parcela_super_uf+"&unidades_medidas_uf_id="+unidades_medidas_uf_id+"&previsado_titular_fijo_id="+previsado_titular_fijo_id;
+        window.location=URL;
+    }
+    return false;
+}
+</script>
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-9722A627
+</script>
+<script language="JavaScript" src="../ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//previsados_parcelas_dest1Button_Delete_OnClick @38-6D8904B7
+function previsados_parcelas_dest1Button_Delete_OnClick()
+{
+    var result = true;
+//End previsados_parcelas_dest1Button_Delete_OnClick
+
+//Confirmation Message @39-BED55CD3
+    return confirm('Borrar registro?');
+//End Confirmation Message
+
+//Close previsados_parcelas_dest1Button_Delete_OnClick @38-BC33A33A
+    return result;
+}
+//End Close previsados_parcelas_dest1Button_Delete_OnClick
+
+//previsados_parcelas_dest1Button_Cancel_OnClick @40-F9B3AD44
+function previsados_parcelas_dest1Button_Cancel_OnClick()
+{
+    disableValidation = true;
+}
+//End previsados_parcelas_dest1Button_Cancel_OnClick
+
+//previsados_parcelas_dest1Button_adds_OnClick @123-5E912C87
+function previsados_parcelas_dest1Button_adds_OnClick()
+{
+    disableValidation = true;
+}
+//End previsados_parcelas_dest1Button_adds_OnClick
+
+//previsados_parcelas_dest1Button_deletes_OnClick @124-FB900343
+function previsados_parcelas_dest1Button_deletes_OnClick()
+{
+    disableValidation = true;
+}
+//End previsados_parcelas_dest1Button_deletes_OnClick
+
+//bind_events @1-E25BC146
+function bind_events() {
+    if (functionExists("tdf_header_bind_events")) tdf_header_bind_events();
+    if (functionExists("tdf_footer_bind_events")) tdf_footer_bind_events();
+    addEventHandler("previsados_parcelas_dest1Button_Delete", "click", previsados_parcelas_dest1Button_Delete_OnClick);
+    addEventHandler("previsados_parcelas_dest1Button_Cancel", "click", previsados_parcelas_dest1Button_Cancel_OnClick);
+    addEventHandler("previsados_parcelas_dest1Button_adds", "click", previsados_parcelas_dest1Button_adds_OnClick);
+    addEventHandler("previsados_parcelas_dest1Button_deletes", "click", previsados_parcelas_dest1Button_deletes_OnClick);
+}
+//End bind_events
+
+window.onload = bind_events; //Assign bind_events @1-19F7B649
+
+//End CCS script
+</script>
+<link rel="stylesheet" type="text/css" href="../Styles/Simple_tdf/Style.css">
+</head>
+<body>
+{tdf_header} 
+<div>
+  <!-- BEGIN Record previsados_parcelas_dest1 -->
+  <form id="previsados_parcelas_dest1" method="post" name="{HTMLFormName}" action="{Action}">
+    <table cellspacing="0" cellpadding="0" width="100%" border="0">
+      <tr>
+        <td valign="top">
+          <table class="Header" cellspacing="0" cellpadding="0" border="0">
+            <tr>
+              <td class="HeaderLeft"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td> 
+              <th>Agregar/Editar Parcela&nbsp;Destino </th>
+ 
+              <td class="HeaderRight"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td>
+            </tr>
+          </table>
+ 
+          <table class="Record" cellspacing="0" cellpadding="0">
+            <!-- BEGIN Error -->
+            <tr class="Error">
+              <td colspan="11"><strong><font size="2">{Error}</font></strong></td>
+            </tr>
+            <!-- END Error -->
+            <tr bgcolor="#4a81b9">
+              <th colspan="11"><strong><font color="#ffffff">Simple</font></strong></th>
+            </tr>
+ 
+            <tr class="Controls">
+              <th>
+              <div align="center">
+                Depto&nbsp; 
+              </div>
+              </th>
+ 
+              <td>
+                <div align="center">
+                  Seccion&nbsp; 
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  Chacra&nbsp; 
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  Quinta&nbsp; 
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  Macizo&nbsp; 
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  Fraccion 
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  Parcela&nbsp; 
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  Uf|Uc&nbsp; 
+                </div>
+              </td> 
+              <td>Sup.&nbsp;Parc.</td> 
+              <td>Sup. UF&nbsp;</td> 
+              <td>Destino&nbsp;</td>
+            </tr>
+ 
+            <tr class="Controls">
+              <th>
+              <div align="center">
+                <select id="previsados_parcelas_dest1tipo_depto_parc_id" name="{tipo_depto_parc_id_Name}">
+                  {tipo_depto_parc_id_Options}
+                </select>
+ 
+              </div>
+              </th>
+ 
+              <td>
+                <div align="center">
+                  <select id="previsados_parcelas_dest1parcela_seccion" name="{parcela_seccion_Name}">
+                    {parcela_seccion_Options}
+                  </select>
+ 
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_parcelas_dest1parcela_chacra" maxlength="10" size="5" value="{parcela_chacra}" name="{parcela_chacra_Name}" autocomplete="off">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_parcelas_dest1parcela_quinta" maxlength="10" size="5" value="{parcela_quinta}" name="{parcela_quinta_Name}">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_parcelas_dest1parcela_macizo" maxlength="5" size="5" value="{parcela_macizo}" name="{parcela_macizo_Name}" autocomplete="off">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_parcelas_dest1parcela_fraccion" maxlength="10" size="5" value="{parcela_fraccion}" name="{parcela_fraccion_Name}" autocomplete="off">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_parcelas_dest1parcela_parcela" maxlength="10" size="5" value="{parcela_parcela}" name="{parcela_parcela_Name}" autocomplete="off">
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                  <input id="previsados_parcelas_dest1parcela_uf" maxlength="15" size="5" value="{parcela_uf}" name="{parcela_uf_Name}" autocomplete="off"><input id="previsados_parcelas_dest1parcela_id" type="hidden" value="{parcela_id}" name="{parcela_id_Name}"><input id="previsados_parcelas_dest1previsado_carga_id" type="hidden" value="{previsado_carga_id}" name="{previsado_carga_id_Name}">
+                </div>
+              </td> 
+              <td><input id="previsados_parcelas_dest1parcela_super_mensura" maxlength="16" size="5" value="{parcela_super_mensura}" name="{parcela_super_mensura_Name}">
+                <select id="previsados_parcelas_dest1unidades_medidas_id" name="{unidades_medidas_id_Name}">
+                  {unidades_medidas_id_Options}
+                </select>
+ </td> 
+              <td><input id="previsados_parcelas_dest1parcela_super_uf" maxlength="16" size="5" value="{parcela_super_uf}" name="{parcela_super_uf_Name}">
+                <select id="previsados_parcelas_dest1unidades_medidas_uf_id" name="{unidades_medidas_uf_id_Name}">
+                  {unidades_medidas_uf_id_Options}
+                </select>
+ </td> 
+              <td>
+                <select id="previsados_parcelas_dest1previsado_titular_fijo_id1" name="{previsado_titular_fijo_id1_Name}">
+                  {previsado_titular_fijo_id1_Options}
+                </select>
+              </td>
+            </tr>
+ 
+            <tr class="Bottom">
+              <td colspan="11" align="right"><a href="{previsados_parcelas_orige_Insert_Src}" id="previsados_parcelas_dest1previsados_parcelas_orige_Insert"><font color="#000080">Limpiar</font></a>&nbsp; 
+                <!-- BEGIN Button Button_Insert --><input id="previsados_parcelas_dest1Button_Insert" class="Button" type="submit" value="Agregar" name="{Button_Name}"><!-- END Button Button_Insert -->
+                <!-- BEGIN Button Button_Update --><input id="previsados_parcelas_dest1Button_Update" class="Button" type="submit" value="Actualizar" name="{Button_Name}"><!-- END Button Button_Update -->
+                <!-- BEGIN Button Button_Delete --><input id="previsados_parcelas_dest1Button_Delete" class="Button" type="submit" value="Eliminar" name="{Button_Name}"><!-- END Button Button_Delete -->
+                <!-- BEGIN Button Button_Cancel --><input id="previsados_parcelas_dest1Button_Cancel" class="Button" type="submit" value="Salir" name="{Button_Name}"><!-- END Button Button_Cancel --></td>
+            </tr>
+ 
+            <tr bgcolor="#4a81b9">
+              <th colspan="11"><strong><font color="#ffffff">Multiple</font></strong></th>
+            </tr>
+ 
+            <tr class="Controls">
+              <th colspan="2">&nbsp;Base 
+              <select id="previsados_parcelas_dest1rango_tipo" name="{rango_tipo_Name}">
+                {rango_tipo_Options}
+              </select>
+ :</th>
+ 
+              <td colspan="2"><input id="previsados_parcelas_dest1ini" maxlength="10" size="5" value="{ini}" name="{ini_Name}">al<input id="previsados_parcelas_dest1fin" maxlength="10" size="5" value="{fin}" name="{fin_Name}"></td> 
+              <td colspan="2">
+                <select id="previsados_parcelas_dest1previsado_titular_fijo_id" name="{previsado_titular_fijo_id_Name}">
+                  {previsado_titular_fijo_id_Options}
+                </select>
+ </td> 
+              <td><input id="previsados_parcelas_dest1cant_destino" type="hidden" value="{cant_destino}" name="{cant_destino_Name}"></td> 
+              <td>
+                <div align="center">
+                  <!-- BEGIN Button Button_adds --><input onclick="carga_multiple();" id="previsados_parcelas_dest1Button_adds" class="Button" type="button" value="Generar Multiples" name="{Button_Name}"><!-- END Button Button_adds -->
+                </div>
+              </td> 
+              <td>
+                <div align="center">
+                </div>
+              </td> 
+              <td colspan="2">
+                <!-- BEGIN Button Button_deletes --><input onclick="eliminar_cargas();" id="previsados_parcelas_dest1Button_deletes" class="Button" type="button" value="Eliminar Todos" name="{Button_Name}"><!-- END Button Button_deletes --></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <!-- END Record previsados_parcelas_dest1 -->
+</div>
+<br>
+<div>
+  <!-- BEGIN Grid previsados_parcelas_orige -->
+  <table cellspacing="0" cellpadding="0" width="100%" border="0">
+    <tr>
+      <td valign="top">
+        <table class="Header" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td class="HeaderLeft"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td> 
+            <th>Lista de Parcelas Destino</th>
+ 
+            <td class="HeaderRight"><img border="0" src="../Styles/Simple_tdf/Images/Spacer.gif"></td>
+          </tr>
+        </table>
+ 
+        <table class="Grid" cellspacing="0" cellpadding="0">
+          <tr class="Caption">
+            <th>
+            <!-- BEGIN Sorter Sorter_tipo_depto_parc_id --><a href="{Sort_URL}" id="previsados_parcelas_origeSorter_tipo_depto_parc_id"><font color="#000080">Partida</font></a> 
+            <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_tipo_depto_parc_id --></th>
+ 
+            <th>
+            <!-- BEGIN Sorter Sorter_partida --><a href="{Sort_URL}" id="previsados_parcelas_origeSorter_partida">Depto</a> 
+            <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_partida --></th>
+ 
+            <th>
+            <!-- BEGIN Sorter Sorter_parcela_seccion --><a href="{Sort_URL}" id="previsados_parcelas_origeSorter_parcela_seccion"><font color="#000080">Seccion</font></a> 
+            <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_parcela_seccion --></th>
+ 
+            <th>
+            <!-- BEGIN Sorter Sorter_parcela_chacra --><a href="{Sort_URL}" id="previsados_parcelas_origeSorter_parcela_chacra"><font color="#000080">Chacra</font></a> 
+            <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_parcela_chacra --></th>
+ 
+            <th>
+            <!-- BEGIN Sorter Sorter_parcela_quinta --><a href="{Sort_URL}" id="previsados_parcelas_origeSorter_parcela_quinta"><font color="#000080">Quinta</font></a> 
+            <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_parcela_quinta --></th>
+ 
+            <th>
+            <!-- BEGIN Sorter Sorter_parcela_macizo --><a href="{Sort_URL}" id="previsados_parcelas_origeSorter_parcela_macizo"><font color="#000080">Macizo</font></a> 
+            <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_parcela_macizo --></th>
+ 
+            <th>
+            <!-- BEGIN Sorter Sorter_parcela_fraccion --><a href="{Sort_URL}" id="previsados_parcelas_origeSorter_parcela_fraccion"><font color="#000080">Fraccion</font></a> 
+            <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_parcela_fraccion --></th>
+ 
+            <th>
+            <!-- BEGIN Sorter Sorter_parcela_parcela --><a href="{Sort_URL}" id="previsados_parcelas_origeSorter_parcela_parcela"><font color="#000080">Parcela</font></a> 
+            <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_parcela_parcela --></th>
+ 
+            <th>
+            <!-- BEGIN Sorter Sorter_parcela_uf --><a href="{Sort_URL}" id="previsados_parcelas_origeSorter_parcela_uf"><font color="#000080">Uf/Uc</font></a> 
+            <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_parcela_uf --></th>
+ 
+            <th>
+            <!-- BEGIN Sorter Sorter_parcela_super_mensura --><a href="{Sort_URL}" id="previsados_parcelas_origeSorter_parcela_super_mensura">Sup. Parc.</a> 
+            <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_parcela_super_mensura -->&nbsp;</th>
+ 
+            <th>
+            <!-- BEGIN Sorter Sorter_sup_uf --><a href="{Sort_URL}" id="previsados_parcelas_origeSorter_sup_uf">Sup. UF</a> 
+            <!-- BEGIN Asc_On --><img border="0" src="../Styles/Simple_tdf/Images/Asc.gif"><!-- END Asc_On -->
+            <!-- BEGIN Desc_On --><img border="0" src="../Styles/Simple_tdf/Images/Desc.gif"><!-- END Desc_On --><!-- END Sorter Sorter_sup_uf --></th>
+ 
+            <th>Destino&nbsp;</th>
+          </tr>
+ 
+          <!-- BEGIN Row -->
+          <tr class="Row">
+            <td>{parcela_partida}&nbsp;</td> 
+            <td style="TEXT-ALIGN: right"><a href="{tipo_depto_parc_desc_Src}" id="previsados_parcelas_origetipo_depto_parc_desc_{previsados_parcelas_orige:rowNumber}"><font color="#000080">{tipo_depto_parc_desc}</font></a>&nbsp;</td> 
+            <td>{parcela_seccion}&nbsp;</td> 
+            <td>{parcela_chacra}&nbsp;</td> 
+            <td>{parcela_quinta}&nbsp;</td> 
+            <td>{parcela_macizo}&nbsp;</td> 
+            <td>{parcela_fraccion}&nbsp;</td> 
+            <td>{parcela_parcela}&nbsp;</td> 
+            <td>{parcela_uf}&nbsp;</td> 
+            <td>{parcela_super_mensura}&nbsp;{unidades_medidas_abrev}</td> 
+            <td>{parcela_super_uf}&nbsp;{unidades_medidas_uf_unidades_medidas_abrev}</td> 
+            <td>{destino}&nbsp;</td>
+          </tr>
+ <!-- END Row -->
+          <!-- BEGIN NoRecords -->
+          <tr class="NoRecords">
+            <td colspan="12"><font color="#ff0000" size="2"><strong>No hay Parcelas&nbsp;Destinos Agregadas</strong></font></td>
+          </tr>
+          <!-- END NoRecords -->
+          <tr class="Footer">
+            <td colspan="12">&nbsp; 
+              <!-- BEGIN Navigator Navigator -->
+              <!-- BEGIN Page_Parameter --><input type="hidden" value="{Value}" name="{Name}"><!-- END Page_Parameter -->Per page: 
+              <select onchange="CCChangeSize(this, '{FormName}')" name="{FormName}PageSize">
+                <option selected value="">-</option>
+ {PageSize_Options}
+              </select>
+ 
+              <!-- BEGIN First_On --><a href="{First_URL}"><img border="0" src="../Styles/Simple_tdf/Images/First.gif"></a> <!-- END First_On -->
+              <!-- BEGIN First_Off --><img border="0" src="../Styles/Simple_tdf/Images/FirstOff.gif"><!-- END First_Off -->
+              <!-- BEGIN Prev_On --><a href="{Prev_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Prev.gif"></a> <!-- END Prev_On -->
+              <!-- BEGIN Prev_Off --><img border="0" src="../Styles/Simple_tdf/Images/PrevOff.gif"><!-- END Prev_Off -->&nbsp;{Page_Number} de&nbsp;{Total_Pages}&nbsp; 
+              <!-- BEGIN Next_On --><a href="{Next_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Next.gif"></a> <!-- END Next_On -->
+              <!-- BEGIN Next_Off --><img border="0" src="../Styles/Simple_tdf/Images/NextOff.gif"><!-- END Next_Off -->
+              <!-- BEGIN Last_On --><a href="{Last_URL}"><img border="0" src="../Styles/Simple_tdf/Images/Last.gif"></a> <!-- END Last_On -->
+              <!-- BEGIN Last_Off --><img border="0" src="../Styles/Simple_tdf/Images/LastOff.gif"><!-- END Last_Off --><!-- END Navigator Navigator -->&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+  <!-- END Grid previsados_parcelas_orige -->
+</div>
+<div>
+</div>
+<div>
+  <br>
+  &nbsp; 
+</div>
+<div>
+</div>
+<div>
+  {tdf_footer} 
+</div>
+</body>
+</html>

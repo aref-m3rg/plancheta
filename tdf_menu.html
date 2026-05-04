@@ -1,0 +1,88 @@
+<link rel="stylesheet" type="text/css" href="Styles/Simple_tdf/Style.css">
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/adx.css">
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/Simple_tdf/Menu.css">
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/common.css">
+<!-- jQuery & jQuery UI & jQuery plugins-->
+<script type="text/javascript" src="{page:pathToRoot}js/jquery-1.7.min.js"></script>
+<script type="text/javascript" src="{page:pathToRoot}js/jquery-ui.custom.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{page:pathToRoot}Styles/jquery_ui/jquery-ui.custom.min.css">
+<script type="text/javascript" src="{page:pathToRoot}js/slides.min.jquery.js"></script>
+<!-- end: jQuery & jQuery UI -->
+<!-- Scripts generales (para toda la aplicación -->
+<script type="text/javascript">
+  // deshabilita $ como objeto de jQuery para evitar conflictos con Prototype */
+  $.noConflict();
+</script>
+<!-- end: Scripts generales -->
+<script language="JavaScript" type="text/javascript">
+//Begin CCS script
+//Include Common JSFunctions @1-A2F3288E
+</script>
+<script language="JavaScript" src="{page:pathToRoot}ClientI18N.php?file=Functions.js&amp;locale={res:CCS_LocaleID}" type="text/javascript" charset="utf-8"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include Common JSFunctions
+
+//Include User Scripts @1-C69E4AC4
+</script>
+<script language="JavaScript" src="{page:pathToRoot}js/menu/WCH.js" type="text/javascript"></script>
+<script language="JavaScript" src="{page:pathToRoot}js/menu/ADxMenu.js" type="text/javascript"></script>
+<script language="JavaScript" type="text/javascript">
+//End Include User Scripts
+
+//bind_events @1-4C0A21FD
+function tdf_menu_bind_events() {
+    addEventHandler("tdf_menuMenu1Container", "load", load_ADxMenu);
+}
+//End bind_events
+
+//End CCS script
+</script>
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+  <tr>
+    <td bgcolor="#3d84cc" width="245" align="left">
+      <div>
+        {banner0} 
+      </div>
+ </td> 
+    <td bgcolor="#3d84cc" align="center">
+      <div>
+        {banner} 
+      </div>
+ </td> 
+    <td bgcolor="#3d84cc" width="245" align="right">
+      <div>
+        {banner2} 
+      </div>
+ </td> 
+  </tr>
+ 
+  <tr class="Header">
+    <td bgcolor="#3d84cc" colspan="3">
+      <!-- BEGIN Menu Menu1 -->
+      <div class="MenuStyle Simple1" id="tdf_menuMenu1Container">
+        <ul class="adxm {Menu1:MenuType} level1">
+          <!-- BEGIN Item -->
+          <!-- BEGIN OpenLevel -->
+          <ul class="level{Menu1:Item_Level}">
+            <!-- END OpenLevel -->
+            <li><a href="{ItemLink_Src}" class="{Menu1:Submenu}" target="{Menu1:Target}" title="{Menu1:Title}">{ItemLink}</a> 
+            <!-- BEGIN CloseItem --></li>
+ <!-- END CloseItem -->
+            <!-- BEGIN CloseLevel -->
+          </ul>
+ </li>
+ <!-- END CloseLevel --><!-- END Item -->
+        </ul>
+ 
+      </div>
+ <!-- END Menu Menu1 --></td> 
+  </tr>
+ 
+  <tr>
+    <td bgcolor="#3d84cc" colspan="3" align="center">
+      <div align="left">
+        &nbsp; 
+      </div>
+ </td> 
+  </tr>
+</table>
