@@ -6,6 +6,26 @@ require_once RelativePath . "/scripts/plancheta_archivo_local.php";
 define('FPDF_FONTPATH',RelativePath . '/fpdf/font/');
 include(RelativePath . "/fpdf/fpdf.php");
 
+function plancheta_pdf_image_fit($pdf, $fileReal, $margin = 5) {
+	$pageW = $pdf->GetPageWidth() - 2 * $margin;
+	$pageH = $pdf->GetPageHeight() - 2 * $margin;
+	$size = @getimagesize($fileReal);
+	if ($size && $size[0] > 0 && $size[1] > 0) {
+		$ratio = $size[0] / $size[1];
+		$w = $pageW;
+		$h = $w / $ratio;
+		if ($h > $pageH) {
+			$h = $pageH;
+			$w = $h * $ratio;
+		}
+		$x = ($pdf->GetPageWidth() - $w) / 2;
+		$y = ($pdf->GetPageHeight() - $h) / 2;
+		$pdf->Image($fileReal, $x, $y, $w, $h);
+	} else {
+		$pdf->Image($fileReal, $margin, $margin, $pageW);
+	}
+}
+
 /*
 $db = new clsDBtdf_nuevo();
 
@@ -53,7 +73,7 @@ while($db->next_record()){
 		continue;
 	}
 	$pdf->AddPage();
-	$pdf->Image($fileReal,5,5,300);
+	plancheta_pdf_image_fit($pdf, $fileReal);
 }
 if($dpto_id != ''){
 	$pdf->Output();
