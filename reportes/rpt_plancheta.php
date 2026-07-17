@@ -53,7 +53,20 @@ while($db->next_record()){
 		continue;
 	}
 	$pdf->AddPage();
-	$pdf->Image($fileReal,5,5,300);
+	$margin = 5;
+	$maxW = $pdf->GetPageWidth() - 2 * $margin;
+	$maxH = $pdf->GetPageHeight() - 2 * $margin;
+	$size = @getimagesize($fileReal);
+	if ($size && $size[0] > 0 && $size[1] > 0) {
+		$ratio = min($maxW / $size[0], $maxH / $size[1]);
+		$w = $size[0] * $ratio;
+		$h = $size[1] * $ratio;
+		$x = ($pdf->GetPageWidth() - $w) / 2;
+		$y = ($pdf->GetPageHeight() - $h) / 2;
+		$pdf->Image($fileReal, $x, $y, $w, $h);
+	} else {
+		$pdf->Image($fileReal, $margin, $margin, $maxW, 0);
+	}
 }
 if($dpto_id != ''){
 	$pdf->Output();
