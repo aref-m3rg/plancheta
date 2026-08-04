@@ -1,6 +1,7 @@
 <?php
-if ( empty($_COOKIE['registrado']) && $_COOKIE['registrado'] != "yes") {
-	//header("location: ../login.php"); 
+if (empty($_COOKIE['registrado']) || $_COOKIE['registrado'] != "yes") {
+	header("Location: ../login.php");
+	exit;
 }
 //require('rotation.php');
 define("RelativePath", "..");

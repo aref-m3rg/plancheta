@@ -49,3 +49,39 @@ function abre_popup(url,w,h){
 	var w_top = Math.ceil(screen.height/2-h/2);
 	window.open(url,'v1','width='+w+',height='+h+',left='+w_left+',top='+w_top+',center:yes,resizesable=0,scrollbars=1').focus();
 }
+
+
+function postReportePDF(event, url) {
+    if (event && event.preventDefault) {
+        event.preventDefault();
+    }
+    if (!url) return false;
+    
+    var parts = url.split('?');
+    var action = parts[0];
+    var queryString = parts[1] || '';
+    
+    var form = document.createElement('form');
+    form.method = 'POST';
+    form.action = action;
+    form.target = '_blank';
+    
+    if (queryString) {
+        var pairs = queryString.split('&');
+        for (var i = 0; i < pairs.length; i++) {
+            var pair = pairs[i].split('=');
+            if (pair[0]) {
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = decodeURIComponent(pair[0]);
+                input.value = decodeURIComponent(pair[1] || '');
+                form.appendChild(input);
+            }
+        }
+    }
+    
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
+    return false;
+}
