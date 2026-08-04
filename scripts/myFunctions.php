@@ -623,7 +623,7 @@ function obtenerPlancheta( $id = false, $connection = false, $path = PLANCHETAS_
 		if ( !empty( $planchetaImg ) ) {
 			$title = ( !empty($planchetaOldFile) ) ? 'Archivo original: ' . $planchetaOldFile : '';
 			$planchetaThumbSrc = RelativePath . '/obtener_plancheta_archivo.php?archivo=' . rawurlencode($planchetaImg);
-			$output  = '<a target="plancheta" href="' . RelativePath . '/reportes/rpt_plancheta.php?plancheta_id=' . $planchetaId . '" title="' . $title . '">';
+			$output  = '<a href="javascript:void(0);" data-url="' . RelativePath . '/reportes/rpt_plancheta.php?plancheta_id=' . $planchetaId . '" title="' . $title . '" onclick="return abrirPlanchetaBlob(event, this.getAttribute(\'data-url\'));">';
 			$output .= '<img border="0" alt="" style="max-height:' . (int) $height . 'px;height:auto;width:auto;" src="' . htmlspecialchars($planchetaThumbSrc, ENT_QUOTES, 'UTF-8') . '">';
 			$output .= '</a>';
 		} else {

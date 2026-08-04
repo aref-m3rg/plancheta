@@ -1,4 +1,8 @@
 <?php
+if (empty($_COOKIE['registrado']) || $_COOKIE['registrado'] != "yes") {
+	header("Location: ../login.php");
+	exit;
+}
 define("RelativePath", "..");
 include(RelativePath . "/Common.php");
 require_once RelativePath . "/configuracion_general.php";

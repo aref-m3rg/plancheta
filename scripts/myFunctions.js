@@ -85,3 +85,45 @@ function postReportePDF(event, url) {
     document.body.removeChild(form);
     return false;
 }
+
+
+function abrirPlanchetaBlob(event, url) {
+    if (event && event.preventDefault) {
+        event.preventDefault();
+    }
+    if (!url) return false;
+    
+    var parts = url.split('?');
+    var action = parts[0];
+    var queryString = parts[1] || '';
+    var postData = {};
+    
+    if (queryString) {
+        var pairs = queryString.split('&');
+        for (var i = 0; i < pairs.length; i++) {
+            var pair = pairs[i].split('=');
+            if (pair[0]) {
+                postData[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || '');
+            }
+        }
+    }
+    
+    $.ajax({
+        url: action,
+        type: 'POST',
+        data: postData,
+        xhrFields: {
+            responseType: 'blob'
+        },
+        success: function(blobData) {
+            var file = new Blob([blobData], { type: 'application/pdf' });
+            var fileURL = URL.createObjectURL(file);
+            window.open(fileURL, '_blank');
+        },
+        error: function() {
+            alert('Error al generar la plancheta PDF.');
+        }
+    });
+    
+    return false;
+}
