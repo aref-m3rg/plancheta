@@ -3,7 +3,7 @@
 
 /* Colors */
 .PageBgColor {
-	background-color: #bdcddb;
+	background-color: #f86161; /* original: #bdcddb */
 	}
 
 .FormTitleBgColor {
@@ -65,7 +65,7 @@
 /* BEGIN Common */
 body { 
 	color: #000000;
-	
+	background-color: #f86161; /* original: sin background-color explicit */
 	font-family: Arial; font-size: 80%;
 	}
 
