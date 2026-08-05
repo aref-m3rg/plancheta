@@ -30,7 +30,7 @@ define( 'DS', DIRECTORY_SEPARATOR );
 /* Planchetas
 ----------------------------------------------------------------------------- */
 // Archivos de imagen en disco (idealmente fuera del document root; lectura vía obtener_plancheta_archivo.php)
-define( 'PLANCHETAS_FILESYSTEM_ROOT', 'C:\inetpub\catastro_tdf\planchetas\archivos' );
+define( 'PLANCHETAS_FILESYSTEM_ROOT', 'C:\Users\Administrador\Pictures\catastro_tdf\planchetas' );
 // Ruta bajo el sitio (referencia histórica / enlaces legacy)
 define( 'PLANCHETAS_PATH', '/planchetas/archivos' );
 
