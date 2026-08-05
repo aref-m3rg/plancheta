@@ -30,7 +30,7 @@ function planchetas_BeforeShowRow(& $sender)
   /* Trae la imagen de la plancheta
   ------------------------------------------------------ */
 	if ( !empty( $plancheta_id ) ) {
-		$plancheta = obtenerPlancheta( $plancheta_id, $db, '/planchetas/archivos/', 35, 'plancheta' );
+		$plancheta = obtenerPlancheta( $plancheta_id, $db, , 35, 'plancheta' );
 		$Component->html->SetValue( $plancheta );
 	}
 
@@ -61,7 +61,7 @@ function Page_BeforeInitialize(& $sender)
 	include_once(RelativePath . "/scripts/myFunctions.php");
 
 
-	// Incluye la gestión de permisos
+	// Incluye la gestiï¿½n de permisos
 	include_once(RelativePath . "/scripts/permisos1.php");
 
 // -------------------------
