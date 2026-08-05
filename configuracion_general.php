@@ -21,7 +21,7 @@ define( 'NOTIFICATIONS_TDF_SMTP_PASSWORD', 'Tdf36002');
 /* Filesystem
 ----------------------------------------------------------------------------- */
 // Carpeta root del proyecto
-define( 'WWW_ROOT', 'C:\inetpub\wwwroot\catastro_tdf' );
+define( 'WWW_ROOT', 'C:\inetpub\wwwtest\catastro_tdf' );
 define( 'BASE_URL', 'https://catastro.aref.gob.ar/catastro_tdf' );
 // Alias para el separador de directorios del sistemas
 define( 'DS', DIRECTORY_SEPARATOR );
