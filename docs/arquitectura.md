@@ -34,7 +34,7 @@ Los nombres con prefijos como **`PTAutocomplete`**, **`PTDependentListBox`**, **
 
 El listado de parcelas en planchetas abre el PDF vía formulario **POST** a `obtener_plano.php` (y miniatura con GET al proxy o phpThumb según pantalla), en lugar de una URL directa bajo `/tecnica/planos_nuevos/`.
 
-Las miniaturas y enlaces a imágenes de plancheta usan `obtener_plancheta_archivo.php` en lugar de `PLANCHETAS_PATH_URL` o rutas directas a `/planchetas/archivos/`.
+Las miniaturas y enlaces a imágenes de plancheta usan `obtener_plancheta_archivo.php` en lugar de rutas directas a `/planchetas/archivos/`.
 
 **Operaciones / infraestructura:** mientras el servidor web siga sirviendo la carpeta `planos_nuevos` como archivos estáticos, un usuario podría seguir accediendo por URL directa si conoce o adivina la ruta. Para cerrar el IDOR por completo, conviene **denegar el acceso HTTP directo** a esa ruta (por ejemplo reglas en IIS, `.htaccess`, o mover los PDF fuera del document root y leerlos solo desde PHP). Lo mismo aplica a **`/planchetas/archivos/`** si se quiere impedir el acceso directo a las imágenes sin pasar por el proxy.
 

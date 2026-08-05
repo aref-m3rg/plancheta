@@ -33,7 +33,6 @@ define( 'DS', DIRECTORY_SEPARATOR );
 define( 'PLANCHETAS_FILESYSTEM_ROOT', 'C:\inetpub\catastro_tdf\planchetas\archivos' );
 // Ruta bajo el sitio (referencia histórica / enlaces legacy)
 define( 'PLANCHETAS_PATH', '/planchetas/archivos' );
-define( 'PLANCHETAS_PATH_URL', 'https://catastro.aref.gob.ar/catastro_tdf/planchetas/archivos' );
 
 
 /* Planos
