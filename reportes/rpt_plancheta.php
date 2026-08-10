@@ -1,32 +1,32 @@
 <?php
-if (empty($_COOKIE['registrado']) || $_COOKIE['registrado'] != "yes") {
-	header("Location: ../login.php");
-	exit;
-}
 define("RelativePath", "..");
 include(RelativePath . "/Common.php");
-require_once RelativePath . "/configuracion_general.php";
-require_once RelativePath . "/scripts/plancheta_archivo_local.php";
 define('FPDF_FONTPATH',RelativePath . '/fpdf/font/');
 include(RelativePath . "/fpdf/fpdf.php");
 
-function plancheta_pdf_image_fit($pdf, $fileReal, $margin = 5) {
-	$pageW = $pdf->GetPageWidth() - 2 * $margin;
-	$pageH = $pdf->GetPageHeight() - 2 * $margin;
-	$size = @getimagesize($fileReal);
-	if ($size && $size[0] > 0 && $size[1] > 0) {
-		$ratio = $size[0] / $size[1];
+// -------------------------
+  /* Incluye el archivo de configuraciones generales
+  ---------------------------------------------------------- */
+include( RelativePath . '/configuracion_general.php');
+
+function rptPlanchetaImageFit($pdf, $imagen, $margin = 5)
+{
+	$pageW = $pdf->w - 2 * $margin;
+	$pageH = $pdf->h - 2 * $margin;
+	$size = @getimagesize($imagen);
+	if ($size) {
+		list($imgW, $imgH) = $size;
 		$w = $pageW;
-		$h = $w / $ratio;
+		$h = $w * $imgH / $imgW;
 		if ($h > $pageH) {
 			$h = $pageH;
-			$w = $h * $ratio;
+			$w = $h * $imgW / $imgH;
 		}
-		$x = ($pdf->GetPageWidth() - $w) / 2;
-		$y = ($pdf->GetPageHeight() - $h) / 2;
-		$pdf->Image($fileReal, $x, $y, $w, $h);
+		$x = ($pdf->w - $w) / 2;
+		$y = ($pdf->h - $h) / 2;
+		$pdf->Image($imagen, $x, $y, $w, $h);
 	} else {
-		$pdf->Image($fileReal, $margin, $margin, $pageW);
+		$pdf->Image($imagen, $margin, $margin, $pageW);
 	}
 }
 
@@ -44,6 +44,7 @@ if($imagen){
 }
 $db->close();
 */
+
 
 $db = new clsDBtdf_nuevo();
 
@@ -66,25 +67,18 @@ $SQL="SELECT * FROM planchetas WHERE tipo_depto_parc_id = '".$dpto_id."' AND tip
 }elseif($plancheta_mzo != '' && $parcela_par != ''){
 $SQL="SELECT * FROM planchetas WHERE tipo_depto_parc_id = '".$dpto_id."' AND tipo_padron_parc_id = '".$padron_id."' AND plancheta_scc = '".$plancheta_scc."' AND plancheta_mzo = '".$plancheta_mzo."' AND plancheta_par = '".$parcela_par."'ORDER BY plancheta_hoja";
 }
+//echo $SQL;exit;
 $db->query($SQL);
 while($db->next_record()){
-	$archivoParam = basename($db->f("plancheta_file"));
-	if ($archivoParam === '' || !preg_match('/^[A-Za-z0-9._-]+\.(jpe?g|png|gif)$/i', $archivoParam)) {
-		continue;
-	}
-	$fileReal = plancheta_archivo_local_path_validated($archivoParam);
-	if ($fileReal === false) {
-		continue;
-	}
 	$pdf->AddPage();
-	plancheta_pdf_image_fit($pdf, $fileReal);
+	$imagen = PLANCHETAS_PATH . "/" . $db->f("plancheta_file");
+	rptPlanchetaImageFit($pdf, $imagen);
 }
 if($dpto_id != ''){
 	$pdf->Output();
-	$db->close();
-	exit;
 }
 $db->close();
-echo "No hay imagen de plancheta a mostar";
+//echo "No hay imagen de plancheta a mostar";
+
 
 ?>
