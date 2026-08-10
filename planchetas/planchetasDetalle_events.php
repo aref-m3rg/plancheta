@@ -30,7 +30,7 @@ function planchetas_BeforeShow(& $sender)
   /* Trae la imagen de la plancheta
   ------------------------------------------------------ */
 	if ( !empty( $plancheta_id ) ) {
-		$plancheta = obtenerPlancheta( $plancheta_id, $db, , 180, 'plancheta' );
+		$plancheta = obtenerPlancheta( $plancheta_id, $db, PLANCHETAS_PATH, 180, 'plancheta' );
 		$Component->html->SetValue( $plancheta );
 	}
 
@@ -57,7 +57,10 @@ function Page_BeforeInitialize(& $sender)
 //Custom Code @5-2A29BDB7
 // -------------------------
 
-	// Incluye el archivo de funciones generales
+// Incluye las configuraciones generales
+  include_once(RelativePath . "/configuracion_general.php");
+
+// Incluye el archivo de funciones generales
 	include_once(RelativePath . "/scripts/myFunctions.php");
 
 
