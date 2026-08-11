@@ -27,7 +27,7 @@ function planchetas_FileUpload1_AfterProcessFile(& $sender)
 	$fileInfo = pathinfo($old);
 	$oldName = $fileInfo['basename'];
 	$new = date('Ymd_') . (double)microtime() * 1000000 . '.' . $fileInfo['extension'];
-	rename(  RelativePath . "/planchetas/archivos/" . $oldName, RelativePath . "/planchetas/archivos/" . $new);
+	rename(  RelativePath . PLANCHETAS_PATH . $oldName, RelativePath . PLANCHETAS_PATH . $new);
 	$db = new clsDBtdf_nuevo();
 	$db->query("UPDATE planchetas SET plancheta_file = '" . mysql_real_escape_string($new) . "', plancheta_old_file = '" . mysql_real_escape_string($oldName) . "' where plancheta_file = '" . mysql_real_escape_string($oldName) . "'");
 	$db->close();
@@ -52,7 +52,7 @@ function planchetas_BeforeShow(& $sender)
 //Custom Code @27-2A29BDB7
 // -------------------------
 
-	// Guarda la fecha de actualización
+	// Guarda la fecha de actualizaciï¿½n
 	$Component->plancheta_f_act->SetValue(date('Y-m-d H:i:s'));
 
 
@@ -66,7 +66,7 @@ function planchetas_BeforeShow(& $sender)
     /* Trae la imagen de la plancheta
     ------------------------------------------------------ */
 	if ( !empty( $plancheta_id ) ) {
-		$plancheta = obtenerPlancheta( $plancheta_id, $db, '/planchetas/archivos/', 180, 'plancheta' );
+		$plancheta = obtenerPlancheta( $plancheta_id, $db, PLANCHETAS_PATH, 180, 'plancheta' );
 		$Component->html->SetValue( $plancheta );
 	}
 
@@ -93,11 +93,14 @@ function Page_BeforeInitialize(& $sender)
 //Custom Code @5-2A29BDB7
 // -------------------------
 
-	// Incluye el archivo de funciones generales
+    // Incluye las configuraciones generales
+    include_once(RelativePath . "/configuracion_general.php");
+
+    // Incluye el archivo de funciones generales
 	include_once(RelativePath . "/scripts/myFunctions.php");
 
 
-	// Incluye la gestión de permisos
+	// Incluye la gestin de permisos
 	include_once(RelativePath . "/scripts/permisos1.php");
 
 // -------------------------
