@@ -479,6 +479,9 @@ function obtenerPlanoImg($options, $connection) {
 	if (!defined('PLANOS_NUEVOS_FILESYSTEM_ROOT')) {
 		require_once dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'configuracion_general.php';
 	}
+	if (!defined('PLANOS_NUEVOS_FILESYSTEM_ROOT')) {
+		define('PLANOS_NUEVOS_FILESYSTEM_ROOT', defined('PLANOS_PATH') ? PLANOS_PATH : '');
+	}
 	/**
 	 * opciones por defecto:
 	 *      plano_id:            ID del plano del cual se quiere traer la imagen

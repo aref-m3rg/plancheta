@@ -39,6 +39,7 @@ define( 'PLANCHETAS_PATH', '/planchetas' );
 ----------------------------------------------------------------------------- */
 // Path a la carpeta de archivos de planos escaneados (con respecto a WWW_ROOT)
 define('PLANOS_PATH', 'C:/Users/Administrador/Pictures/catastro_tdf/planos_nuevos');
+define('PLANOS_NUEVOS_FILESYSTEM_ROOT', PLANOS_PATH);
 define('PLANOS_ATTACHED_PATH', 'C:/Users/Administrador/Pictures/catastro_tdf/planos');
 // Path a la carpeta de snapshots de planos
 define('PLANOS_SNAPSHOTS_PATH', 'C:/Users/Administrador/Pictures/catastro_tdf/planos_snapshots');

@@ -141,31 +141,32 @@ function parcelas_BeforeShowRow(& $sender)
 	$parcelas->plancheta->SetValue(generarPlanchetasSlidesSimple($parcela_id,$db));
 	$retorno = false;
 	$carpetaDepto = '';
+	$planoArchivoDb = '';
 	$SQL = "SELECT planos.plano_id AS plano_id, plano_archivo, planos.tipo_depto_parc_id AS tipo_depto_parc_id
 			FROM uniones_desgloses
 			INNER JOIN planos ON uniones_desgloses.plano_id = planos.plano_id
 			WHERE parcela_destino_id = $parcela_id";
 	$db->query($SQL);
 	if($db->next_record()){//cargo dato nombre de archivo de plano del campo
-		$plano=$db->f('plano_archivo');
+		$planoArchivoDb = $db->f('plano_archivo');
 		$tipoDeptoPlano = (int) $db->f('tipo_depto_parc_id');
 		$carpetaDepto = '';
 		if (isset($GLOBALS['planosFolders'][$tipoDeptoPlano])) {
 			$carpetaDepto = $GLOBALS['planosFolders'][$tipoDeptoPlano];
 		}
+		$filesPath = defined('PLANOS_NUEVOS_FILESYSTEM_ROOT') ? PLANOS_NUEVOS_FILESYSTEM_ROOT : (defined('PLANOS_PATH') ? PLANOS_PATH : '');
 		$options = array(
 			'plano_id' => $db->f('plano_id'),
 			'parcela_id' => false,
 			'parcela_prov_id' => false,
-			'files_path' => PLANOS_NUEVOS_FILESYSTEM_ROOT,
+			'files_path' => $filesPath,
 			'return_mode' => 'relative',
 			'debug' => false
 		);
 		$retorno = obtenerPlanoImg($options,$db);
-		//debug($retorno);
 	}
 	$nro_plano = obtenerPlano('',$parcela_id,'',$db);
-	if($retorno && $carpetaDepto !== ''){//si hay archivo en registro cargo imagen
+	if(!empty($retorno) && $carpetaDepto !== ''){//si hay archivo en registro cargo imagen
 		$html = '';
 		for($i=0;$i<count($retorno);$i++){
 			$pdfPath = $retorno[$i];
@@ -180,6 +181,14 @@ function parcelas_BeforeShowRow(& $sender)
 			$html .= '<img border="0" style="width:30px;height:20px;vertical-align:middle;" src="' . htmlspecialchars($thumbSrc, ENT_QUOTES, 'UTF-8') . '" alt="PDF" />';
 			$html .= '</button></form>';
 		}
+		$parcelas->plano->SetValue($html);
+	}elseif($planoArchivoDb !== '' && $carpetaDepto !== ''){
+		$html = '<form method="post" action="../obtener_plano.php" target="_blank" style="display:inline;margin:0;padding:0;border:0;">';
+		$html .= '<input type="hidden" name="depto" value="' . htmlspecialchars($carpetaDepto, ENT_QUOTES, 'UTF-8') . '" />';
+		$html .= '<input type="hidden" name="plano" value="' . htmlspecialchars(basename($planoArchivoDb), ENT_QUOTES, 'UTF-8') . '" />';
+		$html .= '<button type="submit" title="' . htmlspecialchars($nro_plano, ENT_QUOTES, 'UTF-8') . '" style="background:transparent;border:none;padding:0;margin:0;cursor:pointer;color:#0066cc;text-decoration:underline;">';
+		$html .= htmlspecialchars($nro_plano, ENT_QUOTES, 'UTF-8');
+		$html .= '</button></form>';
 		$parcelas->plano->SetValue($html);
 	}else{//mostrar dato de nombre de plano
 		$parcelas->plano->SetValue($nro_plano);
