@@ -3,48 +3,48 @@
 
 /* Colors */
 .PageBgColor {
-	background-color: #f86161; /* original: #b5c1cd */
-	}
+	background-color: #b5c1cd;
+}
 
 .FormTitleBgColor {
 	background-color: #4a81b9;
-	}
+}
 
 .FormTitleFontColor {
 	color: #f7f7f7;
-	}
+}
 
 .CaptionBgColor {
 	background-color: #d8d8d8;
-	}
+}
 
 .CaptionFontColor {
 	color: #000000;
-	}
+}
 
 .DataBgColor {
 	background-color: #efefef;
-	}
+}
 
 .AltDataBgColor {
 	background-color: #e5ebf0;
-	}
+}
 
 .DataFontColor {
 	color: #000000;
-	}
+}
 
 .LinkColor {
 	color: #185ca1;
-	}
+}
 
 .VisitedLinkColor {
 	color: #781278;
-	}
+}
 
 .HoverLinkColor {
 	color: #e82222;
-	}
+}
 
 .ColorBgButton {
 	background-color: #4a81b9;
@@ -63,108 +63,126 @@
 }
 
 /* BEGIN Common */
-body { 
+body {
 	color: #000000;
-	background-color: #f86161; /* original: #b5c1cd */
-	font-family: Verdana; font-size: 70%; font-weight: bold;
-	}
+	background-color: #b5c1cd;
+	font-family: Verdana;
+	font-size: 70%;
+	font-weight: bold;
+}
 
 
 
 /*ie6*/
 * html body {
-	font-family: Verdana; font-size: 70%; font-weight: bold;
+	font-family: Verdana;
+	font-size: 70%;
+	font-weight: bold;
 }
 
-* html body td, * html body th, * html body table {
+* html body td,
+* html body th,
+* html body table {
 	font-size: 100%;
 }
+
 /*end*/
 
-.text { 
+.text {
 	color: #000000
-	}
+}
 
-a.menulink:link, a.menulink:visited { 
+a.menulink:link,
+a.menulink:visited {
 	color: #185ca1;
-	}
+}
 
-a.menulink:hover, a.menulink:active { 
+a.menulink:hover,
+a.menulink:active {
 	color: #e82222;
-	}
+}
 
 
-a:link { 
+a:link {
 	color: #185ca1;
-	}
+}
 
-a:visited { 
+a:visited {
 	color: #781278;
-	}
+}
 
-a:hover,a:active { 
+a:hover,
+a:active {
 	color: #e82222;
-	}
+}
 
-ul, ol, blockquote { 
-	margin-top: 5px; 
-	margin-bottom: 10px; 
-	margin-left: 20px; 
-	}
+ul,
+ol,
+blockquote {
+	margin-top: 5px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+}
 
 form {
 	margin: 0px;
-	}
+}
 
-h1	{
+h1 {
 	color: #405468;
 	font-size: 100%;
-	margin-top: 5px; 
+	margin-top: 5px;
 	margin-bottom: 5px;
-	}
+}
 
-h2	{ 
+h2 {
 	color: #405468;
 	font-size: 90%;
-	margin-top: 15px; 
-	margin-bottom: 5px; 
-	}
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
 
-h3	{ 
+h3 {
 	color: #405468;
-	font-size: 80%; font-style: italic;
-	margin-top: 15px; 
-	margin-bottom: 5px; 
-	}
+	font-size: 80%;
+	font-style: italic;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
 
-h4	{ 
+h4 {
 	color: #405468;
 	font-size: 70%;
-	margin-top: 15px; 
-	margin-bottom: 5px; 
-	}
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
 
-h5	{ 
+h5 {
 	color: #405468;
-	font-size: 60%; font-style: italic;
-	margin-top: 15px; 
-	margin-bottom: 5px; 
-	}
+	font-size: 60%;
+	font-style: italic;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
 
-h6	{ 
+h6 {
 	color: #405468;
 	font-size: 90%;
-	margin-top: 15px; 
-	margin-bottom: 5px; 
-	}
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
 
-th	{ 
-	font-family: Verdana; font-size: 70%; font-weight: bold;
-	}
+th {
+	font-family: Verdana;
+	font-size: 70%;
+	font-weight: bold;
+}
 
-td { 
-	font-family: Verdana; font-size: 70%; font-weight: bold;
-	}
+td {
+	font-family: Verdana;
+	font-size: 70%;
+	font-weight: bold;
+}
 
 /*input, textarea, select {
 	font-family: Verdana; font-size: 70%; font-weight: bold;
@@ -180,142 +198,170 @@ html>body input, html>body select, html>body textarea {
 
 .Header {
 	width: 100%;
-	}
+}
 
-.Header th { 
-	font-size: 80%; text-align: left;
+.Header th {
+	font-size: 80%;
+	text-align: left;
 	padding: 2px;
-	background-color: #4a81b9; color: #f7f7f7;
+	background-color: #4a81b9;
+	color: #f7f7f7;
 	width: 100%;
 	white-space: nowrap;
 	padding-left: 8px;
-	}
+}
 
 
 
 /*ie6*/
 * html body .Header th {
-	font-size: 114%; text-align: left;
+	font-size: 114%;
+	text-align: left;
 }
+
 /*end*/
 
-.Header a:link { 
+.Header a:link {
 	color: #f7f7f7;
-	}
+}
 
-.Header a:visited { 
+.Header a:visited {
 	color: #f7f7f7;
-	}
+}
 
-.Header a:hover, .Caption a:active { 
-	color: #f7f7f7; text-decoration: none;
-	}
+.Header a:hover,
+.Caption a:active {
+	color: #f7f7f7;
+	text-decoration: none;
+}
 
-.HeaderLeft { 
+.HeaderLeft {
 	background-image: url('Images/HeaderLeft.gif');
-	}
+}
 
-.HeaderRight { 
+.HeaderRight {
 	background-image: url('Images/HeaderRight.gif');
 	background-position: right top;
-	}
+}
 
-.HeaderLeft img{
+.HeaderLeft img {
 	width: 1px;
-	}
+}
 
-.HeaderRight img{
+.HeaderRight img {
 	width: 1px;
-	}
+}
 
 
 /* Grid Options */
-.Grid { 
-	border-left: 1px solid #4a81b9; border-bottom: 1px solid #4a81b9;
+.Grid {
+	border-left: 1px solid #4a81b9;
+	border-bottom: 1px solid #4a81b9;
 	width: 100%;
-	}
+}
 
-.Caption th { 
-	font-size: 60%; text-align: left; vertical-align: top;
+.Caption th {
+	font-size: 60%;
+	text-align: left;
+	vertical-align: top;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
-	background-image: url('Images/CaptionBg.gif'); color: #000000;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	background-image: url('Images/CaptionBg.gif');
+	color: #000000;
 	white-space: nowrap;
-	}
+}
 
-.Caption td { 
-	font-size: 60%; text-align: left; vertical-align: top;
+.Caption td {
+	font-size: 60%;
+	text-align: left;
+	vertical-align: top;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
-	background-image: url('Images/CaptionBg.gif'); color: #000000;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	background-image: url('Images/CaptionBg.gif');
+	color: #000000;
 	white-space: nowrap;
-	}
+}
 
 
 
 /*ie6*/
-* html body .Caption th, * html body .Caption td {
-	font-size: 86%; text-align: left; vertical-align: top;
+* html body .Caption th,
+* html body .Caption td {
+	font-size: 86%;
+	text-align: left;
+	vertical-align: top;
 }
+
 /*end*/
 
-.Caption a:link { 
+.Caption a:link {
 	color: #000000;
-	}
+}
 
-.Caption a:visited { 
+.Caption a:visited {
 	color: #000000;
-	}
+}
 
-.Caption a:hover, .Caption a:active { 
+.Caption a:hover,
+.Caption a:active {
 	color: #e82222;
-	}
+}
 
 .Caption img {
-	margin: 2px; 
+	margin: 2px;
 	vertical-align: middle;
-	}
+}
 
 .Caption input {
 	vertical-align: middle;
-	}
+}
 
-.Row th { 
-	font-size: 60%; text-align: left; vertical-align: top;
-	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
-	background-color: #efefef; color: #000000;
-	white-space: nowrap;
-	color: #000000;
-	}
-
-.Row td { 
+.Row th {
 	font-size: 60%;
-	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
 	text-align: left;
 	vertical-align: top;
-	background-color: #efefef; 
+	padding: 2px;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	background-color: #efefef;
 	color: #000000;
-	}
-	
+	white-space: nowrap;
+	color: #000000;
+}
+
+.Row td {
+	font-size: 60%;
+	padding: 2px;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	text-align: left;
+	vertical-align: top;
+	background-color: #efefef;
+	color: #000000;
+}
+
 
 
 /*ie6*/
-* html body .Row th, * html body .Row td {
+* html body .Row th,
+* html body .Row td {
 	font-size: 86%;
 }
+
 /*end*/
 
-caption.Row { 
+caption.Row {
 	font-size: 60%;
 	padding: 2px;
-	border: 1px solid #4a81b9; border-bottom: 0px;
+	border: 1px solid #4a81b9;
+	border-bottom: 0px;
 	text-align: left;
 	vertical-align: top;
-	background-color: #efefef; 
+	background-color: #efefef;
 	color: #000000;
-	}
+}
 
 
 
@@ -323,134 +369,152 @@ caption.Row {
 * html body caption.Row {
 	font-size: 86%;
 }
+
 /*end*/
 
-.Row a:link { 
+.Row a:link {
 	color: #185ca1;
-	}
+}
 
-.Row a:visited { 
+.Row a:visited {
 	color: #781278;
-	}
+}
 
-.Row a:hover, .Row a:active { 
+.Row a:hover,
+.Row a:active {
 	color: #e82222;
-	}
+}
 
-.Separator{
+.Separator {
 	color: #4a81b9;
-	}
+}
 
-.Separator td{
+.Separator td {
 	height: 1px;
-	}
+}
 
 
-.AltRow th { 
-	font-size: 60%; text-align: left; vertical-align: top;
-	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
-	background-color: #efefef; color: #000000;
-	white-space: nowrap;
-	color: #000000;
-	}
-
-.AltRow td { 
+.AltRow th {
 	font-size: 60%;
-	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
 	text-align: left;
 	vertical-align: top;
-	background-color: #e5ebf0; 
+	padding: 2px;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	background-color: #efefef;
 	color: #000000;
-	}
+	white-space: nowrap;
+	color: #000000;
+}
+
+.AltRow td {
+	font-size: 60%;
+	padding: 2px;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	text-align: left;
+	vertical-align: top;
+	background-color: #e5ebf0;
+	color: #000000;
+}
 
 
 
 /*ie6*/
-* html body .AltRow th, * html body .AltRow td {
+* html body .AltRow th,
+* html body .AltRow td {
 	font-size: 86%;
 }
+
 /*end*/
 
-.AltRow a:link { 
+.AltRow a:link {
 	color: #185ca1;
-	}
+}
 
-.AltRow a:visited { 
+.AltRow a:visited {
 	color: #781278;
-	}
+}
 
-.AltRow a:hover, .AltRow a:active { 
+.AltRow a:hover,
+.AltRow a:active {
 	color: #e82222;
-	}
+}
 
-.NoRecords td { 
+.NoRecords td {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
 	text-align: left;
-	background-color: #efefef; 
+	background-color: #efefef;
 	color: #000000;
 	vertical-align: top;
-	}
+}
 
-.Footer td { 
+.Footer td {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
-	background-image: url('Images/CaptionBg.gif'); color: #000000;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	background-image: url('Images/CaptionBg.gif');
+	color: #000000;
 	text-align: center;
 	vertical-align: middle;
 	white-space: nowrap;
 	color: #000000;
-	}
+}
 
 
 
 /*ie6*/
-* html body .NoRecords td, * html body .Footer td {
+* html body .NoRecords td,
+* html body .Footer td {
 	font-size: 86%;
 }
+
 /*end*/
 
-.Footer a:link { 
+.Footer a:link {
 	color: #185ca1;
-	}
+}
 
-.Footer a:visited { 
+.Footer a:visited {
 	color: #781278;
-	}
+}
 
-.Footer a:hover, .Footer a:active { 
+.Footer a:hover,
+.Footer a:active {
 	color: #e82222;
-	}
+}
 
 .Footer img {
-	margin: 2px; 
+	margin: 2px;
 	vertical-align: middle;
-	}
+}
 
 .Footer input {
 	margin: 2px;
 	vertical-align: middle;
-	}
+}
 
 /* Record Options */
-.Record { 
-	border-left: 1px solid #4a81b9; border-bottom: 1px solid #4a81b9;
+.Record {
+	border-left: 1px solid #4a81b9;
+	border-bottom: 1px solid #4a81b9;
 	width: 100%;
-	}
+}
 
-.Error td { 
+.Error td {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
 	text-align: left;
 	color: #FF0000;
 	vertical-align: top;
-	background-color: #efefef; 
-	}
+	background-color: #efefef;
+}
 
 
 
@@ -458,122 +522,140 @@ caption.Row {
 * html body .Error td {
 	font-size: 86%;
 }
+
 /*end*/
 
-.Controls th { 
-	font-size: 60%; text-align: left; vertical-align: top;
-	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
-	background-color: #efefef; color: #000000;
-	white-space: nowrap;
-	color: #000000;
-	}
-
-.Controls td { 
+.Controls th {
 	font-size: 60%;
-	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
 	text-align: left;
 	vertical-align: top;
-	background-color: #efefef; 
+	padding: 2px;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	background-color: #efefef;
 	color: #000000;
-	}
-	
-.Bottom td { 
+	white-space: nowrap;
+	color: #000000;
+}
+
+.Controls td {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
-	background-image: url('Images/CaptionBg.gif'); color: #000000;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	text-align: left;
+	vertical-align: top;
+	background-color: #efefef;
+	color: #000000;
+}
+
+.Bottom td {
+	font-size: 60%;
+	padding: 2px;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	background-image: url('Images/CaptionBg.gif');
+	color: #000000;
 	text-align: right;
 	vertical-align: middle;
 	white-space: nowrap;
 	color: #000000;
-	}
+}
 
 
 
 /*ie6*/
-* html body .Controls th, * html body .Controls td, * html body .Bottom td {
+* html body .Controls th,
+* html body .Controls td,
+* html body .Bottom td {
 	font-size: 86%;
 }
+
 /*end*/
 
-.Bottom a:link { 
+.Bottom a:link {
 	color: #185ca1;
-	}
+}
 
-.Bottom a:visited { 
+.Bottom a:visited {
 	color: #781278;
-	}
+}
 
-.Bottom a:hover, .Caption a:active { 
+.Bottom a:hover,
+.Caption a:active {
 	color: #e82222;
-	}
+}
 
 .Bottom img {
 	margin: 2px;
-	vertical-align: middle; 
-	}
+	vertical-align: middle;
+}
 
 .Bottom input {
 	margin: 2px;
 	vertical-align: middle;
-	}
+}
 
 /* Report */
-.GroupCaption th{
+.GroupCaption th {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
 	white-space: nowrap;
 	text-align: left;
 	vertical-align: top;
 	font-weight: bold;
-	background-color: #e5ebf0; 
+	background-color: #e5ebf0;
 	color: #000000;
-	}
+}
 
-.GroupCaption td{
+.GroupCaption td {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
 	text-align: left;
 	vertical-align: top;
 	font-weight: bold;
-	background-color: #efefef; 
+	background-color: #efefef;
 	color: #000000;
-	}
+}
 
 
 
 /*ie6*/
-* html body .GroupCaption th, * html body .GroupCaption td {
+* html body .GroupCaption th,
+* html body .GroupCaption td {
 	font-size: 86%;
 }
+
 /*end*/
 
 .GroupCaption a:link {
 	color: #000000;
-	}
+}
 
-.GroupCaption a:visited{
+.GroupCaption a:visited {
 	color: #000000;
-	}
+}
 
-.GroupCaption a:hover, .GroupCaption a:active{
+.GroupCaption a:hover,
+.GroupCaption a:active {
 	color: #e82222;
-	}
+}
 
-.GroupFooter td{
+.GroupFooter td {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
 	text-align: center;
 	vertical-align: middle;
 	white-space: nowrap;
-	background-color: #d8d8d8; 
+	background-color: #d8d8d8;
 	color: #000000;
-	}
+}
 
 
 
@@ -581,41 +663,44 @@ caption.Row {
 * html body .GroupFooter td {
 	font-size: 86%;
 }
+
 /*end*/
 
 .GroupFooter a:link {
 	color: #185ca1;
-	}
+}
 
-.GroupFooter a:visited{
+.GroupFooter a:visited {
 	color: #781278;
-	}
+}
 
-.GroupFooter a:hover,.GroupFooter a:active{
+.GroupFooter a:hover,
+.GroupFooter a:active {
 	color: #e82222;
-	}
+}
 
 .GroupFooter img {
-	margin: 2px; 
+	margin: 2px;
 	vertical-align: middle;
-	}
+}
 
 .GroupFooter input {
 	margin: 2px;
 	vertical-align: middle;
-	}
+}
 
-.SubTotal td{
+.SubTotal td {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
 	text-align: left;
 	vertical-align: top;
 	font-weight: bold;
-	background-color: #e5ebf0; 
+	background-color: #e5ebf0;
 	color: #000000;
 	border-bottom: 2px solid #4a81b9;
-	}
+}
 
 
 
@@ -623,31 +708,34 @@ caption.Row {
 * html body .SubTotal td {
 	font-size: 86%;
 }
+
 /*end*/
 
 .SubTotal a:link {
 	color: #185ca1;
-	}
+}
 
-.SubTotal a:visited{
+.SubTotal a:visited {
 	color: #781278;
-	}
+}
 
-.SubTotal a:hover, .SubTotal a:active{
+.SubTotal a:hover,
+.SubTotal a:active {
 	color: #e82222;
-	}
+}
 
-.Total td{
+.Total td {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
 	text-align: left;
 	vertical-align: top;
 	white-space: nowrap;
 	font-weight: bold;
-	background-color: #e5ebf0; 
+	background-color: #e5ebf0;
 	color: #000000;
-	}
+}
 
 
 
@@ -655,43 +743,55 @@ caption.Row {
 * html body .Total td {
 	font-size: 86%;
 }
+
 /*end*/
 
 .Total a:link {
 	color: #185ca1;
-	}
+}
 
-.Total a:visited{
+.Total a:visited {
 	color: #781278;
-	}
+}
 
-.Total a:hover, .Total a:active{
+.Total a:hover,
+.Total a:active {
 	color: #e82222;
-	}
+}
 
 /* Form Options */
-.Button { 
-	background-color: #4a81b9; color: #f7f7f7; border-left: solid 1px #EDEDED; border-top: solid 1px #EDEDED; border-right: solid 1px #848284; border-bottom: solid 1px #848284; padding: 2px; font-weight: bold; font-family: Tahoma; font-size: 10px;
-	}
+.Button {
+	background-color: #4a81b9;
+	color: #f7f7f7;
+	border-left: solid 1px #EDEDED;
+	border-top: solid 1px #EDEDED;
+	border-right: solid 1px #848284;
+	border-bottom: solid 1px #848284;
+	padding: 2px;
+	font-weight: bold;
+	font-family: Tahoma;
+	font-size: 10px;
+}
 
 /* Calendar */
 
-.Calendar { 
+.Calendar {
 	border: 1px solid #4a81b9;
 	width: 100%;
-	}
+}
 
-.CalendarWeekdayName{
+.CalendarWeekdayName {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
-	text-align: center; 
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	text-align: center;
 	vertical-align: top;
 	white-space: nowrap;
-	background-color: #e5ebf0; 
+	background-color: #e5ebf0;
 	color: #000000;
 	font-weight: normal;
-	}
+}
 
 
 
@@ -699,31 +799,34 @@ caption.Row {
 * html body .CalendarWeekdayName {
 	font-size: 86%;
 }
+
 /*end*/
 
 .CalendarWeekdayName a:link {
 	color: #185ca1;
-	}
+}
 
-.CalendarWeekdayName a:visited{
+.CalendarWeekdayName a:visited {
 	color: #781278;
-	}
+}
 
-.CalendarWeekdayName a:hover, .CalendarWeekdayName a:active{
+.CalendarWeekdayName a:hover,
+.CalendarWeekdayName a:active {
 	color: #e82222;
-	}
+}
 
-.CalendarWeekendName{
+.CalendarWeekendName {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
 	white-space: nowrap;
-	text-align: center; 
+	text-align: center;
 	vertical-align: top;
-	background-color: #e5ebf0;	
+	background-color: #e5ebf0;
 	color: #000000;
 	font-weight: normal;
-	}
+}
 
 
 
@@ -731,29 +834,32 @@ caption.Row {
 * html body .CalendarWeekendName {
 	font-size: 86%;
 }
+
 /*end*/
 
 .CalendarWeekendName a:link {
 	color: #000000;
-	}
+}
 
-.CalendarWeekendName a:visited{
+.CalendarWeekendName a:visited {
 	color: #000000;
-	}
+}
 
-.CalendarWeekendName a:link, .CalendarWeekendName a:visited{
+.CalendarWeekendName a:link,
+.CalendarWeekendName a:visited {
 	color: #e82222;
-	}
+}
 
 /* Calendar Day */
-.CalendarDay{
+.CalendarDay {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
 	text-align: center;
-	background-color: #efefef;	
+	background-color: #efefef;
 	color: #000000;
-	}
+}
 
 
 
@@ -761,29 +867,32 @@ caption.Row {
 * html body .CalendarDay {
 	font-size: 86%;
 }
+
 /*end*/
 
 .CalendarDay a:link {
 	color: #185ca1;
-	}
+}
 
-.CalendarDay a:visited{
+.CalendarDay a:visited {
 	color: #781278;
-	}
+}
 
-.CalendarDay a:hover, .CalendarDay a:active{
+.CalendarDay a:hover,
+.CalendarDay a:active {
 	color: #e82222;
-	}
+}
 
 /* Calendar Weekend */
-.CalendarWeekend{
+.CalendarWeekend {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
 	text-align: center;
-	background-color: #e5ebf0;	
+	background-color: #e5ebf0;
 	color: #000000;
-	}
+}
 
 
 
@@ -791,29 +900,34 @@ caption.Row {
 * html body .CalendarWeekend {
 	font-size: 86%;
 }
+
 /*end*/
 
 .CalendarWeekend a:link {
 	color: #185ca1;
-	}
+}
 
-.CalendarWeekend a:visited{
+.CalendarWeekend a:visited {
 	color: #781278;
-	}
+}
 
-.CalendarWeekend a:hover, .CalendarWeekend a:active{
+.CalendarWeekend a:hover,
+.CalendarWeekend a:active {
 	color: #e82222;
-	}
+}
 
 /* Calendar Today */
 .CalendarToday {
 	font-size: 60%;
 	padding: 0px;
-	border-top: 3px solid #4a81b9; border-right: 3px solid #4a81b9; border-left: 2px solid #4a81b9; border-bottom: 2px solid #4a81b9;
+	border-top: 3px solid #4a81b9;
+	border-right: 3px solid #4a81b9;
+	border-left: 2px solid #4a81b9;
+	border-bottom: 2px solid #4a81b9;
 	text-align: center;
-	background-color: #efefef;	
+	background-color: #efefef;
 	color: #000000;
-	}
+}
 
 
 
@@ -821,29 +935,34 @@ caption.Row {
 * html body .CalendarToday {
 	font-size: 86%;
 }
+
 /*end*/
 
 .CalendarToday a:link {
 	color: #185ca1;
-	}
+}
 
-.CalendarToday a:visited{
+.CalendarToday a:visited {
 	color: #781278;
-	}
+}
 
-.CalendarToday a:hover, .CalendarToday a:active {
+.CalendarToday a:hover,
+.CalendarToday a:active {
 	color: #e82222;
-	}
+}
 
 /* Calendar Weekend Today */
 .CalendarWeekendToday {
 	font-size: 60%;
 	padding: 0px;
-	border-top: 3px solid #4a81b9; border-right: 3px solid #4a81b9; border-left: 2px solid #4a81b9; border-bottom: 2px solid #4a81b9;
+	border-top: 3px solid #4a81b9;
+	border-right: 3px solid #4a81b9;
+	border-left: 2px solid #4a81b9;
+	border-bottom: 2px solid #4a81b9;
 	text-align: center;
-	background-color: #e5ebf0;	
+	background-color: #e5ebf0;
 	color: #000000;
-	}
+}
 
 
 
@@ -851,29 +970,32 @@ caption.Row {
 * html body .CalendarWeekendToday {
 	font-size: 86%;
 }
+
 /*end*/
 
 .CalendarWeekendToday a:link {
 	color: #185ca1;
-	}
+}
 
-.CalendarWeekendToday a:visited{
+.CalendarWeekendToday a:visited {
 	color: #781278;
-	}
+}
 
-.CalendarWeekendToday a:hover, .CalendarWeekendToday a:active{
+.CalendarWeekendToday a:hover,
+.CalendarWeekendToday a:active {
 	color: #e82222;
-	}
+}
 
 /* Calendar Other Month's Day */
-.CalendarOtherMonthDay{
+.CalendarOtherMonthDay {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
 	text-align: center;
-	background-color: #efefef;	
+	background-color: #efefef;
 	color: #4a81b9;
-	}
+}
 
 
 
@@ -881,29 +1003,34 @@ caption.Row {
 * html body .CalendarOtherMonthDay {
 	font-size: 86%;
 }
+
 /*end*/
 
 .CalendarOtherMonthDay a:link {
 	color: #4a81b9;
-	}
+}
 
-.CalendarOtherMonthDay a:visited{
+.CalendarOtherMonthDay a:visited {
 	color: #4a81b9;
-	}
+}
 
-.CalendarOtherMonthDay a:hover, .CalendarOtherMonthDay a:active{
+.CalendarOtherMonthDay a:hover,
+.CalendarOtherMonthDay a:active {
 	color: #e82222;
-	}
+}
 
 /* Calendar Other Month's Today */
 .CalendarOtherMonthToday {
 	font-size: 60%;
 	padding: 0px;
-	border-top: 3px solid #4a81b9; border-right: 3px solid #4a81b9; border-left: 2px solid #4a81b9; border-bottom: 2px solid #4a81b9;
+	border-top: 3px solid #4a81b9;
+	border-right: 3px solid #4a81b9;
+	border-left: 2px solid #4a81b9;
+	border-bottom: 2px solid #4a81b9;
 	text-align: center;
-	background-color: #efefef;	
+	background-color: #efefef;
 	color: #4a81b9;
-	}
+}
 
 
 
@@ -911,29 +1038,32 @@ caption.Row {
 * html body .CalendarOtherMonthToday {
 	font-size: 86%;
 }
+
 /*end*/
 
 .CalendarOtherMonthToday a:link {
 	color: #4a81b9;
-	}
+}
 
-.CalendarOtherMonthToday a:visited{
+.CalendarOtherMonthToday a:visited {
 	color: #4a81b9;
-	}
+}
 
-.CalendarOtherMonthToday a:hover,.CalendarOtherMonthToday a:active{
+.CalendarOtherMonthToday a:hover,
+.CalendarOtherMonthToday a:active {
 	color: #e82222;
-	}
+}
 
 /* Calendar Other Month's Weekend */
 .CalendarOtherMonthWeekend {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
 	text-align: center;
-	background-color: #e5ebf0;	
+	background-color: #e5ebf0;
 	color: #4a81b9;
-	}
+}
 
 
 
@@ -941,91 +1071,102 @@ caption.Row {
 * html body .CalendarOtherMonthWeekend {
 	font-size: 86%;
 }
+
 /*end*/
 
 .CalendarOtherMonthWeekend a:link {
 	color: #4a81b9;
-	}
+}
 
-.CalendarOtherMonthWeekend a:visited{
+.CalendarOtherMonthWeekend a:visited {
 	color: #4a81b9;
-	}
+}
 
-.CalendarOtherMonthWeekend a:hover, .CalendarOtherMonthWeekend a:active{
+.CalendarOtherMonthWeekend a:hover,
+.CalendarOtherMonthWeekend a:active {
 	color: #e82222;
-	}
+}
 
 /* Calendar Other Month's Weekend Today */
 .CalendarOtherMonthWeekendToday {
 	font-size: 60%;
 	padding: 0px;
-	border-top: 3px solid #4a81b9; border-right: 3px solid #4a81b9; border-left: 2px solid #4a81b9; border-bottom: 2px solid #4a81b9;
+	border-top: 3px solid #4a81b9;
+	border-right: 3px solid #4a81b9;
+	border-left: 2px solid #4a81b9;
+	border-bottom: 2px solid #4a81b9;
 	text-align: center;
 	color: #4a81b9;
-	background-color: #e5ebf0;	
-	}
-	
+	background-color: #e5ebf0;
+}
+
 
 
 /*ie6*/
 * html body .CalendarOtherMonthWeekendToday {
 	font-size: 86%;
 }
+
 /*end*/
 
 .CalendarOtherMonthWeekendToday a:link {
 	color: #4a81b9;
-	}
+}
 
-.CalendarOtherMonthWeekendToday a:visited{
+.CalendarOtherMonthWeekendToday a:visited {
 	color: #4a81b9;
-	}
+}
 
-.CalendarOtherMonthWeekendToday a:hover, .CalendarOtherMonthWeekendToday a:active{
+.CalendarOtherMonthWeekendToday a:hover,
+.CalendarOtherMonthWeekendToday a:active {
 	color: #e82222;
-	}
+}
 
 /* Calendar Selected Day (for DatePicker) */
-.CalendarSelectedDay{
+.CalendarSelectedDay {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
 	background-color: #d8d8d8;
 	color: #000000;
 	text-align: center;
 	font-weight: bold;
-	}
-	
+}
+
 
 
 /*ie6*/
 * html body .CalendarSelectedDay {
 	font-size: 86%;
 }
+
 /*end*/
 
 .CalendarSelectedDay a:link {
 	color: #000000;
-	}
+}
 
-.CalendarSelectedDay a:visited{
+.CalendarSelectedDay a:visited {
 	color: #000000;
-	}
+}
 
-.CalendarSelectedDay a:hover, .CalendarSelectedDay a:active{
+.CalendarSelectedDay a:hover,
+.CalendarSelectedDay a:active {
 	color: #e82222;
-	}
+}
 
 /* Calendar Navigator */
 .CalendarNavigator {
 	font-size: 60%;
 	padding: 2px;
-	background-image: url('Images/CaptionBg.gif'); color: #000000;
+	background-image: url('Images/CaptionBg.gif');
+	color: #000000;
 	text-align: center;
 	vertical-align: middle;
 	white-space: nowrap;
 	color: #000000;
-	}
+}
 
 
 
@@ -1033,46 +1174,50 @@ caption.Row {
 * html body .CalendarNavigator {
 	font-size: 86%;
 }
+
 /*end*/
 
 .CalendarNavigator a:link {
 	color: #185ca1;
-	}
+}
 
-.CalendarNavigator a:visited{
+.CalendarNavigator a:visited {
 	color: #781278;
-	}
+}
 
-.CalendarNavigator a:hover, .CalendarNavigator a:active{
+.CalendarNavigator a:hover,
+.CalendarNavigator a:active {
 	color: #e82222;
-	}
+}
 
-.CalendarNavigator img{
+.CalendarNavigator img {
 	margin: 2px;
-	vertical-align: middle; 	
-	}
+	vertical-align: middle;
+}
 
 .CalendarNavigator td {
 	font-size: 60%;
-	}
+}
 
 .CalendarNavigator th {
 	font-size: 60%;
-	}
+}
 
 
 
 /*ie6*/
-* html body .CalendarNavigator th, * html body .CalendarNavigator td {
+* html body .CalendarNavigator th,
+* html body .CalendarNavigator td {
 	font-size: 86%;
 }
+
 /*end*/
 
 /* Calendar Extra */
-.CalendarEvent{
+.CalendarEvent {
 	font-size: 60%;
 	text-align: left;
-	}
+}
 
 
 
@@ -1080,19 +1225,21 @@ caption.Row {
 * html body .CalendarEvent {
 	font-size: 86%;
 }
+
 /*end*/
 
 .CalendarEvent a:link {
 	color: #185ca1;
-	}
+}
 
-.CalendarEvent a:visited{
+.CalendarEvent a:visited {
 	color: #781278;
-	}
+}
 
-.CalendarEvent a:hover, .CalendarEvent a:active{
+.CalendarEvent a:hover,
+.CalendarEvent a:active {
 	color: #e82222;
-	}
+}
 
 /* Changes for Section508 */
 table tr td strong {
@@ -1100,8 +1247,10 @@ table tr td strong {
 	margin: 0px;
 }
 
-.th { 
-	font-family: Verdana; font-size: 70%; font-weight: bold;
+.th {
+	font-family: Verdana;
+	font-size: 70%;
+	font-weight: bold;
 	font-weight: bold;
 }
 
@@ -1111,12 +1260,15 @@ table tr td strong {
 * html body .th {
 	font-size: 100%;
 }
+
 /*end*/
 
-.Header .th { 
-	font-size: 80%; text-align: left;
+.Header .th {
+	font-size: 80%;
+	text-align: left;
 	padding: 2px;
-	background-color: #4a81b9; color: #f7f7f7;
+	background-color: #4a81b9;
+	color: #f7f7f7;
 	width: 100%;
 	white-space: nowrap;
 }
@@ -1125,15 +1277,21 @@ table tr td strong {
 
 /*ie6*/
 * html body .Header .th {
-	font-size: 114%; text-align: left;
+	font-size: 114%;
+	text-align: left;
 }
+
 /*end*/
 
-.Caption .th { 
-	font-size: 60%; text-align: left; vertical-align: top;
+.Caption .th {
+	font-size: 60%;
+	text-align: left;
+	vertical-align: top;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
-	background-image: url('Images/CaptionBg.gif'); color: #000000;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	background-image: url('Images/CaptionBg.gif');
+	color: #000000;
 	white-space: nowrap;
 }
 
@@ -1141,33 +1299,48 @@ table tr td strong {
 
 /*ie6*/
 * html body .Caption .th {
-	font-size: 86%; text-align: left; vertical-align: top;
+	font-size: 86%;
+	text-align: left;
+	vertical-align: top;
 }
+
 /*end*/
 
-.Row .th { 
-	font-size: 60%; text-align: left; vertical-align: top;
+.Row .th {
+	font-size: 60%;
+	text-align: left;
+	vertical-align: top;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
-	background-color: #efefef; color: #000000;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	background-color: #efefef;
+	color: #000000;
 	white-space: nowrap;
 	color: #000000;
 }
 
-.AltRow .th { 
-	font-size: 60%; text-align: left; vertical-align: top;
+.AltRow .th {
+	font-size: 60%;
+	text-align: left;
+	vertical-align: top;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
-	background-color: #efefef; color: #000000;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	background-color: #efefef;
+	color: #000000;
 	white-space: nowrap;
 	color: #000000;
 }
 
-.Controls .th { 
-	font-size: 60%; text-align: left; vertical-align: top;
+.Controls .th {
+	font-size: 60%;
+	text-align: left;
+	vertical-align: top;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
-	background-color: #efefef; color: #000000;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
+	background-color: #efefef;
+	color: #000000;
 	white-space: nowrap;
 	color: #000000;
 }
@@ -1175,12 +1348,13 @@ table tr td strong {
 .GroupCaption .th {
 	font-size: 60%;
 	padding: 2px;
-	border-top: 1px solid #4a81b9; border-right: 1px solid #4a81b9;
+	border-top: 1px solid #4a81b9;
+	border-right: 1px solid #4a81b9;
 	text-align: left;
 	white-space: nowrap;
 	vertical-align: top;
 	font-weight: bold;
-	background-color: #e5ebf0; 
+	background-color: #e5ebf0;
 	color: #000000;
 }
 
@@ -1191,9 +1365,14 @@ table tr td strong {
 	font-size: 86%;
 }
 
-* html body .Row .th, * html body .AltRow .th, * html body .Controls .th {
-	font-size: 86%; text-align: left; vertical-align: top;
+* html body .Row .th,
+* html body .AltRow .th,
+* html body .Controls .th {
+	font-size: 86%;
+	text-align: left;
+	vertical-align: top;
 }
+
 /*end*/
 
 /* Class for Application Builder Menu */
@@ -1206,5 +1385,6 @@ table tr td strong {
 /*ie6*/
 * html body .simpleMenu td {
 	font-size: 86%;
-} 
+}
+
 /*end*/
