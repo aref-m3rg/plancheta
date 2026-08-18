@@ -30,7 +30,7 @@ define( 'DS', DIRECTORY_SEPARATOR );
 /* Planchetas
 ----------------------------------------------------------------------------- */
 // Archivos de imagen en disco (idealmente fuera del document root; lectura vía obtener_plancheta_archivo.php)
-define( 'PLANCHETAS_FILESYSTEM_ROOT', 'C:/Users/Administrador/Pictures/catastro_tdf/planchetas' );
+define( 'PLANCHETAS_FILESYSTEM_ROOT', 'C:/inetpub/wwwroot/catastro_tdf/planchetas/archivos' );
 // Ruta bajo el sitio (referencia histórica / enlaces legacy)
 define( 'PLANCHETAS_PATH', '/planchetas' );
 
@@ -38,11 +38,11 @@ define( 'PLANCHETAS_PATH', '/planchetas' );
 /* Planos
 ----------------------------------------------------------------------------- */
 // Path a la carpeta de archivos de planos escaneados (con respecto a WWW_ROOT)
-define('PLANOS_PATH', 'C:/Users/Administrador/Pictures/catastro_tdf/planos_nuevos');
+define('PLANOS_PATH', 'C:/inetpub/wwwroot/catastro_tdf/tecnica/planos_nuevos');
 define('PLANOS_NUEVOS_FILESYSTEM_ROOT', PLANOS_PATH);
-define('PLANOS_ATTACHED_PATH', 'C:/Users/Administrador/Pictures/catastro_tdf/planos');
+define('PLANOS_ATTACHED_PATH', 'C:/inetpub/wwwroot/catastro_tdf/tecnica/planos');
 // Path a la carpeta de snapshots de planos
-define('PLANOS_SNAPSHOTS_PATH', 'C:/Users/Administrador/Pictures/catastro_tdf/planos_snapshots');
+//define('PLANOS_SNAPSHOTS_PATH', '/tecnica/planos_snapshots');
 
 // Nombres de las carpetas que contienen los planos por departamento
 $GLOBALS['planosFolders'] = array( 1 => 'ushuaia', 2 => 'rio_grande', 3 => 'tolhuin' );
